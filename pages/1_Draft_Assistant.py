@@ -45,6 +45,8 @@ else:
 
 draft_mgr: DraftManager = st.session_state["draft_manager"]
 draft_mgr.set_league_format(league_format)
+if not hasattr(draft_mgr, "team_names") or not isinstance(draft_mgr.team_names, dict):
+    draft_mgr.team_names = {}
 
 # Sidebar: Configuración del Draft Snake
 st.sidebar.header("🐍 Configuración del Snake Draft")
@@ -60,7 +62,7 @@ with st.sidebar.expander("✏️ Editar Nombres de los Equipos", expanded=False)
     st.markdown("**Personaliza los nombres de cada equipo de tu liga:**")
     new_names = {}
     for i in range(1, num_teams + 1):
-        curr_name = draft_mgr.team_names.get(i, f"Mi Equipo (Tú)" if i == my_team_index else f"Equipo {i}")
+        curr_name = draft_mgr.get_team_name(i)
         label = f"Turno {i} (Tú):" if i == my_team_index else f"Turno {i}:"
         new_names[i] = st.text_input(label, value=curr_name, key=f"team_name_input_{i}")
     

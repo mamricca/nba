@@ -43,22 +43,34 @@ class DraftManager:
         # Cargar estado previo
         self.load_state()
 
+    def _ensure_team_names_dict(self):
+        if not hasattr(self, "team_names") or not isinstance(self.team_names, dict):
+            self.team_names = {}
+
     def get_team_name(self, team_idx: int) -> str:
         """Retorna el nombre personalizado del equipo o su nombre por defecto"""
-        if team_idx in self.team_names and self.team_names[team_idx].strip():
-            return self.team_names[team_idx].strip()
-        if team_idx == self.my_team_index:
-            return f"Mi Equipo (Tú)"
+        self._ensure_team_names_dict()
+        try:
+            team_idx = int(team_idx)
+        except Exception:
+            pass
+
+        if team_idx in self.team_names and str(self.team_names[team_idx]).strip():
+            return str(self.team_names[team_idx]).strip()
+        if team_idx == getattr(self, "my_team_index", 1):
+            return "Mi Equipo (Tú)"
         return f"Equipo {team_idx}"
 
     def set_team_name(self, team_idx: int, name: str):
         """Asigna un nombre personalizado a un equipo y guarda el estado"""
-        if name and name.strip():
-            self.team_names[team_idx] = name.strip()
+        self._ensure_team_names_dict()
+        if name and str(name).strip():
+            self.team_names[int(team_idx)] = str(name).strip()
             self.save_state()
 
     def set_all_team_names(self, names_dict: Dict[int, str]):
         """Actualiza todos los nombres de los equipos de la liga"""
+        self._ensure_team_names_dict()
         for idx, name in names_dict.items():
             if name and str(name).strip():
                 self.team_names[int(idx)] = str(name).strip()
@@ -70,24 +82,25 @@ class DraftManager:
         Ronda 1 (impar): 1 -> N
         Ronda 2 (par):   N -> 1
         """
-        round_num = (overall_pick - 1) // self.num_teams + 1
-        pos_in_round = (overall_pick - 1) % self.num_teams
+        num_t = getattr(self, "num_teams", 12)
+        round_num = (overall_pick - 1) // num_t + 1
+        pos_in_round = (overall_pick - 1) % num_t
 
         if round_num % 2 == 1:
-            # Ronda impar: orden normal 1 a N
             return pos_in_round + 1
         else:
-            # Ronda par: orden inverso N a 1
-            return self.num_teams - pos_in_round
+            return num_t - pos_in_round
 
     def get_my_upcoming_picks(self, total_rounds: int = 13) -> List[int]:
         """Calcula todos los números de pick globales que le corresponden a tu equipo en el formato Snake"""
         my_picks = []
+        num_t = getattr(self, "num_teams", 12)
+        my_idx = getattr(self, "my_team_index", 1)
         for r in range(1, total_rounds + 1):
             if r % 2 == 1:
-                pick_num = (r - 1) * self.num_teams + self.my_team_index
+                pick_num = (r - 1) * num_t + my_idx
             else:
-                pick_num = (r - 1) * self.num_teams + (self.num_teams - self.my_team_index + 1)
+                pick_num = (r - 1) * num_t + (num_t - my_idx + 1)
             my_picks.append(pick_num)
         return my_picks
 
@@ -96,7 +109,8 @@ class DraftManager:
         Retorna (cantidad_de_picks_restantes, proximo_pick_global).
         Si ya es tu turno, retorna (0, proximo_pick).
         """
-        current_overall = len(self.pick_history) + 1
+        history = getattr(self, "pick_history", [])
+        current_overall = len(history) + 1
         all_my_picks = self.get_my_upcoming_picks()
 
         future_picks = [p for p in all_my_picks if p >= current_overall]
@@ -116,6 +130,13 @@ class DraftManager:
 
     def make_pick(self, player_name: str, team_index: Optional[int] = None) -> bool:
         """Registra un pick. Si no se pasa team_index, lo calcula automáticamente con el orden Snake"""
+        if not hasattr(self, "drafted_players"):
+            self.drafted_players = {}
+        if not hasattr(self, "my_roster"):
+            self.my_roster = []
+        if not hasattr(self, "pick_history"):
+            self.pick_history = []
+
         if player_name in self.drafted_players:
             return False
 
@@ -123,11 +144,13 @@ class DraftManager:
         if team_index is None:
             team_index = self.get_snake_team_on_clock(overall_pick)
 
-        round_num = (overall_pick - 1) // self.num_teams + 1
+        num_t = getattr(self, "num_teams", 12)
+        round_num = (overall_pick - 1) // num_t + 1
         t_name = self.get_team_name(team_index)
+        my_idx = getattr(self, "my_team_index", 1)
 
         self.drafted_players[player_name] = team_index
-        if team_index == self.my_team_index:
+        if team_index == my_idx:
             self.my_roster.append(player_name)
 
         self.pick_history.append({
@@ -136,7 +159,7 @@ class DraftManager:
             "team_index": team_index,
             "team_name": t_name,
             "player": player_name,
-            "is_my_team": (team_index == self.my_team_index)
+            "is_my_team": (team_index == my_idx)
         })
 
         self.save_state()
@@ -144,16 +167,16 @@ class DraftManager:
 
     def undo_last_pick(self) -> Optional[Dict[str, Any]]:
         """Deshace la última selección realizada"""
-        if not self.pick_history:
+        if not hasattr(self, "pick_history") or not self.pick_history:
             return None
 
         last_pick = self.pick_history.pop()
         player = last_pick["player"]
 
-        if player in self.drafted_players:
+        if hasattr(self, "drafted_players") and player in self.drafted_players:
             del self.drafted_players[player]
 
-        if player in self.my_roster:
+        if hasattr(self, "my_roster") and player in self.my_roster:
             self.my_roster.remove(player)
 
         self.save_state()
@@ -161,39 +184,47 @@ class DraftManager:
 
     def reset_draft(self):
         """Reinicia el draft completo preservando los nombres de equipos"""
+        self._ensure_team_names_dict()
         saved_names = dict(self.team_names)
-        self.drafted_players.clear()
-        self.my_roster.clear()
-        self.pick_history.clear()
+        self.drafted_players = {}
+        self.my_roster = []
+        self.pick_history = []
         self.team_names = saved_names
         self.save_state()
 
     def get_available_players(self) -> pd.DataFrame:
         """Retorna jugadores disponibles ordenados según el formato activo (Puntos o 9-Cat)"""
-        avail = self.raw_df[~self.raw_df["Player"].isin(self.drafted_players.keys())].copy()
+        drafted = getattr(self, "drafted_players", {})
+        avail = self.raw_df[~self.raw_df["Player"].isin(drafted.keys())].copy()
 
-        if self.league_format == "points":
+        fmt = getattr(self, "league_format", "points")
+        if fmt == "points":
             return self.points_engine.transform(avail)
         else:
-            return self.punt_manager.apply_punt(avail, self.punted_categories)
+            punted = getattr(self, "punted_categories", [])
+            return self.punt_manager.apply_punt(avail, punted)
 
     def get_my_roster_df(self) -> pd.DataFrame:
         """Retorna los datos de los jugadores en mi plantilla"""
-        if not self.my_roster:
+        roster = getattr(self, "my_roster", [])
+        if not roster:
             return pd.DataFrame()
-        roster_df = self.raw_df[self.raw_df["Player"].isin(self.my_roster)].copy()
-        if self.league_format == "points":
+        roster_df = self.raw_df[self.raw_df["Player"].isin(roster)].copy()
+        fmt = getattr(self, "league_format", "points")
+        if fmt == "points":
             return self.points_engine.transform(roster_df)
         else:
             return self.z_engine.transform(roster_df)
 
     def get_team_roster_df(self, team_idx: int) -> pd.DataFrame:
         """Retorna el DataFrame de los jugadores drafteados por un equipo específico"""
-        players = [p for p, t_id in self.drafted_players.items() if t_id == team_idx]
+        drafted = getattr(self, "drafted_players", {})
+        players = [p for p, t_id in drafted.items() if t_id == team_idx]
         if not players:
             return pd.DataFrame()
         roster_df = self.raw_df[self.raw_df["Player"].isin(players)].copy()
-        if self.league_format == "points":
+        fmt = getattr(self, "league_format", "points")
+        if fmt == "points":
             return self.points_engine.transform(roster_df)
         else:
             return self.z_engine.transform(roster_df)
@@ -201,10 +232,11 @@ class DraftManager:
     def get_positional_coverage(self) -> Dict[str, int]:
         """Cuenta cuántos jugadores tiene mi equipo por posición"""
         counts = {"PG": 0, "SG": 0, "SF": 0, "PF": 0, "C": 0}
-        if not self.my_roster:
+        roster = getattr(self, "my_roster", [])
+        if not roster:
             return counts
 
-        roster_df = self.raw_df[self.raw_df["Player"].isin(self.my_roster)]
+        roster_df = self.raw_df[self.raw_df["Player"].isin(roster)]
         for _, row in roster_df.iterrows():
             pos_str = str(row.get("Positions", ""))
             for pos in counts.keys():
@@ -214,9 +246,7 @@ class DraftManager:
 
     def get_recommended_picks(self, top_n: int = 10, position_filter: Optional[str] = None) -> pd.DataFrame:
         """
-        Recomendador inteligente para Snake Draft en Ligas de Puntos y 9-Cat:
-        Combina la estrategia BPA (Best Player Available) con la necesidad de balancear
-        las posiciones del quinteto (PG, SG, SF, PF, C).
+        Recomendador inteligente para Snake Draft en Ligas de Puntos y 9-Cat.
         """
         avail = self.get_available_players()
 
@@ -224,23 +254,24 @@ class DraftManager:
             avail = avail[avail["Positions"].str.contains(position_filter, na=False)]
 
         coverage = self.get_positional_coverage()
-        total_drafted = len(self.my_roster)
+        roster = getattr(self, "my_roster", [])
+        total_drafted = len(roster)
+        fmt = getattr(self, "league_format", "points")
 
         def calc_rec(row):
-            base_val = row["FPPG"] if self.league_format == "points" else row.get("Total_Value", 0.0)
+            base_val = row["FPPG"] if fmt == "points" else row.get("Total_Value", 0.0)
             bonus = 0.0
             pos_str = str(row.get("Positions", ""))
 
-            # Si ya tenemos jugadores drafteados, priorizar posiciones faltantes
             if total_drafted >= 1:
                 unfilled_covered = [p for p, cnt in coverage.items() if cnt == 0 and p in pos_str]
                 if unfilled_covered:
                     scarcity_multiplier = 1.0 + (total_drafted * 0.4)
-                    bonus += (2.5 * scarcity_multiplier) if self.league_format == "points" else (0.5 * scarcity_multiplier)
+                    bonus += (2.5 * scarcity_multiplier) if fmt == "points" else (0.5 * scarcity_multiplier)
 
                 all_saturated = all(coverage.get(p, 0) >= 2 for p in pos_str.split("/") if p in coverage)
                 if all_saturated and total_drafted >= 2:
-                    bonus -= 3.0 if self.league_format == "points" else 0.6
+                    bonus -= 3.0 if fmt == "points" else 0.6
 
             return base_val + bonus
 
@@ -249,15 +280,16 @@ class DraftManager:
         return avail.head(top_n)
 
     def save_state(self):
+        self._ensure_team_names_dict()
         state = {
-            "drafted_players": self.drafted_players,
-            "my_roster": self.my_roster,
-            "pick_history": self.pick_history,
-            "punted_categories": self.punted_categories,
-            "num_teams": self.num_teams,
-            "my_team_index": self.my_team_index,
-            "league_format": self.league_format,
-            "team_names": self.team_names
+            "drafted_players": getattr(self, "drafted_players", {}),
+            "my_roster": getattr(self, "my_roster", []),
+            "pick_history": getattr(self, "pick_history", []),
+            "punted_categories": getattr(self, "punted_categories", []),
+            "num_teams": getattr(self, "num_teams", 12),
+            "my_team_index": getattr(self, "my_team_index", 1),
+            "league_format": getattr(self, "league_format", "points"),
+            "team_names": getattr(self, "team_names", {})
         }
         try:
             os.makedirs(os.path.dirname(self.state_file), exist_ok=True)
