@@ -26,6 +26,15 @@ st.caption("Tu centro de mando para el Draft Snake por Puntos Fantasy (FPPG), an
 # Sidebar: Conexión y Estado
 st.sidebar.title("⚙️ Configuración & Conexión")
 
+st.sidebar.subheader("📌 Navegación")
+st.sidebar.page_link("streamlit_app.py", label="🏠 Inicio / Dashboard", icon="🏠")
+st.sidebar.page_link("pages/1_🎯_Draft_Assistant.py", label="🎯 1. Snake Draft Assistant", icon="🎯")
+st.sidebar.page_link("pages/2_📊_Resumen_Semanal.py", label="📊 2. Resumen Semanal", icon="📊")
+st.sidebar.page_link("pages/3_🔄_Trade_&_Waivers.py", label="🔄 3. Traspasos & Waivers", icon="🔄")
+st.sidebar.page_link("pages/4_📅_Calendario_Streamers.py", label="📅 4. Calendario Streamers", icon="📅")
+
+st.sidebar.divider()
+
 league_type = st.sidebar.selectbox("Formato de tu Liga:", ["Points League (Ligas por Puntos / FPPG)", "9-Categories H2H (Categorías)"])
 st.session_state["league_format_type"] = "points" if "Points" in league_type else "9-cat"
 
@@ -64,9 +73,8 @@ with col1:
         - **Turnos Snake Automáticos:** Calcula quién elige en cada turno (1→N, N→1) y te avisa cuántos picks faltan para tu turno.
         - **Rankings por FPPG y VORP:** Ordena a los jugadores por Puntos Fantasy por Partido y Valor sobre Reemplazo.
         - **Detección de Necesidades:** Sugerencias ajustadas a las posiciones de tu quinteto.
-        
-        *👉 Abre la pestaña **`1_🎯_Draft_Assistant`** en el menú lateral izquierdo.*
         """)
+        st.page_link("pages/1_🎯_Draft_Assistant.py", label="👉 Abrir Snake Draft Assistant", icon="🎯")
 
     with st.container(border=True):
         st.subheader("🔄 3. Evaluador de Traspasos & Waivers")
@@ -74,9 +82,8 @@ with col1:
         **Simulador inteligente para tomar decisiones en el mercado:**
         - **Trade Machine:** Compara la ganancia neta en Puntos Fantasy (FPPG) antes de aceptar un trade.
         - **Waiver Targets:** Filtra los mejores agentes libres disponibles ordenados por producción real.
-        
-        *👉 Abre la pestaña **`3_🔄_Trade_&_Waivers`** en el menú lateral izquierdo.*
         """)
+        st.page_link("pages/3_🔄_Trade_&_Waivers.py", label="👉 Abrir Evaluador de Traspasos & Waivers", icon="🔄")
 
 with col2:
     with st.container(border=True):
@@ -86,9 +93,8 @@ with col2:
         - **Marcador H2H Semanal:** Puntos totales acumulados frente a tu rival (ej: 1240 pts vs 1180 pts).
         - **All-Play Power Rankings:** Simula tus puntos contra todos los rivales para saber si hubieras ganado esa semana contra el resto de la liga.
         - **Importación Directa:** Pega el texto de Matchups de Yahoo en 5 segundos.
-        
-        *👉 Abre la pestaña **`2_📊_Resumen_Semanal`** en el menú lateral izquierdo.*
         """)
+        st.page_link("pages/2_📊_Resumen_Semanal.py", label="👉 Abrir Resumen Semanal", icon="📊")
 
     with st.container(border=True):
         st.subheader("📅 4. Calendario & Optimizador de Streamers")
@@ -96,9 +102,8 @@ with col2:
         **Maximiza tus puntos semanales con fichajes temporales:**
         - **Detección de Off-Days:** Equipos que juegan en días con pocos partidos (Mar, Jue, Sáb) para sumar partidos extra.
         - **Streaming Score:** Puntos fantasy proyectados = *(Partidos favorables × FPPG)*.
-        
-        *👉 Abre la pestaña **`4_📅_Calendario_Streamers`** en el menú lateral izquierdo.*
         """)
+        st.page_link("pages/4_📅_Calendario_Streamers.py", label="👉 Abrir Calendario de Streamers", icon="📅")
 
 st.divider()
 
