@@ -29,7 +29,7 @@ if not df_schedule.empty:
     with col_sched1:
         st.markdown("**Matriz de Partidos por Día:**")
         st.dataframe(
-            df_schedule.style.background_gradient(subset=["Off_Day_Games (Tue/Thu/Sat/Sun)", "Total_Games"], cmap="Blues"),
+            df_schedule,
             use_container_width=True,
             height=350
         )

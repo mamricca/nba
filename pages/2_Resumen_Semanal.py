@@ -195,9 +195,16 @@ for i, row_a in df_teams_week.iterrows():
 
 df_all_play = pd.DataFrame(all_play_records)
 
+col_ap_cfg = {
+    "Fantasy_Points": st.column_config.ProgressColumn("Puntos Fantasy", format="%.1f", min_value=800.0, max_value=1600.0),
+    "Win_Pct": st.column_config.NumberColumn("Win %", format="%.3f"),
+}
+
 st.dataframe(
-    df_all_play.style.background_gradient(subset=["Fantasy_Points"], cmap="Blues"),
-    use_container_width=True
+    df_all_play,
+    column_config=col_ap_cfg,
+    use_container_width=True,
+    hide_index=True
 )
 
 st.divider()

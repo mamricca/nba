@@ -43,7 +43,6 @@ else:
     # Sincronizar con el dataset más reciente
     st.session_state["draft_manager"].raw_df = df_projections
     st.session_state["draft_manager"].z_engine.fit(df_projections)
-    st.session_state["draft_manager"].points_engine.fit(df_projections)
 
 draft_mgr: DraftManager = st.session_state["draft_manager"]
 draft_mgr.set_league_format(league_format)
@@ -84,7 +83,6 @@ if st.sidebar.button("🗑️ Reiniciar Draft"):
     draft_mgr.reset_draft()
     draft_mgr.raw_df = df_projections
     draft_mgr.z_engine.fit(df_projections)
-    draft_mgr.points_engine.fit(df_projections)
     st.sidebar.warning("Draft reiniciado.")
     st.rerun()
 

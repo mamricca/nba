@@ -111,8 +111,9 @@ with tab_trade:
             
             df_diffs = pd.DataFrame(diff_rows)
             st.dataframe(
-                df_diffs.style.background_gradient(subset=["Impacto Z-Score"], cmap="RdYlGn", vmin=-1.0, vmax=1.0),
-                use_container_width=True
+                df_diffs,
+                use_container_width=True,
+                hide_index=True
             )
 
 with tab_waivers:
@@ -151,12 +152,23 @@ with tab_waivers:
         df_fa = df_fa.sort_values(by="Fit_Score", ascending=False).reset_index(drop=True)
 
         disp_fa_cols = ["name", "team", "position", "Fit_Score", "PTS", "REB", "AST", "STL", "BLK", "3PM", "FG%", "FT%", "TO"]
+        col_fa_cfg = {
+            "Fit_Score": st.column_config.ProgressColumn("Fit Score", format="%.1f", min_value=0.0, max_value=50.0),
+            "FG%": st.column_config.NumberColumn("FG%", format="%.3f"),
+            "FT%": st.column_config.NumberColumn("FT%", format="%.3f"),
+            "PTS": st.column_config.NumberColumn("PTS", format="%.1f"),
+            "REB": st.column_config.NumberColumn("REB", format="%.1f"),
+            "AST": st.column_config.NumberColumn("AST", format="%.1f"),
+            "STL": st.column_config.NumberColumn("STL", format="%.1f"),
+            "BLK": st.column_config.NumberColumn("BLK", format="%.1f"),
+            "3PM": st.column_config.NumberColumn("3PM", format="%.1f"),
+            "TO": st.column_config.NumberColumn("TO", format="%.1f"),
+        }
         st.dataframe(
-            df_fa[[c for c in disp_fa_cols if c in df_fa.columns]].style.format({
-                "Fit_Score": "{:.1f}", "FG%": "{:.3f}", "FT%": "{:.3f}",
-                "PTS": "{:.1f}", "REB": "{:.1f}", "AST": "{:.1f}", "STL": "{:.1f}", "BLK": "{:.1f}", "3PM": "{:.1f}", "TO": "{:.1f}"
-            }).background_gradient(subset=["Fit_Score"], cmap="Greens"),
-            use_container_width=True
+            df_fa[[c for c in disp_fa_cols if c in df_fa.columns]],
+            column_config=col_fa_cfg,
+            use_container_width=True,
+            hide_index=True
         )
     else:
         st.info("No hay agentes libres registrados.")
