@@ -1,0 +1,9 @@
+services:
+  nba-fantasy:
+    build: .
+    container_name: nba-fantasy
+    restart: unless-stopped
+    ports:
+      - "8501:8501"
+    volumes:
+      - ./data:/app/data
