@@ -15,7 +15,7 @@ from src.core.trade_evaluator import TradeEvaluator
 from src.core.points_engine import PointsLeagueEngine
 
 st.title("🔄 Mercado Fantasy: Traspasos, Waivers y Plantillas")
-st.caption("Evalúa traspasos, asesora agentes libres y gestiona las altas, bajas y cambios de plantilla sin depender de Yahoo.")
+st.caption("Scouting de agentes libres, radar de especialistas, comparador de cortes y simulador de traspasos.")
 
 # Cargar proyecciones base
 @st.cache_data
@@ -51,14 +51,181 @@ def get_team_dataframe(team_key: str) -> pd.DataFrame:
 df_my_roster = get_team_dataframe(my_team_info["team_key"])
 
 # 3 Pestañas Principales
-tab_trade, tab_waivers, tab_rosters = st.tabs([
+tab_waivers, tab_trade, tab_rosters = st.tabs([
+    "🔍 Scouting de Agentes Libres (Waivers)",
     "🤝 Simulador de Traspasos (Trade Machine)", 
-    "🔍 Asesor de Agentes Libres (Waivers)",
-    "✍️ Gestión de Mercado & Plantillas (Altas, Bajas y Trades)"
+    "✍️ Gestión de Plantillas (Altas, Bajas y Trades)"
 ])
 
 # -------------------------------------------------------------
-# TAB 1: TRADE MACHINE
+# TAB 1: WAIVERS & RADAR DE AGENTES LIBRES
+# -------------------------------------------------------------
+with tab_waivers:
+    st.subheader("🔍 Radar y Scouting de Agentes Libres (Waiver Wire)")
+    st.markdown("Identifica los mejores talentos disponibles en la agencia libre por puntos fantasy, arquetipos o especialistas de estadísticas clave.")
+
+    fa_list = client.get_free_agents()
+    df_fa = pd.DataFrame(fa_list)
+
+    if not df_fa.empty:
+        # Asignar etiquetas/arquetipos a cada agente libre
+        def assign_archetype(row):
+            badges = []
+            fppg = float(row.get("FPPG", 0.0))
+            tpm = float(row.get("3PM", 0.0))
+            stl = float(row.get("STL", 0.0))
+            blk = float(row.get("BLK", 0.0))
+            reb = float(row.get("REB", 0.0))
+            ast = float(row.get("AST", 0.0))
+
+            if (stl + blk) >= 1.7:
+                badges.append("🛡️ Defensor Elite")
+            if tpm >= 2.1:
+                badges.append("🎯 Triplero")
+            if reb >= 6.8:
+                badges.append("🚀 Reboteador")
+            if ast >= 3.8:
+                badges.append("🪄 Asistidor")
+            if fppg >= 24.0:
+                badges.append("🔥 Titular / High Floor")
+            if not badges:
+                badges.append("📈 Rotación / Sleeper")
+            return " • ".join(badges)
+
+        df_fa["Perfil"] = df_fa.apply(assign_archetype, axis=1)
+
+        # Filtros Superiores
+        f_col1, f_col2, f_col3, f_col4 = st.columns([1.8, 1.2, 1.2, 1])
+        with f_col1:
+            archetype_filter = st.selectbox(
+                "Arquetipo / Rol Buscado:",
+                [
+                    "🌟 Todos los Agentes Libres",
+                    "🔥 Mayor FPPG (Mejor Jugador Disponible)",
+                    "🛡️ Especialistas Defensivos (Robos + Bloqueos)",
+                    "🎯 Especialistas Tripleros (3PM)",
+                    "🚀 Reboteadores y Pintura (REB)",
+                    "🪄 Generadores de Juego (AST)",
+                ]
+            )
+        with f_col2:
+            pos_filter_waiver = st.selectbox("Posición:", ["TODAS", "PG", "SG", "SF", "PF", "C"])
+        with f_col3:
+            sort_metric = st.selectbox("Ordenar tabla por:", ["FPPG", "PTS", "REB", "AST", "STL", "BLK", "3PM"])
+        with f_col4:
+            top_fa_count = st.slider("Mostrar:", 10, 50, 25)
+
+        # Aplicar filtros
+        df_filtered_fa = df_fa.copy()
+        if pos_filter_waiver != "TODAS":
+            df_filtered_fa = df_filtered_fa[df_filtered_fa["position"].str.contains(pos_filter_waiver, na=False)]
+
+        if "Defensivos" in archetype_filter:
+            df_filtered_fa["Stocks"] = df_filtered_fa["STL"] + df_filtered_fa["BLK"]
+            df_filtered_fa = df_filtered_fa[df_filtered_fa["Stocks"] >= 1.4].sort_values(by="Stocks", ascending=False)
+        elif "Tripleros" in archetype_filter:
+            df_filtered_fa = df_filtered_fa[df_filtered_fa["3PM"] >= 1.8].sort_values(by="3PM", ascending=False)
+        elif "Reboteadores" in archetype_filter:
+            df_filtered_fa = df_filtered_fa[df_filtered_fa["REB"] >= 5.5].sort_values(by="REB", ascending=False)
+        elif "Generadores" in archetype_filter:
+            df_filtered_fa = df_filtered_fa[df_filtered_fa["AST"] >= 3.0].sort_values(by="AST", ascending=False)
+        elif "FPPG" in archetype_filter or sort_metric == "FPPG":
+            df_filtered_fa = df_filtered_fa.sort_values(by="FPPG", ascending=False)
+        else:
+            df_filtered_fa = df_filtered_fa.sort_values(by=sort_metric, ascending=False)
+
+        df_filtered_fa = df_filtered_fa.reset_index(drop=True)
+
+        disp_fa_cols = ["name", "team", "position", "Perfil", "FPPG", "PTS", "REB", "AST", "STL", "BLK", "3PM", "FG%", "FT%", "TO"]
+        col_fa_cfg = {
+            "FPPG": st.column_config.ProgressColumn("FPPG Proy", format="%.1f pts", min_value=8.0, max_value=45.0),
+            "Perfil": st.column_config.TextColumn("Perfil & Especialidad", width="medium"),
+            "PTS": st.column_config.NumberColumn("PTS", format="%.1f"),
+            "REB": st.column_config.NumberColumn("REB", format="%.1f"),
+            "AST": st.column_config.NumberColumn("AST", format="%.1f"),
+            "STL": st.column_config.NumberColumn("STL", format="%.1f"),
+            "BLK": st.column_config.NumberColumn("BLK", format="%.1f"),
+            "3PM": st.column_config.NumberColumn("3PM", format="%.1f"),
+            "FG%": st.column_config.NumberColumn("FG%", format="%.3f"),
+            "FT%": st.column_config.NumberColumn("FT%", format="%.3f"),
+            "TO": st.column_config.NumberColumn("TO", format="%.1f"),
+        }
+
+        st.dataframe(
+            df_filtered_fa[[c for c in disp_fa_cols if c in df_filtered_fa.columns]].head(top_fa_count),
+            column_config=col_fa_cfg,
+            use_container_width=True,
+            hide_index=True
+        )
+
+        st.divider()
+
+        # -------------------------------------------------------------
+        # ASESOR DE CORTES (DROP ADVISOR & HEAD-TO-HEAD)
+        # -------------------------------------------------------------
+        st.subheader("⚖️ Comparador Head-to-Head & Asesor de Cortes (Drop Advisor)")
+        st.markdown("Compara cualquier agente libre directamente contra tu plantilla para ver si vale la pena el cambio:")
+
+        c_comp1, c_comp2 = st.columns(2)
+        with c_comp1:
+            selected_fa_name = st.selectbox(
+                "Selecciona Agente Libre a incorporar:",
+                df_filtered_fa["name"].tolist(),
+                key="sel_fa_h2h"
+            )
+            fa_row = df_filtered_fa[df_filtered_fa["name"] == selected_fa_name].iloc[0]
+
+        with c_comp2:
+            # Identificar peor jugador de mi plantilla por FPPG como sugerencia predeterminada
+            df_my_sorted = df_my_roster.sort_values(by="FPPG", ascending=True).reset_index(drop=True)
+            default_drop_name = df_my_sorted.iloc[0]["Player"] if not df_my_sorted.empty else df_my_roster["Player"].iloc[0]
+            
+            selected_my_player = st.selectbox(
+                "Jugador de tu plantilla a cortar (Drop):",
+                df_my_roster["Player"].tolist(),
+                index=df_my_roster["Player"].tolist().index(default_drop_name) if default_drop_name in df_my_roster["Player"].tolist() else 0,
+                key="sel_my_drop_h2h"
+            )
+            my_p_row = df_my_roster[df_my_roster["Player"] == selected_my_player].iloc[0]
+
+        # Calcular deltas head-to-head
+        delta_fppg = round(float(fa_row["FPPG"]) - float(my_p_row["FPPG"]), 1)
+        delta_pts = round(float(fa_row["PTS"]) - float(my_p_row["PTS"]), 1)
+        delta_reb = round(float(fa_row["REB"]) - float(my_p_row["REB"]), 1)
+        delta_ast = round(float(fa_row["AST"]) - float(my_p_row["AST"]), 1)
+        delta_stl = round(float(fa_row["STL"]) - float(my_p_row["STL"]), 1)
+        delta_blk = round(float(fa_row["BLK"]) - float(my_p_row["BLK"]), 1)
+        delta_3pm = round(float(fa_row["3PM"]) - float(my_p_row["3PM"]), 1)
+
+        with st.container(border=True):
+            m_h1, m_h2, m_h3 = st.columns([1.5, 1.5, 2])
+            with m_h1:
+                st.markdown(f"**➕ Fichaje:** `{selected_fa_name}` ({fa_row['team']} - {fa_row['position']})")
+                st.markdown(f"**FPPG:** `{fa_row['FPPG']:.1f} pts`")
+            with m_h2:
+                st.markdown(f"**➖ Corte:** `{selected_my_player}` ({my_p_row.get('Team', 'NBA')} - {my_p_row.get('Positions', 'UTIL')})")
+                st.markdown(f"**FPPG:** `{my_p_row['FPPG']:.1f} pts`")
+            with m_h3:
+                st.metric(
+                    "Impacto Neto por Partido (Δ FPPG)",
+                    f"{delta_fppg:+.1f} pts/partido",
+                    delta="🟢 Fichaje Recomendado" if delta_fppg >= 0 else "🔴 Pérdida de Puntos"
+                )
+
+            st.markdown(f"""
+            **Variación por Categoría:** PTS: `{delta_pts:+.1f}` | REB: `{delta_reb:+.1f}` | AST: `{delta_ast:+.1f}` | STL: `{delta_stl:+.1f}` | BLK: `{delta_blk:+.1f}` | 3PM: `{delta_3pm:+.1f}`
+            """)
+
+            if st.button(f"🔄 Ejecutar Movimiento: Fichar a {selected_fa_name} y Cortar a {selected_my_player}", type="primary", use_container_width=True):
+                client.drop_player_from_team("nba.l.123456.t.1", selected_my_player)
+                client.add_player_to_team("nba.l.123456.t.1", selected_fa_name)
+                st.success(f"🎉 ¡Movimiento completado! {selected_fa_name} ha ingresado a tu equipo y {selected_my_player} fue liberado.")
+                st.rerun()
+    else:
+        st.info("No hay agentes libres registrados.")
+
+# -------------------------------------------------------------
+# TAB 2: TRADE MACHINE
 # -------------------------------------------------------------
 with tab_trade:
     st.subheader("Simulador de Traspasos (Trade Machine)")
@@ -102,14 +269,12 @@ with tab_trade:
                 receiving_players_a=receiving_players
             )
             
-            # Calcular delta FPPG para ligas de puntos
             fppg_giving = df_my_roster[df_my_roster["Player"].isin(giving_players)]["FPPG"].sum()
             fppg_rec = df_rival_roster[df_rival_roster["Player"].isin(receiving_players)]["FPPG"].sum()
             fppg_delta = round(fppg_rec - fppg_giving, 1)
 
             st.divider()
             
-            # Mostrar Veredicto
             v_col1, v_col2, v_col3 = st.columns([1.5, 1.2, 1.3])
             with v_col1:
                 st.markdown(f"## {result['verdict']}")
@@ -126,7 +291,6 @@ with tab_trade:
                 st.markdown(f"**🟢 Categorías que Mejoras ({len(result['categories_improved'])}):** {', '.join(result['categories_improved']) or 'Ninguna'}")
                 st.markdown(f"**🔴 Categorías que Empeoras ({len(result['categories_worsened'])}):** {', '.join(result['categories_worsened']) or 'Ninguna'}")
             
-            # Tabla de cambios categoría por categoría
             st.subheader("📊 Variación Proyectada por Categoría para tu Equipo")
             diff_rows = []
             for cat, z_delta in result["category_z_deltas_team_a"].items():
@@ -145,75 +309,6 @@ with tab_trade:
                 use_container_width=True,
                 hide_index=True
             )
-
-# -------------------------------------------------------------
-# TAB 2: WAIVERS & AGENTES LIBRES
-# -------------------------------------------------------------
-with tab_waivers:
-    st.subheader("🔍 Recomendaciones de Agentes Libres (Waivers)")
-    st.markdown("Encuentra jugadores disponibles en tu liga ordenados por puntos fantasy o estadísticas específicas:")
-
-    fa_list = client.get_free_agents()
-    df_fa = pd.DataFrame(fa_list)
-
-    filter_col1, filter_col2, filter_col3 = st.columns([2, 1, 1])
-    with filter_col1:
-        sort_mode = st.radio("Ordenar por:", ["🏆 Puntos Fantasy (FPPG)", "🎯 Categorías Específicas"], horizontal=True)
-    with filter_col2:
-        pos_filter_waiver = st.selectbox("Posición:", ["TODAS", "PG", "SG", "SF", "PF", "C"])
-    with filter_col3:
-        top_fa_count = st.slider("Mostrar:", 10, 50, 20)
-
-    if not df_fa.empty:
-        if pos_filter_waiver != "TODAS":
-            df_fa = df_fa[df_fa["position"].str.contains(pos_filter_waiver, na=False)]
-        
-        if "Categorías" in sort_mode:
-            target_cats = st.multiselect(
-                "Categorías a reforzar prioritariamente:",
-                ["PTS", "REB", "AST", "STL", "BLK", "3PM", "FG%", "FT%"],
-                default=["STL", "BLK", "3PM"]
-            )
-            def rank_waiver(row):
-                score = 0.0
-                for c in target_cats:
-                    if c in row:
-                        val = float(row[c])
-                        if "%" in c:
-                            score += val * 20
-                        else:
-                            score += val * 1.5
-                return score
-            df_fa["Fit_Score"] = df_fa.apply(rank_waiver, axis=1)
-            df_fa = df_fa.sort_values(by="Fit_Score", ascending=False).reset_index(drop=True)
-        else:
-            df_fa = df_fa.sort_values(by="FPPG", ascending=False).reset_index(drop=True)
-
-        disp_fa_cols = ["name", "team", "position", "FPPG", "PTS", "REB", "AST", "STL", "BLK", "3PM", "FG%", "FT%", "TO"]
-        if "Fit_Score" in df_fa.columns:
-            disp_fa_cols.insert(3, "Fit_Score")
-
-        col_fa_cfg = {
-            "FPPG": st.column_config.ProgressColumn("FPPG", format="%.1f pts", min_value=10.0, max_value=60.0),
-            "Fit_Score": st.column_config.ProgressColumn("Fit Score", format="%.1f", min_value=0.0, max_value=50.0),
-            "FG%": st.column_config.NumberColumn("FG%", format="%.3f"),
-            "FT%": st.column_config.NumberColumn("FT%", format="%.3f"),
-            "PTS": st.column_config.NumberColumn("PTS", format="%.1f"),
-            "REB": st.column_config.NumberColumn("REB", format="%.1f"),
-            "AST": st.column_config.NumberColumn("AST", format="%.1f"),
-            "STL": st.column_config.NumberColumn("STL", format="%.1f"),
-            "BLK": st.column_config.NumberColumn("BLK", format="%.1f"),
-            "3PM": st.column_config.NumberColumn("3PM", format="%.1f"),
-            "TO": st.column_config.NumberColumn("TO", format="%.1f"),
-        }
-        st.dataframe(
-            df_fa[[c for c in disp_fa_cols if c in df_fa.columns]].head(top_fa_count),
-            column_config=col_fa_cfg,
-            use_container_width=True,
-            hide_index=True
-        )
-    else:
-        st.info("No hay agentes libres registrados.")
 
 # -------------------------------------------------------------
 # TAB 3: GESTIÓN DE PLANTILLAS Y MERCADO (ALTAS, BAJAS, TRADES)

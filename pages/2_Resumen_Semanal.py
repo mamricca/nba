@@ -1,6 +1,5 @@
 """
 Página: Resumen Semanal para Ligas de Puntos (Points League) y Categorías
-Cálculo automático de marcadores desde estadísticas oficiales NBA y gestión de resultados sin Yahoo API.
 """
 
 import streamlit as st
@@ -14,15 +13,13 @@ sys.path.append(os.path.abspath(os.path.dirname(__file__) + "/.."))
 
 from src.auth.yahoo_client import YahooFantasyClient
 from src.auth.yahoo_scraper import YahooWebScraper
-from src.analytics.nba_stats_scraper import NBAWeeklyCalculator
 
 st.title("📊 Resumen Semanal de Puntos Fantasy")
-st.caption("Marcadores semanales, cálculo automático desde partidos y estadísticas NBA, detalle jugador por jugador y 'All-Play' Power Rankings.")
+st.caption("Marcadores semanales, rendimiento frente a tu rival, líderes de puntos y 'All-Play' Power Rankings sin necesidad de API de Yahoo.")
 
 client: YahooFantasyClient = st.session_state.get("yahoo_client", YahooFantasyClient(use_mock=True))
-calculator = NBAWeeklyCalculator()
 
-col_s1, col_s2, col_s3 = st.columns([1.5, 1, 1.5])
+col_s1, col_s2 = st.columns([2, 1])
 with col_s1:
     leagues = client.get_user_leagues()
     league_names = [l["name"] for l in leagues]
@@ -31,50 +28,31 @@ with col_s1:
     client.set_league(selected_league["league_id"])
 
 with col_s2:
-    selected_week = st.number_input("Semana (Week):", min_value=1, max_value=24, value=1)
-
-with col_s3:
-    st.write("")
-    if st.button("🏀 Recalcular desde Estadísticas NBA", type="primary", use_container_width=True):
-        all_teams_list = client.get_teams()
-        calc_result = calculator.calculate_league_weekly_results(
-            teams=all_teams_list,
-            roster_fetcher_fn=client.get_roster,
-            week_num=selected_week
-        )
-        
-        # Guardar en archivo semanal
-        weekly_scores_file = "data/weekly_scores.json"
-        saved_weekly = {}
-        if os.path.exists(weekly_scores_file):
-            try:
-                with open(weekly_scores_file, "r", encoding="utf-8") as f:
-                    saved_weekly = json.load(f)
-            except Exception:
-                saved_weekly = {}
-
-        saved_weekly[f"Week {selected_week}"] = {
-            "teams_summary": calc_result["teams_summary"],
-            "player_breakdowns": calc_result["player_breakdowns"]
-        }
-        with open(weekly_scores_file, "w", encoding="utf-8") as f:
-            json.dump(saved_weekly, f, indent=2, ensure_ascii=False)
-
-        st.session_state[f"breakdown_w{selected_week}"] = calc_result["player_breakdowns"]
-        st.success(f"✅ ¡Marcadores de la Semana {selected_week} calculados con éxito desde partidos NBA!")
-        st.rerun()
+    selected_week = st.number_input("Semana a Analizar (Week):", min_value=1, max_value=24, value=1)
 
 # Pestañas principales
-tab_summary, tab_breakdown, tab_manual, tab_import = st.tabs([
+tab_summary, tab_manual, tab_import = st.tabs([
     "📊 Marcadores & Power Rankings",
-    "📋 Detalle Jugador por Jugador",
-    "✍️ Cargar / Editar Manualmente",
-    "📥 Pegar de Yahoo / Web"
+    "✍️ Cargar / Editar Puntos Semanales",
+    "📥 Pegar Datos de Yahoo / Web"
 ])
 
 all_teams = client.get_teams()
 
-# Cargar marcadores guardados o calcular al vuelo
+# Función de cálculo de puntos fantasy con fórmula oficial
+def calc_weekly_fantasy_pts(stats: dict) -> float:
+    pts = (
+        float(stats.get("PTS", 0)) * 1.0 +
+        float(stats.get("REB", 0)) * 1.2 +
+        float(stats.get("AST", 0)) * 1.5 +
+        float(stats.get("STL", 0)) * 3.0 +
+        float(stats.get("BLK", 0)) * 3.0 +
+        float(stats.get("3PM", 0)) * 1.0 -
+        float(stats.get("TO", 0)) * 1.0
+    )
+    return round(pts, 1)
+
+# Cargar marcadores guardados o generados
 weekly_scores_file = "data/weekly_scores.json"
 saved_weekly = {}
 if os.path.exists(weekly_scores_file):
@@ -85,27 +63,63 @@ if os.path.exists(weekly_scores_file):
         saved_weekly = {}
 
 week_key = f"Week {selected_week}"
-stored_week_data = saved_weekly.get(week_key, None)
+custom_scores_for_week = saved_weekly.get(week_key, None)
+custom_imported = st.session_state.get(f"custom_matchups_w{selected_week}", None)
 
-player_breakdowns_data = {}
+# Procesar equipos
+teams_summary = []
 
-if stored_week_data:
-    if isinstance(stored_week_data, dict) and "teams_summary" in stored_week_data:
-        teams_summary = stored_week_data["teams_summary"]
-        player_breakdowns_data = stored_week_data.get("player_breakdowns", {})
-    elif isinstance(stored_week_data, list):
-        teams_summary = stored_week_data
-    else:
-        teams_summary = []
+if custom_scores_for_week:
+    teams_summary = custom_scores_for_week
+elif custom_imported:
+    for idx, item in enumerate(custom_imported):
+        t_name = item.get("team_name", f"Equipo {idx+1}")
+        f_pts = float(item.get("points", 1000.0))
+        teams_summary.append({
+            "Team": t_name,
+            "Manager": f"Manager {idx+1}",
+            "is_me": (idx == 0),
+            "Fantasy_Points": f_pts,
+            "PTS": round(f_pts * 0.45),
+            "REB": round(f_pts * 0.18),
+            "AST": round(f_pts * 0.12),
+            "STL": round(f_pts * 0.03),
+            "BLK": round(f_pts * 0.02),
+            "3PM": round(f_pts * 0.05),
+            "TO": round(f_pts * 0.05)
+        })
 else:
-    # Calcular automáticamente con NBAWeeklyCalculator
-    calc_res = calculator.calculate_league_weekly_results(
-        teams=all_teams,
-        roster_fetcher_fn=client.get_roster,
-        week_num=selected_week
-    )
-    teams_summary = calc_res["teams_summary"]
-    player_breakdowns_data = calc_res["player_breakdowns"]
+    matchups = client.get_matchups(week=selected_week)
+    for t in all_teams:
+        found_stats = None
+        for m in matchups:
+            if m["team1"]["name"] == t["name"]:
+                found_stats = m["team1"]["stats"]
+                break
+            elif m["team2"]["name"] == t["name"]:
+                found_stats = m["team2"]["stats"]
+                break
+
+        if not found_stats:
+            noise = (hash(t["name"] + str(selected_week)) % 25 - 12) / 100.0
+            found_stats = {
+                "PTS": round(620 * (1 + noise)),
+                "REB": round(230 * (1 + noise)),
+                "AST": round(150 * (1 + noise)),
+                "STL": round(42 * (1 + noise)),
+                "BLK": round(30 * (1 + noise)),
+                "3PM": round(65 * (1 + noise)),
+                "TO": round(70 * (1 - noise * 0.5))
+            }
+
+        f_pts = calc_weekly_fantasy_pts(found_stats)
+        teams_summary.append({
+            "Team": t["name"],
+            "Manager": t["manager"],
+            "is_me": t.get("is_current_user", False),
+            "Fantasy_Points": f_pts,
+            **found_stats
+        })
 
 df_teams_week = pd.DataFrame(teams_summary).sort_values(by="Fantasy_Points", ascending=False).reset_index(drop=True)
 df_teams_week["Rank"] = df_teams_week.index + 1
@@ -114,6 +128,7 @@ df_teams_week["Rank"] = df_teams_week.index + 1
 # TAB 1: MARCADORES & POWER RANKINGS
 # -------------------------------------------------------------
 with tab_summary:
+    # Identificar mi equipo y rival
     my_row = next((t for t in teams_summary if t.get("is_me")), teams_summary[0])
     opp_candidates = [t for t in teams_summary if not t.get("is_me")]
     opp_row = opp_candidates[0] if opp_candidates else teams_summary[0]
@@ -128,7 +143,7 @@ with tab_summary:
     m_col1, m_col2, m_col3 = st.columns([2, 1, 2])
     with m_col1:
         st.markdown(f"### 🛡️ {my_row['Team']}")
-        st.metric("Tus Puntos Fantasy", f"{my_pts:.1f} pts")
+        st.metric("Tus Puntos Fantasy", f"{my_pts} pts")
 
     with m_col2:
         st.write("")
@@ -139,13 +154,13 @@ with tab_summary:
 
     with m_col3:
         st.markdown(f"### 🎯 {opp_row['Team']}")
-        st.metric("Puntos del Rival", f"{opp_pts:.1f} pts")
+        st.metric("Puntos del Rival", f"{opp_pts} pts")
 
     st.divider()
 
     # All-Play Power Rankings
     st.subheader("🏆 'All-Play' Power Rankings (Simulación Todos contra Todos)")
-    st.markdown("¿Cómo le hubiera ido a tu equipo si hubiera jugado contra TODOS los 11 rivales de la liga con los puntos de esta semana?")
+    st.markdown("¿Cómo le hubiera ido a tu equipo si hubiera jugado contra TODOS los 11 equipos de la liga con los puntos de esta semana?")
 
     all_play_records = []
     total_t = len(df_teams_week)
@@ -183,7 +198,7 @@ with tab_summary:
     df_all_play = pd.DataFrame(all_play_records)
 
     col_ap_cfg = {
-        "Fantasy_Points": st.column_config.ProgressColumn("Puntos Fantasy", format="%.1f", min_value=800.0, max_value=1700.0),
+        "Fantasy_Points": st.column_config.ProgressColumn("Puntos Fantasy", format="%.1f", min_value=800.0, max_value=1600.0),
         "Win_Pct": st.column_config.NumberColumn("Win %", format="%.3f"),
     }
 
@@ -210,75 +225,11 @@ with tab_summary:
     st.plotly_chart(fig_bar, use_container_width=True)
 
 # -------------------------------------------------------------
-# TAB 2: DETALLE JUGADOR POR JUGADOR
-# -------------------------------------------------------------
-with tab_breakdown:
-    st.subheader(f"📋 Desglose Individual de Jugadores (Semana {selected_week})")
-    st.markdown("Revisa cuántos partidos jugó cada jugador de tu plantilla en la semana y cuántos puntos fantasy aportó al equipo:")
-
-    team_inspect_sel = st.selectbox("Selecciona Equipo para ver su alineación:", [t["name"] for t in all_teams])
-    selected_team_obj = next(t for t in all_teams if t["name"] == team_inspect_sel)
-    sel_t_key = selected_team_obj["team_key"]
-
-    t_breakdown = player_breakdowns_data.get(sel_t_key, {})
-    if not t_breakdown:
-        # Calcular si no está en caché
-        t_roster = client.get_roster(sel_t_key)
-        sched_counts = calculator.get_team_game_counts_for_week(selected_week)
-        p_list = []
-        for p in t_roster:
-            p_name = p["name"]
-            p_m = calculator.projections_df[calculator.projections_df["Player"] == p_name]
-            nba_tm = p_m.iloc[0]["Team"] if not p_m.empty else "NBA"
-            g_cnt = sched_counts.get(nba_tm, 3)
-            p_stat = calculator.calculate_player_weekly_stats(p_name, g_cnt)
-            if p_stat:
-                p_list.append(p_stat)
-        p_list.sort(key=lambda x: x.get("Weekly_FPTS", 0), reverse=True)
-        t_breakdown = {"active": p_list[:10], "bench": p_list[10:]}
-
-    active_p = t_breakdown.get("active", [])
-    bench_p = t_breakdown.get("bench", [])
-
-    if active_p:
-        st.markdown(f"### 🏀 Titulares Activos ({len(active_p)} jugadores)")
-        df_active = pd.DataFrame(active_p)
-        col_p_cfg = {
-            "Weekly_FPTS": st.column_config.ProgressColumn("Puntos Semanales", format="%.1f pts", min_value=0.0, max_value=250.0),
-            "FPPG": st.column_config.NumberColumn("FPPG", format="%.1f"),
-            "Games": st.column_config.NumberColumn("Partidos", format="%d 🏀"),
-            "PTS": st.column_config.NumberColumn("PTS", format="%.1f"),
-            "REB": st.column_config.NumberColumn("REB", format="%.1f"),
-            "AST": st.column_config.NumberColumn("AST", format="%.1f"),
-            "STL": st.column_config.NumberColumn("STL", format="%.1f"),
-            "BLK": st.column_config.NumberColumn("BLK", format="%.1f"),
-            "3PM": st.column_config.NumberColumn("3PM", format="%.1f"),
-            "TO": st.column_config.NumberColumn("TO", format="%.1f"),
-        }
-        disp_p_cols = ["Player", "NBA_Team", "Positions", "Games", "FPPG", "Weekly_FPTS", "PTS", "REB", "AST", "STL", "BLK", "3PM", "TO"]
-        st.dataframe(
-            df_active[[c for c in disp_p_cols if c in df_active.columns]],
-            column_config=col_p_cfg,
-            use_container_width=True,
-            hide_index=True
-        )
-
-    if bench_p:
-        st.markdown(f"### 🪑 Suplentes / Banca ({len(bench_p)} jugadores)")
-        df_bench = pd.DataFrame(bench_p)
-        st.dataframe(
-            df_bench[[c for c in disp_p_cols if c in df_bench.columns]],
-            column_config=col_p_cfg,
-            use_container_width=True,
-            hide_index=True
-        )
-
-# -------------------------------------------------------------
-# TAB 3: CARGA / EDICIÓN MANUAL
+# TAB 2: CARGA / EDICIÓN MANUAL DE PUNTOS
 # -------------------------------------------------------------
 with tab_manual:
     st.subheader(f"✍️ Editor Manual de Resultados (Semana {selected_week})")
-    st.markdown("Puedes ajustar o sobreescribir manualmente los marcadores de la semana:")
+    st.markdown("Ingresa los puntos finales de cada equipo o sus estadísticas. Se guardarán en el historial de la liga automáticamente.")
 
     edit_df = pd.DataFrame([
         {
@@ -302,41 +253,62 @@ with tab_manual:
         key="weekly_score_editor"
     )
 
-    if st.button("💾 Guardar Cambios Manuales", type="primary", use_container_width=True):
-        updated_list = []
-        for idx, row in edited_df.iterrows():
-            updated_list.append({
-                "Team": row["Team"],
-                "Manager": f"Manager {idx+1}",
-                "is_me": (idx == 0),
-                "Fantasy_Points": float(row["Fantasy_Points"]),
-                "PTS": int(row["PTS"]),
-                "REB": int(row["REB"]),
-                "AST": int(row["AST"]),
-                "STL": int(row["STL"]),
-                "BLK": int(row["BLK"]),
-                "3PM": int(row["3PM"]),
-                "TO": int(row["TO"]),
-            })
-        
-        saved_weekly[week_key] = {"teams_summary": updated_list, "player_breakdowns": player_breakdowns_data}
-        with open(weekly_scores_file, "w", encoding="utf-8") as f:
-            json.dump(saved_weekly, f, indent=2, ensure_ascii=False)
-        st.success(f"✅ ¡Puntuaciones de la Semana {selected_week} guardadas!")
-        st.rerun()
+    c_btn1, c_btn2 = st.columns([2, 1])
+    with c_btn1:
+        if st.button("💾 Guardar Resultados de la Semana", type="primary", use_container_width=True):
+            updated_list = []
+            for idx, row in edited_df.iterrows():
+                updated_list.append({
+                    "Team": row["Team"],
+                    "Manager": f"Manager {idx+1}",
+                    "is_me": (idx == 0),
+                    "Fantasy_Points": float(row["Fantasy_Points"]),
+                    "PTS": int(row["PTS"]),
+                    "REB": int(row["REB"]),
+                    "AST": int(row["AST"]),
+                    "STL": int(row["STL"]),
+                    "BLK": int(row["BLK"]),
+                    "3PM": int(row["3PM"]),
+                    "TO": int(row["TO"]),
+                })
+            
+            saved_weekly[week_key] = updated_list
+            with open(weekly_scores_file, "w", encoding="utf-8") as f:
+                json.dump(saved_weekly, f, indent=2, ensure_ascii=False)
+            st.success(f"✅ ¡Puntuaciones de la Semana {selected_week} guardadas correctamente!")
+            st.rerun()
+
+    with c_btn2:
+        if st.button("🔄 Recalcular Puntos desde Estadísticas", use_container_width=True):
+            for idx, row in edited_df.iterrows():
+                stats = {
+                    "PTS": row["PTS"], "REB": row["REB"], "AST": row["AST"],
+                    "STL": row["STL"], "BLK": row["BLK"], "3PM": row["3PM"], "TO": row["TO"]
+                }
+                edited_df.at[idx, "Fantasy_Points"] = calc_weekly_fantasy_pts(stats)
+            st.info("Puntos recalculados. Haz clic en Guardar para confirmar.")
 
 # -------------------------------------------------------------
-# TAB 4: IMPORTAR TEXTO DE YAHOO / WEB
+# TAB 3: IMPORTAR TEXTO DE YAHOO / WEB
 # -------------------------------------------------------------
 with tab_import:
-    st.subheader(f"📥 Importar Marcadores Pegando Texto (Semana {selected_week})")
-    pasted_yahoo_text = st.text_area("Pega aquí el texto o tabla copiada de Yahoo/Web:", height=150, key="pasted_text_input")
+    st.subheader(f"📥 Importar Marcadores Reales Pegando Texto (Semana {selected_week})")
+    st.markdown("""
+    **¿Cómo traer los datos reales en segundos?**
+    1. Abre tu liga en [Yahoo Fantasy Basketball](https://basketball.fantasysports.yahoo.com/) o cualquier web.
+    2. Ve a la sección **Matchups** de la semana.
+    3. Selecciona la tabla de resultados, cópiala (`Ctrl + C`) y pégala aquí abajo.
+    """)
+    pasted_yahoo_text = st.text_area("Pega aquí el texto o tabla copiada:", height=150, key="pasted_text_input")
     
     if st.button("🚀 Extraer y Cargar Marcadores", type="primary", use_container_width=True):
         if pasted_yahoo_text:
             scraper = YahooWebScraper()
             parsed_data = scraper.parse_matchup_text_or_html(pasted_yahoo_text)
             if parsed_data:
+                st.session_state[f"custom_matchups_w{selected_week}"] = parsed_data
+                
+                # Guardar directamente a archivo de la semana
                 formatted_list = []
                 for idx, item in enumerate(parsed_data):
                     t_name = item.get("team_name", f"Equipo {idx+1}")
@@ -354,7 +326,7 @@ with tab_import:
                         "3PM": round(pts * 0.05),
                         "TO": round(pts * 0.05)
                     })
-                saved_weekly[week_key] = {"teams_summary": formatted_list, "player_breakdowns": {}}
+                saved_weekly[week_key] = formatted_list
                 with open(weekly_scores_file, "w", encoding="utf-8") as f:
                     json.dump(saved_weekly, f, indent=2, ensure_ascii=False)
                 
