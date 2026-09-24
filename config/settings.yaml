@@ -1,0 +1,45 @@
+# Configuración General del Asistente Yahoo NBA Fantasy
+
+league:
+  id: "nba.l.XXXXXX"             # ID de tu liga en Yahoo
+  name: "Mi Liga Fantasy NBA (Points)"
+  num_teams: 12
+  roster_size: 13
+  starters:
+    PG: 1
+    SG: 1
+    G: 1
+    SF: 1
+    PF: 1
+    F: 1
+    C: 2
+    Util: 2
+    BN: 3
+    IL: 2
+    IL+: 1
+
+format:
+  type: "points"                 # 'points' o '9-cat'
+  draft_type: "snake"            # 'snake' o 'auction'
+  
+  # Sistema de puntuación estándar de Yahoo Points League (modificable a las reglas de tu liga)
+  point_values:
+    PTS: 1.0                     # Puntos
+    REB: 1.2                     # Rebotes
+    AST: 1.5                     # Asistencias
+    STL: 3.0                     # Robos
+    BLK: 3.0                     # Tapones
+    3PM: 1.0                     # Triples anotados (bonificación adicional o 0 si no aplica)
+    TO: -1.0                     # Pérdidas de balón
+    FGM: 0.0                     # Tiros de campo anotados (si aplica en tu liga)
+    FGA: 0.0                     # Tiros de campo intentados
+    FTM: 0.0                     # Tiros libres anotados
+    FTA: 0.0                     # Tiros libres intentados
+    DD: 0.0                      # Doble-doble bonus
+    TD: 0.0                      # Triple-doble bonus
+
+paths:
+  oauth_file: "config/oauth2.json"
+  projections_csv: "data/projections_sample.csv"
+  schedule_json: "data/nba_schedule_sample.json"
+  draft_state_file: "data/draft_state.json"

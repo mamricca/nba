@@ -1,0 +1,46 @@
+{
+  "weeks": {
+    "Week 1": {
+      "ATL": {"total": 4, "days": {"Mon": 1, "Tue": 0, "Wed": 1, "Thu": 0, "Fri": 1, "Sat": 0, "Sun": 1}},
+      "BOS": {"total": 3, "days": {"Mon": 0, "Tue": 1, "Wed": 0, "Thu": 1, "Fri": 0, "Sat": 1, "Sun": 0}},
+      "BKN": {"total": 3, "days": {"Mon": 0, "Tue": 0, "Wed": 1, "Thu": 0, "Fri": 1, "Sat": 0, "Sun": 1}},
+      "CHA": {"total": 4, "days": {"Mon": 1, "Tue": 0, "Wed": 1, "Thu": 0, "Fri": 1, "Sat": 0, "Sun": 1}},
+      "CHI": {"total": 3, "days": {"Mon": 0, "Tue": 1, "Wed": 0, "Thu": 0, "Fri": 1, "Sat": 0, "Sun": 1}},
+      "CLE": {"total": 4, "days": {"Mon": 1, "Tue": 0, "Wed": 1, "Thu": 0, "Fri": 1, "Sat": 1, "Sun": 0}},
+      "DAL": {"total": 3, "days": {"Mon": 0, "Tue": 1, "Wed": 0, "Thu": 1, "Fri": 0, "Sat": 1, "Sun": 0}},
+      "DEN": {"total": 4, "days": {"Mon": 1, "Tue": 0, "Wed": 1, "Thu": 0, "Fri": 1, "Sat": 0, "Sun": 1}},
+      "DET": {"total": 3, "days": {"Mon": 0, "Tue": 0, "Wed": 1, "Thu": 0, "Fri": 1, "Sat": 0, "Sun": 1}},
+      "GSW": {"total": 4, "days": {"Mon": 0, "Tue": 1, "Wed": 0, "Thu": 1, "Fri": 1, "Sat": 0, "Sun": 1}},
+      "HOU": {"total": 3, "days": {"Mon": 0, "Tue": 0, "Wed": 1, "Thu": 0, "Fri": 1, "Sat": 0, "Sun": 1}},
+      "IND": {"total": 4, "days": {"Mon": 1, "Tue": 0, "Wed": 1, "Thu": 0, "Fri": 1, "Sat": 0, "Sun": 1}},
+      "LAC": {"total": 3, "days": {"Mon": 0, "Tue": 1, "Wed": 0, "Thu": 1, "Fri": 0, "Sat": 1, "Sun": 0}},
+      "LAL": {"total": 4, "days": {"Mon": 0, "Tue": 1, "Wed": 0, "Thu": 1, "Fri": 1, "Sat": 0, "Sun": 1}},
+      "MEM": {"total": 4, "days": {"Mon": 1, "Tue": 0, "Wed": 1, "Thu": 0, "Fri": 1, "Sat": 1, "Sun": 0}},
+      "MIA": {"total": 3, "days": {"Mon": 0, "Tue": 0, "Wed": 1, "Thu": 0, "Fri": 1, "Sat": 0, "Sun": 1}},
+      "MIL": {"total": 4, "days": {"Mon": 1, "Tue": 0, "Wed": 1, "Thu": 0, "Fri": 1, "Sat": 0, "Sun": 1}},
+      "MIN": {"total": 3, "days": {"Mon": 0, "Tue": 1, "Wed": 0, "Thu": 1, "Fri": 0, "Sat": 1, "Sun": 0}},
+      "NOP": {"total": 4, "days": {"Mon": 1, "Tue": 0, "Wed": 1, "Thu": 0, "Fri": 1, "Sat": 0, "Sun": 1}},
+      "NYK": {"total": 3, "days": {"Mon": 0, "Tue": 1, "Wed": 0, "Thu": 1, "Fri": 0, "Sat": 1, "Sun": 0}},
+      "OKC": {"total": 4, "days": {"Mon": 1, "Tue": 0, "Wed": 1, "Thu": 0, "Fri": 1, "Sat": 0, "Sun": 1}},
+      "ORL": {"total": 3, "days": {"Mon": 0, "Tue": 0, "Wed": 1, "Thu": 0, "Fri": 1, "Sat": 0, "Sun": 1}},
+      "PHI": {"total": 4, "days": {"Mon": 0, "Tue": 1, "Wed": 1, "Thu": 0, "Fri": 1, "Sat": 0, "Sun": 1}},
+      "PHX": {"total": 4, "days": {"Mon": 0, "Tue": 1, "Wed": 0, "Thu": 1, "Fri": 0, "Sat": 1, "Sun": 1}},
+      "POR": {"total": 3, "days": {"Mon": 0, "Tue": 0, "Wed": 1, "Thu": 0, "Fri": 1, "Sat": 0, "Sun": 1}},
+      "SAC": {"total": 4, "days": {"Mon": 1, "Tue": 0, "Wed": 1, "Thu": 0, "Fri": 1, "Sat": 1, "Sun": 0}},
+      "SAS": {"total": 4, "days": {"Mon": 0, "Tue": 1, "Wed": 0, "Thu": 1, "Fri": 1, "Sat": 0, "Sun": 1}},
+      "TOR": {"total": 3, "days": {"Mon": 0, "Tue": 0, "Wed": 1, "Thu": 0, "Fri": 1, "Sat": 0, "Sun": 1}},
+      "UTA": {"total": 3, "days": {"Mon": 1, "Tue": 0, "Wed": 0, "Thu": 1, "Fri": 0, "Sat": 1, "Sun": 0}},
+      "WAS": {"total": 3, "days": {"Mon": 0, "Tue": 0, "Wed": 1, "Thu": 0, "Fri": 1, "Sat": 0, "Sun": 1}}
+    }
+  },
+  "day_game_counts_week_1": {
+    "Mon": 6,
+    "Tue": 4,
+    "Wed": 10,
+    "Thu": 4,
+    "Fri": 11,
+    "Sat": 5,
+    "Sun": 8
+  }
+}
+
