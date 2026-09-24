@@ -120,41 +120,164 @@ class YahooFantasyClient:
             {"team_key": "nba.l.123456.t.12", "team_id": "12", "name": "Buzzer Beaters", "manager": "Bruno", "is_current_user": False}
         ]
 
-    def get_roster(self, team_key: str) -> List[Dict[str, Any]]:
-        """Retorna la lista de jugadores de un equipo específico"""
+    def get_roster(self, team_key: str = "nba.l.123456.t.1") -> List[Dict[str, Any]]:
+        """Retorna el roster de un equipo específico leyendo draft_state.json o league_rosters.json"""
         if not self.use_mock and self.league:
             try:
                 team = self.league.to_team(team_key)
                 return team.roster()
             except Exception as e:
-                print(f"[YahooClient] Error obteniendo roster {team_key}: {e}")
+                print(f"[YahooClient] Error obteniendo roster {team_key} de Yahoo: {e}")
 
-        # Rosters Simulados de ejemplo basados en el dataset de proyecciones
-        rosters_map = {
-            "nba.l.123456.t.1": [  # Tu equipo
-                "Nikola Jokic", "Tyrese Haliburton", "Derrick White", "Evan Mobley",
-                "Brook Lopez", "Alex Caruso", "Mike Conley", "Trey Murphy III",
-                "Naz Reid", "Jalen Duren", "Al Horford", "Dennis Schroder", "Grayson Allen"
-            ],
-            "nba.l.123456.t.2": [  # Rival 1 (Pistoleros)
-                "Luka Doncic", "Trae Young", "Damian Lillard", "Jordan Poole",
-                "Anfernee Simons", "Bogdan Bogdanovic", "Norman Powell", "Tyler Herro",
-                "Miles Bridges", "Tobias Harris", "Jonas Valanciunas", "Bobby Portis", "Klay Thompson"
-            ],
-            "nba.l.123456.t.3": [  # Rival 2 (Rim Protectors)
-                "Victor Wembanyama", "Giannis Antetokounmpo", "Anthony Davis", "Rudy Gobert",
-                "Walker Kessler", "Nic Claxton", "Jarrett Allen", "Daniel Gafford",
-                "Ivica Zubac", "Ausar Thompson", "Amen Thompson", "Herbert Jones", "Alex Sarr"
-            ]
+        # Extraer índice de equipo si el formato es nba.l.123456.t.X
+        team_idx = 1
+        try:
+            if ".t." in team_key:
+                team_idx = int(team_key.split(".t.")[-1])
+        except Exception:
+            team_idx = 1
+
+        # 1. Intentar cargar desde data/league_rosters.json
+        league_rosters_file = "data/league_rosters.json"
+        if os.path.exists(league_rosters_file):
+            try:
+                with open(league_rosters_file, "r", encoding="utf-8") as f:
+                    lr_data = json.load(f)
+                    if team_key in lr_data and lr_data[team_key]:
+                        return [{"name": name, "selected_position": "BN", "eligible_positions": ["PG", "SG", "SF", "PF", "C"]} for name in lr_data[team_key]]
+                    if str(team_idx) in lr_data and lr_data[str(team_idx)]:
+                        return [{"name": name, "selected_position": "BN", "eligible_positions": ["PG", "SG", "SF", "PF", "C"]} for name in lr_data[str(team_idx)]]
+            except Exception:
+                pass
+
+        # 2. Intentar cargar desde draft_state.json
+        state_file = "data/draft_state.json"
+        if os.path.exists(state_file):
+            try:
+                with open(state_file, "r", encoding="utf-8") as f:
+                    state = json.load(f)
+                    if team_idx == state.get("my_team_index", 1):
+                        my_roster = state.get("my_roster", [])
+                        if my_roster:
+                            return [{"name": name, "selected_position": "BN", "eligible_positions": ["PG", "SG", "SF", "PF", "C"]} for name in my_roster]
+                    
+                    # Buscar jugadores asignados a este team_idx en drafted_players
+                    drafted = state.get("drafted_players", {})
+                    team_players = [p for p, t_id in drafted.items() if t_id == team_idx]
+                    if team_players:
+                        return [{"name": name, "selected_position": "BN", "eligible_positions": ["PG", "SG", "SF", "PF", "C"]} for name in team_players]
+            except Exception:
+                pass
+
+        # Fallback predeterminado para pruebas iniciales
+        default_rosters = {
+            1: ["Nikola Jokic", "Tyrese Haliburton", "Derrick White", "Evan Mobley", "Brook Lopez", "Alex Caruso", "Mike Conley", "Trey Murphy III", "Naz Reid", "Jalen Duren", "Al Horford", "Dennis Schroder", "Grayson Allen"],
+            2: ["Luka Doncic", "Stephen Curry", "Karl-Anthony Towns", "Dejounte Murray", "Mikal Bridges", "Tobias Harris", "Malcolm Brogdon", "Bogdan Bogdanovic", "Norman Powell", "Bobby Portis", "Cole Anthony", "Gary Trent Jr.", "Wendell Carter Jr."],
+            3: ["Giannis Antetokounmpo", "Anthony Davis", "Bam Adebayo", "Rudy Gobert", "Jarrett Allen", "Clint Capela", "Walker Kessler", "Ivica Zubac", "Jakob Poeltl", "Daniel Gafford", "Steven Adams", "Mark Williams", "Mitchell Robinson"],
         }
-        
-        player_names = rosters_map.get(team_key, [
-            "Shai Gilgeous-Alexander", "Jayson Tatum", "Donovan Mitchell", "Chet Holmgren",
-            "Jalen Williams", "Kristaps Porzingis", "Fred VanVleet", "Immanuel Quickley",
-            "Myles Turner", "Marcus Smart", "Keegan Murray", "De'Anthony Melton", "Jonathan Kuminga"
-        ])
-        
+        player_names = default_rosters.get(team_idx, default_rosters[1])
         return [{"name": name, "selected_position": "BN", "eligible_positions": ["PG", "SG", "SF", "PF", "C"]} for name in player_names]
+
+    def add_player_to_team(self, team_key: str, player_name: str) -> bool:
+        """Añade un agente libre a un equipo y lo remueve del pool de FA"""
+        state_file = "data/draft_state.json"
+        team_idx = 1
+        try:
+            if ".t." in team_key:
+                team_idx = int(team_key.split(".t.")[-1])
+        except Exception:
+            team_idx = 1
+
+        state = {}
+        if os.path.exists(state_file):
+            try:
+                with open(state_file, "r", encoding="utf-8") as f:
+                    state = json.load(f)
+            except Exception:
+                state = {}
+
+        if "drafted_players" not in state:
+            state["drafted_players"] = {}
+        if "my_roster" not in state:
+            state["my_roster"] = []
+
+        state["drafted_players"][player_name] = team_idx
+        if team_idx == state.get("my_team_index", 1):
+            if player_name not in state["my_roster"]:
+                state["my_roster"].append(player_name)
+
+        with open(state_file, "w", encoding="utf-8") as f:
+            json.dump(state, f, indent=2, ensure_ascii=False)
+        return True
+
+    def drop_player_from_team(self, team_key: str, player_name: str) -> bool:
+        """Corta un jugador de un equipo y lo devuelve a la agencia libre"""
+        state_file = "data/draft_state.json"
+        team_idx = 1
+        try:
+            if ".t." in team_key:
+                team_idx = int(team_key.split(".t.")[-1])
+        except Exception:
+            team_idx = 1
+
+        if os.path.exists(state_file):
+            try:
+                with open(state_file, "r", encoding="utf-8") as f:
+                    state = json.load(f)
+
+                if player_name in state.get("drafted_players", {}):
+                    del state["drafted_players"][player_name]
+
+                if team_idx == state.get("my_team_index", 1) and player_name in state.get("my_roster", []):
+                    state["my_roster"].remove(player_name)
+
+                with open(state_file, "w", encoding="utf-8") as f:
+                    json.dump(state, f, indent=2, ensure_ascii=False)
+                return True
+            except Exception as e:
+                print(f"[YahooClient] Error al cortar jugador: {e}")
+        return False
+
+    def trade_players(self, team_a_key: str, team_b_key: str, players_from_a: List[str], players_from_b: List[str]) -> bool:
+        """Registra un intercambio de jugadores entre dos equipos"""
+        team_a_idx = int(team_a_key.split(".t.")[-1]) if ".t." in team_a_key else 1
+        team_b_idx = int(team_b_key.split(".t.")[-1]) if ".t." in team_b_key else 2
+
+        state_file = "data/draft_state.json"
+        state = {}
+        if os.path.exists(state_file):
+            try:
+                with open(state_file, "r", encoding="utf-8") as f:
+                    state = json.load(f)
+            except Exception:
+                pass
+
+        if "drafted_players" not in state:
+            state["drafted_players"] = {}
+        if "my_roster" not in state:
+            state["my_roster"] = []
+
+        my_idx = state.get("my_team_index", 1)
+
+        # Mover jugadores de A hacia B
+        for p in players_from_a:
+            state["drafted_players"][p] = team_b_idx
+            if team_a_idx == my_idx and p in state["my_roster"]:
+                state["my_roster"].remove(p)
+            if team_b_idx == my_idx and p not in state["my_roster"]:
+                state["my_roster"].append(p)
+
+        # Mover jugadores de B hacia A
+        for p in players_from_b:
+            state["drafted_players"][p] = team_a_idx
+            if team_b_idx == my_idx and p in state["my_roster"]:
+                state["my_roster"].remove(p)
+            if team_a_idx == my_idx and p not in state["my_roster"]:
+                state["my_roster"].append(p)
+
+        with open(state_file, "w", encoding="utf-8") as f:
+            json.dump(state, f, indent=2, ensure_ascii=False)
+        return True
 
     def get_matchups(self, week: int = 1) -> List[Dict[str, Any]]:
         """Retorna los resultados y estadísticas de la semana solicitada"""
@@ -164,7 +287,19 @@ class YahooFantasyClient:
             except Exception as e:
                 print(f"[YahooClient] Error obteniendo matchups de semana {week}: {e}")
 
-        # Box scores simulados para semana 1
+        # Intentar cargar desde data/weekly_scores.json
+        scores_file = "data/weekly_scores.json"
+        if os.path.exists(scores_file):
+            try:
+                with open(scores_file, "r", encoding="utf-8") as f:
+                    weekly_data = json.load(f)
+                    week_key = f"Week {week}"
+                    if week_key in weekly_data:
+                        return weekly_data[week_key]
+            except Exception:
+                pass
+
+        # Box scores simulados por defecto
         return [
             {
                 "week": week,
@@ -206,24 +341,87 @@ class YahooFantasyClient:
             }
         ]
 
+    def save_weekly_scores(self, week: int, matchups_data: List[Dict[str, Any]]):
+        """Guarda marcadores personalizados para una semana específica"""
+        scores_file = "data/weekly_scores.json"
+        weekly_data = {}
+        if os.path.exists(scores_file):
+            try:
+                with open(scores_file, "r", encoding="utf-8") as f:
+                    weekly_data = json.load(f)
+            except Exception:
+                weekly_data = {}
+
+        weekly_data[f"Week {week}"] = matchups_data
+        try:
+            with open(scores_file, "w", encoding="utf-8") as f:
+                json.dump(weekly_data, f, indent=2, ensure_ascii=False)
+            return True
+        except Exception as e:
+            print(f"[YahooClient] Error guardando marcadores semanales: {e}")
+            return False
+
     def get_free_agents(self, position: Optional[str] = None) -> List[Dict[str, Any]]:
-        """Retorna jugadores en la agencia libre / waiver wire"""
+        """Retorna todos los jugadores no drafteados/no asignados directamente desde el dataset de proyecciones"""
         if not self.use_mock and self.league:
             try:
                 return self.league.free_agents(position)
             except Exception as e:
-                print(f"[YahooClient] Error obteniendo agentes libres: {e}")
+                print(f"[YahooClient] Error obteniendo agentes libres de Yahoo: {e}")
 
-        # Agentes libres simulados
-        fa_players = [
-            {"name": "Norman Powell", "team": "LAC", "position": "SG/SF", "PTS": 14.3, "3PM": 2.2, "FG%": 0.486, "FT%": 0.864, "REB": 2.6, "AST": 1.1, "STL": 0.6, "BLK": 0.3, "TO": 1.1},
-            {"name": "Tre Jones", "team": "SAS", "position": "PG", "PTS": 10.0, "3PM": 0.8, "FG%": 0.505, "FT%": 0.856, "REB": 3.8, "AST": 6.2, "STL": 1.0, "BLK": 0.1, "TO": 1.5},
-            {"name": "Max Strus", "team": "CLE", "position": "SG/SF", "PTS": 12.2, "3PM": 2.4, "FG%": 0.418, "FT%": 0.794, "REB": 4.8, "AST": 4.0, "STL": 0.9, "BLK": 0.4, "TO": 1.4},
-            {"name": "T.J. McConnell", "team": "IND", "position": "PG", "PTS": 10.2, "3PM": 0.2, "FG%": 0.556, "FT%": 0.790, "REB": 2.7, "AST": 5.5, "STL": 1.0, "BLK": 0.1, "TO": 1.3},
-            {"name": "Al Horford", "team": "BOS", "position": "C", "PTS": 8.6, "3PM": 1.5, "FG%": 0.511, "FT%": 0.867, "REB": 6.4, "AST": 2.6, "STL": 0.6, "BLK": 1.0, "TO": 0.9},
-            {"name": "Cole Anthony", "team": "ORL", "position": "PG/SG", "PTS": 11.6, "3PM": 1.1, "FG%": 0.435, "FT%": 0.826, "REB": 3.8, "AST": 2.9, "STL": 0.8, "BLK": 0.5, "TO": 1.5},
-            {"name": "Harrison Barnes", "team": "SAS", "position": "SF/PF", "PTS": 12.0, "3PM": 1.5, "FG%": 0.474, "FT%": 0.801, "REB": 3.0, "AST": 1.2, "STL": 0.7, "BLK": 0.1, "TO": 0.8},
-            {"name": "Royce O'Neale", "team": "PHX", "position": "SG/SF", "PTS": 7.7, "3PM": 1.8, "FG%": 0.397, "FT%": 0.692, "REB": 4.8, "AST": 2.8, "STL": 0.7, "BLK": 0.6, "TO": 1.1}
-        ]
-        return fa_players
+        # Cargar proyecciones y filtrar los que ya están drafteados o en plantillas
+        csv_path = "data/projections_sample.csv"
+        state_path = "data/draft_state.json"
+        
+        drafted = set()
+        if os.path.exists(state_path):
+            try:
+                with open(state_path, "r", encoding="utf-8") as f:
+                    st_data = json.load(f)
+                    drafted.update(st_data.get("drafted_players", {}).keys())
+                    drafted.update(st_data.get("my_roster", []))
+            except Exception:
+                pass
+
+        if os.path.exists(csv_path):
+            try:
+                df = pd.read_csv(csv_path)
+                if drafted:
+                    df = df[~df["Player"].isin(drafted)]
+                
+                # Convertir a formato de agentes libres con FPPG calculado
+                fa_list = []
+                for _, row in df.iterrows():
+                    pts = float(row.get("PTS", 0.0))
+                    reb = float(row.get("REB", 0.0))
+                    ast = float(row.get("AST", 0.0))
+                    stl = float(row.get("STL", 0.0))
+                    blk = float(row.get("BLK", 0.0))
+                    tpm = float(row.get("3PM", 0.0))
+                    to = float(row.get("TO", 0.0))
+                    
+                    # Yahoo Points formula: PTS*1 + REB*1.2 + AST*1.5 + STL*3 + BLK*3 + 3PM*1 - TO*1
+                    fppg = round(pts * 1.0 + reb * 1.2 + ast * 1.5 + stl * 3.0 + blk * 3.0 + tpm * 1.0 - to * 1.0, 1)
+
+                    fa_list.append({
+                        "name": row["Player"],
+                        "team": row["Team"],
+                        "position": row["Positions"],
+                        "FPPG": fppg,
+                        "PTS": pts,
+                        "3PM": tpm,
+                        "FG%": float(row.get("FG%", 0.450)),
+                        "FT%": float(row.get("FT%", 0.750)),
+                        "REB": reb,
+                        "AST": ast,
+                        "STL": stl,
+                        "BLK": blk,
+                        "TO": to
+                    })
+                return fa_list
+            except Exception as e:
+                print(f"[YahooClient] Error cargando FA desde CSV: {e}")
+
+        return []
+
 

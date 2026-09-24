@@ -1,36 +1,8692 @@
 {
   "weeks": {
     "Week 1": {
-      "ATL": {"total": 4, "days": {"Mon": 1, "Tue": 0, "Wed": 1, "Thu": 0, "Fri": 1, "Sat": 0, "Sun": 1}},
-      "BOS": {"total": 3, "days": {"Mon": 0, "Tue": 1, "Wed": 0, "Thu": 1, "Fri": 0, "Sat": 1, "Sun": 0}},
-      "BKN": {"total": 3, "days": {"Mon": 0, "Tue": 0, "Wed": 1, "Thu": 0, "Fri": 1, "Sat": 0, "Sun": 1}},
-      "CHA": {"total": 4, "days": {"Mon": 1, "Tue": 0, "Wed": 1, "Thu": 0, "Fri": 1, "Sat": 0, "Sun": 1}},
-      "CHI": {"total": 3, "days": {"Mon": 0, "Tue": 1, "Wed": 0, "Thu": 0, "Fri": 1, "Sat": 0, "Sun": 1}},
-      "CLE": {"total": 4, "days": {"Mon": 1, "Tue": 0, "Wed": 1, "Thu": 0, "Fri": 1, "Sat": 1, "Sun": 0}},
-      "DAL": {"total": 3, "days": {"Mon": 0, "Tue": 1, "Wed": 0, "Thu": 1, "Fri": 0, "Sat": 1, "Sun": 0}},
-      "DEN": {"total": 4, "days": {"Mon": 1, "Tue": 0, "Wed": 1, "Thu": 0, "Fri": 1, "Sat": 0, "Sun": 1}},
-      "DET": {"total": 3, "days": {"Mon": 0, "Tue": 0, "Wed": 1, "Thu": 0, "Fri": 1, "Sat": 0, "Sun": 1}},
-      "GSW": {"total": 4, "days": {"Mon": 0, "Tue": 1, "Wed": 0, "Thu": 1, "Fri": 1, "Sat": 0, "Sun": 1}},
-      "HOU": {"total": 3, "days": {"Mon": 0, "Tue": 0, "Wed": 1, "Thu": 0, "Fri": 1, "Sat": 0, "Sun": 1}},
-      "IND": {"total": 4, "days": {"Mon": 1, "Tue": 0, "Wed": 1, "Thu": 0, "Fri": 1, "Sat": 0, "Sun": 1}},
-      "LAC": {"total": 3, "days": {"Mon": 0, "Tue": 1, "Wed": 0, "Thu": 1, "Fri": 0, "Sat": 1, "Sun": 0}},
-      "LAL": {"total": 4, "days": {"Mon": 0, "Tue": 1, "Wed": 0, "Thu": 1, "Fri": 1, "Sat": 0, "Sun": 1}},
-      "MEM": {"total": 4, "days": {"Mon": 1, "Tue": 0, "Wed": 1, "Thu": 0, "Fri": 1, "Sat": 1, "Sun": 0}},
-      "MIA": {"total": 3, "days": {"Mon": 0, "Tue": 0, "Wed": 1, "Thu": 0, "Fri": 1, "Sat": 0, "Sun": 1}},
-      "MIL": {"total": 4, "days": {"Mon": 1, "Tue": 0, "Wed": 1, "Thu": 0, "Fri": 1, "Sat": 0, "Sun": 1}},
-      "MIN": {"total": 3, "days": {"Mon": 0, "Tue": 1, "Wed": 0, "Thu": 1, "Fri": 0, "Sat": 1, "Sun": 0}},
-      "NOP": {"total": 4, "days": {"Mon": 1, "Tue": 0, "Wed": 1, "Thu": 0, "Fri": 1, "Sat": 0, "Sun": 1}},
-      "NYK": {"total": 3, "days": {"Mon": 0, "Tue": 1, "Wed": 0, "Thu": 1, "Fri": 0, "Sat": 1, "Sun": 0}},
-      "OKC": {"total": 4, "days": {"Mon": 1, "Tue": 0, "Wed": 1, "Thu": 0, "Fri": 1, "Sat": 0, "Sun": 1}},
-      "ORL": {"total": 3, "days": {"Mon": 0, "Tue": 0, "Wed": 1, "Thu": 0, "Fri": 1, "Sat": 0, "Sun": 1}},
-      "PHI": {"total": 4, "days": {"Mon": 0, "Tue": 1, "Wed": 1, "Thu": 0, "Fri": 1, "Sat": 0, "Sun": 1}},
-      "PHX": {"total": 4, "days": {"Mon": 0, "Tue": 1, "Wed": 0, "Thu": 1, "Fri": 0, "Sat": 1, "Sun": 1}},
-      "POR": {"total": 3, "days": {"Mon": 0, "Tue": 0, "Wed": 1, "Thu": 0, "Fri": 1, "Sat": 0, "Sun": 1}},
-      "SAC": {"total": 4, "days": {"Mon": 1, "Tue": 0, "Wed": 1, "Thu": 0, "Fri": 1, "Sat": 1, "Sun": 0}},
-      "SAS": {"total": 4, "days": {"Mon": 0, "Tue": 1, "Wed": 0, "Thu": 1, "Fri": 1, "Sat": 0, "Sun": 1}},
-      "TOR": {"total": 3, "days": {"Mon": 0, "Tue": 0, "Wed": 1, "Thu": 0, "Fri": 1, "Sat": 0, "Sun": 1}},
-      "UTA": {"total": 3, "days": {"Mon": 1, "Tue": 0, "Wed": 0, "Thu": 1, "Fri": 0, "Sat": 1, "Sun": 0}},
-      "WAS": {"total": 3, "days": {"Mon": 0, "Tue": 0, "Wed": 1, "Thu": 0, "Fri": 1, "Sat": 0, "Sun": 1}}
+      "ATL": {
+        "total": 4,
+        "days": {
+          "Mon": 1,
+          "Tue": 0,
+          "Wed": 1,
+          "Thu": 0,
+          "Fri": 1,
+          "Sat": 0,
+          "Sun": 1
+        }
+      },
+      "BOS": {
+        "total": 3,
+        "days": {
+          "Mon": 0,
+          "Tue": 1,
+          "Wed": 0,
+          "Thu": 1,
+          "Fri": 0,
+          "Sat": 1,
+          "Sun": 0
+        }
+      },
+      "BKN": {
+        "total": 3,
+        "days": {
+          "Mon": 0,
+          "Tue": 0,
+          "Wed": 1,
+          "Thu": 0,
+          "Fri": 1,
+          "Sat": 0,
+          "Sun": 1
+        }
+      },
+      "CHA": {
+        "total": 4,
+        "days": {
+          "Mon": 1,
+          "Tue": 0,
+          "Wed": 1,
+          "Thu": 0,
+          "Fri": 1,
+          "Sat": 0,
+          "Sun": 1
+        }
+      },
+      "CHI": {
+        "total": 3,
+        "days": {
+          "Mon": 0,
+          "Tue": 1,
+          "Wed": 0,
+          "Thu": 0,
+          "Fri": 1,
+          "Sat": 0,
+          "Sun": 1
+        }
+      },
+      "CLE": {
+        "total": 4,
+        "days": {
+          "Mon": 1,
+          "Tue": 0,
+          "Wed": 1,
+          "Thu": 0,
+          "Fri": 1,
+          "Sat": 1,
+          "Sun": 0
+        }
+      },
+      "DAL": {
+        "total": 3,
+        "days": {
+          "Mon": 0,
+          "Tue": 1,
+          "Wed": 0,
+          "Thu": 1,
+          "Fri": 0,
+          "Sat": 1,
+          "Sun": 0
+        }
+      },
+      "DEN": {
+        "total": 4,
+        "days": {
+          "Mon": 1,
+          "Tue": 0,
+          "Wed": 1,
+          "Thu": 0,
+          "Fri": 1,
+          "Sat": 0,
+          "Sun": 1
+        }
+      },
+      "DET": {
+        "total": 3,
+        "days": {
+          "Mon": 0,
+          "Tue": 0,
+          "Wed": 1,
+          "Thu": 0,
+          "Fri": 1,
+          "Sat": 0,
+          "Sun": 1
+        }
+      },
+      "GSW": {
+        "total": 4,
+        "days": {
+          "Mon": 0,
+          "Tue": 1,
+          "Wed": 0,
+          "Thu": 1,
+          "Fri": 1,
+          "Sat": 0,
+          "Sun": 1
+        }
+      },
+      "HOU": {
+        "total": 3,
+        "days": {
+          "Mon": 0,
+          "Tue": 0,
+          "Wed": 1,
+          "Thu": 0,
+          "Fri": 1,
+          "Sat": 0,
+          "Sun": 1
+        }
+      },
+      "IND": {
+        "total": 4,
+        "days": {
+          "Mon": 1,
+          "Tue": 0,
+          "Wed": 1,
+          "Thu": 0,
+          "Fri": 1,
+          "Sat": 0,
+          "Sun": 1
+        }
+      },
+      "LAC": {
+        "total": 3,
+        "days": {
+          "Mon": 0,
+          "Tue": 1,
+          "Wed": 0,
+          "Thu": 1,
+          "Fri": 0,
+          "Sat": 1,
+          "Sun": 0
+        }
+      },
+      "LAL": {
+        "total": 4,
+        "days": {
+          "Mon": 0,
+          "Tue": 1,
+          "Wed": 0,
+          "Thu": 1,
+          "Fri": 1,
+          "Sat": 0,
+          "Sun": 1
+        }
+      },
+      "MEM": {
+        "total": 4,
+        "days": {
+          "Mon": 1,
+          "Tue": 0,
+          "Wed": 1,
+          "Thu": 0,
+          "Fri": 1,
+          "Sat": 1,
+          "Sun": 0
+        }
+      },
+      "MIA": {
+        "total": 3,
+        "days": {
+          "Mon": 0,
+          "Tue": 0,
+          "Wed": 1,
+          "Thu": 0,
+          "Fri": 1,
+          "Sat": 0,
+          "Sun": 1
+        }
+      },
+      "MIL": {
+        "total": 4,
+        "days": {
+          "Mon": 1,
+          "Tue": 0,
+          "Wed": 1,
+          "Thu": 0,
+          "Fri": 1,
+          "Sat": 0,
+          "Sun": 1
+        }
+      },
+      "MIN": {
+        "total": 3,
+        "days": {
+          "Mon": 0,
+          "Tue": 1,
+          "Wed": 0,
+          "Thu": 1,
+          "Fri": 0,
+          "Sat": 1,
+          "Sun": 0
+        }
+      },
+      "NOP": {
+        "total": 4,
+        "days": {
+          "Mon": 1,
+          "Tue": 0,
+          "Wed": 1,
+          "Thu": 0,
+          "Fri": 1,
+          "Sat": 0,
+          "Sun": 1
+        }
+      },
+      "NYK": {
+        "total": 3,
+        "days": {
+          "Mon": 0,
+          "Tue": 1,
+          "Wed": 0,
+          "Thu": 1,
+          "Fri": 0,
+          "Sat": 1,
+          "Sun": 0
+        }
+      },
+      "OKC": {
+        "total": 4,
+        "days": {
+          "Mon": 1,
+          "Tue": 0,
+          "Wed": 1,
+          "Thu": 0,
+          "Fri": 1,
+          "Sat": 0,
+          "Sun": 1
+        }
+      },
+      "ORL": {
+        "total": 3,
+        "days": {
+          "Mon": 0,
+          "Tue": 0,
+          "Wed": 1,
+          "Thu": 0,
+          "Fri": 1,
+          "Sat": 0,
+          "Sun": 1
+        }
+      },
+      "PHI": {
+        "total": 4,
+        "days": {
+          "Mon": 0,
+          "Tue": 1,
+          "Wed": 1,
+          "Thu": 0,
+          "Fri": 1,
+          "Sat": 0,
+          "Sun": 1
+        }
+      },
+      "PHX": {
+        "total": 4,
+        "days": {
+          "Mon": 0,
+          "Tue": 1,
+          "Wed": 0,
+          "Thu": 1,
+          "Fri": 0,
+          "Sat": 1,
+          "Sun": 1
+        }
+      },
+      "POR": {
+        "total": 3,
+        "days": {
+          "Mon": 0,
+          "Tue": 0,
+          "Wed": 1,
+          "Thu": 0,
+          "Fri": 1,
+          "Sat": 0,
+          "Sun": 1
+        }
+      },
+      "SAC": {
+        "total": 4,
+        "days": {
+          "Mon": 1,
+          "Tue": 0,
+          "Wed": 1,
+          "Thu": 0,
+          "Fri": 1,
+          "Sat": 1,
+          "Sun": 0
+        }
+      },
+      "SAS": {
+        "total": 4,
+        "days": {
+          "Mon": 0,
+          "Tue": 1,
+          "Wed": 0,
+          "Thu": 1,
+          "Fri": 1,
+          "Sat": 0,
+          "Sun": 1
+        }
+      },
+      "TOR": {
+        "total": 3,
+        "days": {
+          "Mon": 0,
+          "Tue": 0,
+          "Wed": 1,
+          "Thu": 0,
+          "Fri": 1,
+          "Sat": 0,
+          "Sun": 1
+        }
+      },
+      "UTA": {
+        "total": 3,
+        "days": {
+          "Mon": 1,
+          "Tue": 0,
+          "Wed": 0,
+          "Thu": 1,
+          "Fri": 0,
+          "Sat": 1,
+          "Sun": 0
+        }
+      },
+      "WAS": {
+        "total": 3,
+        "days": {
+          "Mon": 0,
+          "Tue": 0,
+          "Wed": 1,
+          "Thu": 0,
+          "Fri": 1,
+          "Sat": 0,
+          "Sun": 1
+        }
+      }
+    },
+    "Week 2": {
+      "ATL": {
+        "total": 4,
+        "days": {
+          "Mon": 1,
+          "Tue": 0,
+          "Wed": 1,
+          "Thu": 1,
+          "Fri": 0,
+          "Sat": 1,
+          "Sun": 0
+        }
+      },
+      "BOS": {
+        "total": 4,
+        "days": {
+          "Mon": 0,
+          "Tue": 1,
+          "Wed": 0,
+          "Thu": 1,
+          "Fri": 1,
+          "Sat": 0,
+          "Sun": 1
+        }
+      },
+      "BKN": {
+        "total": 4,
+        "days": {
+          "Mon": 1,
+          "Tue": 0,
+          "Wed": 1,
+          "Thu": 0,
+          "Fri": 1,
+          "Sat": 1,
+          "Sun": 0
+        }
+      },
+      "CHA": {
+        "total": 4,
+        "days": {
+          "Mon": 1,
+          "Tue": 1,
+          "Wed": 1,
+          "Thu": 0,
+          "Fri": 0,
+          "Sat": 0,
+          "Sun": 1
+        }
+      },
+      "CHI": {
+        "total": 4,
+        "days": {
+          "Mon": 1,
+          "Tue": 0,
+          "Wed": 0,
+          "Thu": 0,
+          "Fri": 1,
+          "Sat": 1,
+          "Sun": 1
+        }
+      },
+      "CLE": {
+        "total": 3,
+        "days": {
+          "Mon": 0,
+          "Tue": 0,
+          "Wed": 1,
+          "Thu": 0,
+          "Fri": 1,
+          "Sat": 0,
+          "Sun": 1
+        }
+      },
+      "DAL": {
+        "total": 3,
+        "days": {
+          "Mon": 0,
+          "Tue": 0,
+          "Wed": 1,
+          "Thu": 0,
+          "Fri": 1,
+          "Sat": 0,
+          "Sun": 1
+        }
+      },
+      "DEN": {
+        "total": 4,
+        "days": {
+          "Mon": 0,
+          "Tue": 0,
+          "Wed": 1,
+          "Thu": 1,
+          "Fri": 1,
+          "Sat": 0,
+          "Sun": 1
+        }
+      },
+      "DET": {
+        "total": 4,
+        "days": {
+          "Mon": 1,
+          "Tue": 1,
+          "Wed": 1,
+          "Thu": 1,
+          "Fri": 0,
+          "Sat": 0,
+          "Sun": 0
+        }
+      },
+      "GSW": {
+        "total": 3,
+        "days": {
+          "Mon": 1,
+          "Tue": 1,
+          "Wed": 0,
+          "Thu": 1,
+          "Fri": 0,
+          "Sat": 0,
+          "Sun": 0
+        }
+      },
+      "HOU": {
+        "total": 3,
+        "days": {
+          "Mon": 0,
+          "Tue": 1,
+          "Wed": 1,
+          "Thu": 0,
+          "Fri": 1,
+          "Sat": 0,
+          "Sun": 0
+        }
+      },
+      "IND": {
+        "total": 3,
+        "days": {
+          "Mon": 0,
+          "Tue": 1,
+          "Wed": 1,
+          "Thu": 0,
+          "Fri": 0,
+          "Sat": 0,
+          "Sun": 1
+        }
+      },
+      "LAC": {
+        "total": 3,
+        "days": {
+          "Mon": 1,
+          "Tue": 0,
+          "Wed": 0,
+          "Thu": 1,
+          "Fri": 1,
+          "Sat": 0,
+          "Sun": 0
+        }
+      },
+      "LAL": {
+        "total": 4,
+        "days": {
+          "Mon": 1,
+          "Tue": 0,
+          "Wed": 1,
+          "Thu": 0,
+          "Fri": 1,
+          "Sat": 0,
+          "Sun": 1
+        }
+      },
+      "MEM": {
+        "total": 3,
+        "days": {
+          "Mon": 0,
+          "Tue": 0,
+          "Wed": 1,
+          "Thu": 0,
+          "Fri": 1,
+          "Sat": 1,
+          "Sun": 0
+        }
+      },
+      "MIA": {
+        "total": 3,
+        "days": {
+          "Mon": 1,
+          "Tue": 0,
+          "Wed": 0,
+          "Thu": 0,
+          "Fri": 1,
+          "Sat": 1,
+          "Sun": 0
+        }
+      },
+      "MIL": {
+        "total": 4,
+        "days": {
+          "Mon": 1,
+          "Tue": 0,
+          "Wed": 1,
+          "Thu": 1,
+          "Fri": 1,
+          "Sat": 0,
+          "Sun": 0
+        }
+      },
+      "MIN": {
+        "total": 4,
+        "days": {
+          "Mon": 0,
+          "Tue": 1,
+          "Wed": 0,
+          "Thu": 1,
+          "Fri": 0,
+          "Sat": 1,
+          "Sun": 1
+        }
+      },
+      "NOP": {
+        "total": 4,
+        "days": {
+          "Mon": 1,
+          "Tue": 0,
+          "Wed": 1,
+          "Thu": 1,
+          "Fri": 0,
+          "Sat": 0,
+          "Sun": 1
+        }
+      },
+      "NYK": {
+        "total": 3,
+        "days": {
+          "Mon": 0,
+          "Tue": 1,
+          "Wed": 1,
+          "Thu": 0,
+          "Fri": 1,
+          "Sat": 0,
+          "Sun": 0
+        }
+      },
+      "OKC": {
+        "total": 3,
+        "days": {
+          "Mon": 0,
+          "Tue": 1,
+          "Wed": 0,
+          "Thu": 0,
+          "Fri": 1,
+          "Sat": 0,
+          "Sun": 1
+        }
+      },
+      "ORL": {
+        "total": 4,
+        "days": {
+          "Mon": 1,
+          "Tue": 1,
+          "Wed": 0,
+          "Thu": 1,
+          "Fri": 0,
+          "Sat": 0,
+          "Sun": 1
+        }
+      },
+      "PHI": {
+        "total": 4,
+        "days": {
+          "Mon": 1,
+          "Tue": 1,
+          "Wed": 0,
+          "Thu": 0,
+          "Fri": 1,
+          "Sat": 0,
+          "Sun": 1
+        }
+      },
+      "PHX": {
+        "total": 4,
+        "days": {
+          "Mon": 1,
+          "Tue": 0,
+          "Wed": 1,
+          "Thu": 0,
+          "Fri": 1,
+          "Sat": 0,
+          "Sun": 1
+        }
+      },
+      "POR": {
+        "total": 3,
+        "days": {
+          "Mon": 0,
+          "Tue": 0,
+          "Wed": 0,
+          "Thu": 1,
+          "Fri": 0,
+          "Sat": 1,
+          "Sun": 1
+        }
+      },
+      "SAC": {
+        "total": 4,
+        "days": {
+          "Mon": 1,
+          "Tue": 0,
+          "Wed": 1,
+          "Thu": 0,
+          "Fri": 1,
+          "Sat": 1,
+          "Sun": 0
+        }
+      },
+      "SAS": {
+        "total": 3,
+        "days": {
+          "Mon": 1,
+          "Tue": 1,
+          "Wed": 0,
+          "Thu": 0,
+          "Fri": 1,
+          "Sat": 0,
+          "Sun": 0
+        }
+      },
+      "TOR": {
+        "total": 3,
+        "days": {
+          "Mon": 0,
+          "Tue": 0,
+          "Wed": 1,
+          "Thu": 0,
+          "Fri": 1,
+          "Sat": 0,
+          "Sun": 1
+        }
+      },
+      "UTA": {
+        "total": 4,
+        "days": {
+          "Mon": 1,
+          "Tue": 1,
+          "Wed": 0,
+          "Thu": 1,
+          "Fri": 0,
+          "Sat": 0,
+          "Sun": 1
+        }
+      },
+      "WAS": {
+        "total": 4,
+        "days": {
+          "Mon": 0,
+          "Tue": 1,
+          "Wed": 0,
+          "Thu": 1,
+          "Fri": 0,
+          "Sat": 1,
+          "Sun": 1
+        }
+      }
+    },
+    "Week 3": {
+      "ATL": {
+        "total": 4,
+        "days": {
+          "Mon": 1,
+          "Tue": 1,
+          "Wed": 0,
+          "Thu": 0,
+          "Fri": 1,
+          "Sat": 1,
+          "Sun": 0
+        }
+      },
+      "BOS": {
+        "total": 3,
+        "days": {
+          "Mon": 0,
+          "Tue": 0,
+          "Wed": 1,
+          "Thu": 0,
+          "Fri": 0,
+          "Sat": 1,
+          "Sun": 1
+        }
+      },
+      "BKN": {
+        "total": 3,
+        "days": {
+          "Mon": 1,
+          "Tue": 0,
+          "Wed": 0,
+          "Thu": 0,
+          "Fri": 1,
+          "Sat": 0,
+          "Sun": 1
+        }
+      },
+      "CHA": {
+        "total": 4,
+        "days": {
+          "Mon": 1,
+          "Tue": 0,
+          "Wed": 0,
+          "Thu": 1,
+          "Fri": 1,
+          "Sat": 0,
+          "Sun": 1
+        }
+      },
+      "CHI": {
+        "total": 4,
+        "days": {
+          "Mon": 0,
+          "Tue": 0,
+          "Wed": 1,
+          "Thu": 1,
+          "Fri": 1,
+          "Sat": 0,
+          "Sun": 1
+        }
+      },
+      "CLE": {
+        "total": 4,
+        "days": {
+          "Mon": 0,
+          "Tue": 1,
+          "Wed": 1,
+          "Thu": 0,
+          "Fri": 1,
+          "Sat": 0,
+          "Sun": 1
+        }
+      },
+      "DAL": {
+        "total": 4,
+        "days": {
+          "Mon": 1,
+          "Tue": 1,
+          "Wed": 1,
+          "Thu": 1,
+          "Fri": 0,
+          "Sat": 0,
+          "Sun": 0
+        }
+      },
+      "DEN": {
+        "total": 3,
+        "days": {
+          "Mon": 1,
+          "Tue": 0,
+          "Wed": 0,
+          "Thu": 1,
+          "Fri": 1,
+          "Sat": 0,
+          "Sun": 0
+        }
+      },
+      "DET": {
+        "total": 3,
+        "days": {
+          "Mon": 1,
+          "Tue": 1,
+          "Wed": 0,
+          "Thu": 0,
+          "Fri": 1,
+          "Sat": 0,
+          "Sun": 0
+        }
+      },
+      "GSW": {
+        "total": 4,
+        "days": {
+          "Mon": 1,
+          "Tue": 0,
+          "Wed": 1,
+          "Thu": 1,
+          "Fri": 1,
+          "Sat": 0,
+          "Sun": 0
+        }
+      },
+      "HOU": {
+        "total": 4,
+        "days": {
+          "Mon": 0,
+          "Tue": 0,
+          "Wed": 0,
+          "Thu": 1,
+          "Fri": 1,
+          "Sat": 1,
+          "Sun": 1
+        }
+      },
+      "IND": {
+        "total": 4,
+        "days": {
+          "Mon": 0,
+          "Tue": 1,
+          "Wed": 1,
+          "Thu": 1,
+          "Fri": 1,
+          "Sat": 0,
+          "Sun": 0
+        }
+      },
+      "LAC": {
+        "total": 3,
+        "days": {
+          "Mon": 1,
+          "Tue": 0,
+          "Wed": 1,
+          "Thu": 0,
+          "Fri": 1,
+          "Sat": 0,
+          "Sun": 0
+        }
+      },
+      "LAL": {
+        "total": 3,
+        "days": {
+          "Mon": 1,
+          "Tue": 0,
+          "Wed": 1,
+          "Thu": 0,
+          "Fri": 0,
+          "Sat": 0,
+          "Sun": 1
+        }
+      },
+      "MEM": {
+        "total": 3,
+        "days": {
+          "Mon": 1,
+          "Tue": 0,
+          "Wed": 0,
+          "Thu": 1,
+          "Fri": 1,
+          "Sat": 0,
+          "Sun": 0
+        }
+      },
+      "MIA": {
+        "total": 4,
+        "days": {
+          "Mon": 1,
+          "Tue": 1,
+          "Wed": 0,
+          "Thu": 0,
+          "Fri": 1,
+          "Sat": 1,
+          "Sun": 0
+        }
+      },
+      "MIL": {
+        "total": 4,
+        "days": {
+          "Mon": 1,
+          "Tue": 0,
+          "Wed": 1,
+          "Thu": 1,
+          "Fri": 1,
+          "Sat": 0,
+          "Sun": 0
+        }
+      },
+      "MIN": {
+        "total": 4,
+        "days": {
+          "Mon": 1,
+          "Tue": 0,
+          "Wed": 0,
+          "Thu": 0,
+          "Fri": 1,
+          "Sat": 1,
+          "Sun": 1
+        }
+      },
+      "NOP": {
+        "total": 3,
+        "days": {
+          "Mon": 1,
+          "Tue": 0,
+          "Wed": 0,
+          "Thu": 1,
+          "Fri": 1,
+          "Sat": 0,
+          "Sun": 0
+        }
+      },
+      "NYK": {
+        "total": 4,
+        "days": {
+          "Mon": 1,
+          "Tue": 1,
+          "Wed": 1,
+          "Thu": 0,
+          "Fri": 0,
+          "Sat": 1,
+          "Sun": 0
+        }
+      },
+      "OKC": {
+        "total": 3,
+        "days": {
+          "Mon": 0,
+          "Tue": 0,
+          "Wed": 1,
+          "Thu": 0,
+          "Fri": 1,
+          "Sat": 0,
+          "Sun": 1
+        }
+      },
+      "ORL": {
+        "total": 3,
+        "days": {
+          "Mon": 1,
+          "Tue": 1,
+          "Wed": 0,
+          "Thu": 0,
+          "Fri": 0,
+          "Sat": 0,
+          "Sun": 1
+        }
+      },
+      "PHI": {
+        "total": 4,
+        "days": {
+          "Mon": 1,
+          "Tue": 0,
+          "Wed": 1,
+          "Thu": 0,
+          "Fri": 1,
+          "Sat": 0,
+          "Sun": 1
+        }
+      },
+      "PHX": {
+        "total": 3,
+        "days": {
+          "Mon": 0,
+          "Tue": 0,
+          "Wed": 0,
+          "Thu": 1,
+          "Fri": 1,
+          "Sat": 1,
+          "Sun": 0
+        }
+      },
+      "POR": {
+        "total": 4,
+        "days": {
+          "Mon": 1,
+          "Tue": 1,
+          "Wed": 1,
+          "Thu": 0,
+          "Fri": 1,
+          "Sat": 0,
+          "Sun": 0
+        }
+      },
+      "SAC": {
+        "total": 3,
+        "days": {
+          "Mon": 1,
+          "Tue": 1,
+          "Wed": 0,
+          "Thu": 0,
+          "Fri": 0,
+          "Sat": 1,
+          "Sun": 0
+        }
+      },
+      "SAS": {
+        "total": 4,
+        "days": {
+          "Mon": 1,
+          "Tue": 0,
+          "Wed": 1,
+          "Thu": 0,
+          "Fri": 1,
+          "Sat": 0,
+          "Sun": 1
+        }
+      },
+      "TOR": {
+        "total": 4,
+        "days": {
+          "Mon": 1,
+          "Tue": 0,
+          "Wed": 0,
+          "Thu": 1,
+          "Fri": 1,
+          "Sat": 0,
+          "Sun": 1
+        }
+      },
+      "UTA": {
+        "total": 3,
+        "days": {
+          "Mon": 1,
+          "Tue": 1,
+          "Wed": 0,
+          "Thu": 0,
+          "Fri": 0,
+          "Sat": 0,
+          "Sun": 1
+        }
+      },
+      "WAS": {
+        "total": 3,
+        "days": {
+          "Mon": 0,
+          "Tue": 0,
+          "Wed": 1,
+          "Thu": 0,
+          "Fri": 1,
+          "Sat": 0,
+          "Sun": 1
+        }
+      }
+    },
+    "Week 4": {
+      "ATL": {
+        "total": 3,
+        "days": {
+          "Mon": 0,
+          "Tue": 1,
+          "Wed": 1,
+          "Thu": 0,
+          "Fri": 1,
+          "Sat": 0,
+          "Sun": 0
+        }
+      },
+      "BOS": {
+        "total": 4,
+        "days": {
+          "Mon": 1,
+          "Tue": 0,
+          "Wed": 1,
+          "Thu": 0,
+          "Fri": 1,
+          "Sat": 0,
+          "Sun": 1
+        }
+      },
+      "BKN": {
+        "total": 4,
+        "days": {
+          "Mon": 1,
+          "Tue": 0,
+          "Wed": 1,
+          "Thu": 1,
+          "Fri": 0,
+          "Sat": 0,
+          "Sun": 1
+        }
+      },
+      "CHA": {
+        "total": 3,
+        "days": {
+          "Mon": 0,
+          "Tue": 0,
+          "Wed": 0,
+          "Thu": 0,
+          "Fri": 1,
+          "Sat": 1,
+          "Sun": 1
+        }
+      },
+      "CHI": {
+        "total": 3,
+        "days": {
+          "Mon": 1,
+          "Tue": 0,
+          "Wed": 1,
+          "Thu": 0,
+          "Fri": 0,
+          "Sat": 0,
+          "Sun": 1
+        }
+      },
+      "CLE": {
+        "total": 3,
+        "days": {
+          "Mon": 0,
+          "Tue": 0,
+          "Wed": 0,
+          "Thu": 1,
+          "Fri": 1,
+          "Sat": 0,
+          "Sun": 1
+        }
+      },
+      "DAL": {
+        "total": 4,
+        "days": {
+          "Mon": 1,
+          "Tue": 0,
+          "Wed": 1,
+          "Thu": 0,
+          "Fri": 1,
+          "Sat": 0,
+          "Sun": 1
+        }
+      },
+      "DEN": {
+        "total": 4,
+        "days": {
+          "Mon": 1,
+          "Tue": 1,
+          "Wed": 0,
+          "Thu": 0,
+          "Fri": 1,
+          "Sat": 0,
+          "Sun": 1
+        }
+      },
+      "DET": {
+        "total": 4,
+        "days": {
+          "Mon": 1,
+          "Tue": 0,
+          "Wed": 1,
+          "Thu": 0,
+          "Fri": 1,
+          "Sat": 1,
+          "Sun": 0
+        }
+      },
+      "GSW": {
+        "total": 3,
+        "days": {
+          "Mon": 1,
+          "Tue": 0,
+          "Wed": 0,
+          "Thu": 0,
+          "Fri": 1,
+          "Sat": 1,
+          "Sun": 0
+        }
+      },
+      "HOU": {
+        "total": 4,
+        "days": {
+          "Mon": 0,
+          "Tue": 1,
+          "Wed": 0,
+          "Thu": 1,
+          "Fri": 0,
+          "Sat": 1,
+          "Sun": 1
+        }
+      },
+      "IND": {
+        "total": 3,
+        "days": {
+          "Mon": 1,
+          "Tue": 0,
+          "Wed": 1,
+          "Thu": 1,
+          "Fri": 0,
+          "Sat": 0,
+          "Sun": 0
+        }
+      },
+      "LAC": {
+        "total": 3,
+        "days": {
+          "Mon": 1,
+          "Tue": 0,
+          "Wed": 0,
+          "Thu": 0,
+          "Fri": 1,
+          "Sat": 1,
+          "Sun": 0
+        }
+      },
+      "LAL": {
+        "total": 4,
+        "days": {
+          "Mon": 0,
+          "Tue": 1,
+          "Wed": 1,
+          "Thu": 1,
+          "Fri": 0,
+          "Sat": 1,
+          "Sun": 0
+        }
+      },
+      "MEM": {
+        "total": 3,
+        "days": {
+          "Mon": 1,
+          "Tue": 1,
+          "Wed": 0,
+          "Thu": 0,
+          "Fri": 0,
+          "Sat": 0,
+          "Sun": 1
+        }
+      },
+      "MIA": {
+        "total": 3,
+        "days": {
+          "Mon": 0,
+          "Tue": 0,
+          "Wed": 0,
+          "Thu": 1,
+          "Fri": 1,
+          "Sat": 0,
+          "Sun": 1
+        }
+      },
+      "MIL": {
+        "total": 4,
+        "days": {
+          "Mon": 1,
+          "Tue": 1,
+          "Wed": 1,
+          "Thu": 0,
+          "Fri": 1,
+          "Sat": 0,
+          "Sun": 0
+        }
+      },
+      "MIN": {
+        "total": 3,
+        "days": {
+          "Mon": 0,
+          "Tue": 0,
+          "Wed": 0,
+          "Thu": 0,
+          "Fri": 1,
+          "Sat": 1,
+          "Sun": 1
+        }
+      },
+      "NOP": {
+        "total": 4,
+        "days": {
+          "Mon": 1,
+          "Tue": 1,
+          "Wed": 1,
+          "Thu": 0,
+          "Fri": 0,
+          "Sat": 0,
+          "Sun": 1
+        }
+      },
+      "NYK": {
+        "total": 4,
+        "days": {
+          "Mon": 0,
+          "Tue": 0,
+          "Wed": 1,
+          "Thu": 1,
+          "Fri": 0,
+          "Sat": 1,
+          "Sun": 1
+        }
+      },
+      "OKC": {
+        "total": 4,
+        "days": {
+          "Mon": 1,
+          "Tue": 0,
+          "Wed": 0,
+          "Thu": 0,
+          "Fri": 1,
+          "Sat": 1,
+          "Sun": 1
+        }
+      },
+      "ORL": {
+        "total": 4,
+        "days": {
+          "Mon": 1,
+          "Tue": 0,
+          "Wed": 0,
+          "Thu": 0,
+          "Fri": 1,
+          "Sat": 1,
+          "Sun": 1
+        }
+      },
+      "PHI": {
+        "total": 4,
+        "days": {
+          "Mon": 0,
+          "Tue": 0,
+          "Wed": 1,
+          "Thu": 0,
+          "Fri": 1,
+          "Sat": 1,
+          "Sun": 1
+        }
+      },
+      "PHX": {
+        "total": 4,
+        "days": {
+          "Mon": 1,
+          "Tue": 1,
+          "Wed": 0,
+          "Thu": 0,
+          "Fri": 1,
+          "Sat": 1,
+          "Sun": 0
+        }
+      },
+      "POR": {
+        "total": 3,
+        "days": {
+          "Mon": 1,
+          "Tue": 0,
+          "Wed": 0,
+          "Thu": 0,
+          "Fri": 1,
+          "Sat": 0,
+          "Sun": 1
+        }
+      },
+      "SAC": {
+        "total": 3,
+        "days": {
+          "Mon": 0,
+          "Tue": 1,
+          "Wed": 1,
+          "Thu": 0,
+          "Fri": 0,
+          "Sat": 1,
+          "Sun": 0
+        }
+      },
+      "SAS": {
+        "total": 3,
+        "days": {
+          "Mon": 1,
+          "Tue": 1,
+          "Wed": 0,
+          "Thu": 0,
+          "Fri": 0,
+          "Sat": 1,
+          "Sun": 0
+        }
+      },
+      "TOR": {
+        "total": 4,
+        "days": {
+          "Mon": 0,
+          "Tue": 1,
+          "Wed": 1,
+          "Thu": 0,
+          "Fri": 0,
+          "Sat": 1,
+          "Sun": 1
+        }
+      },
+      "UTA": {
+        "total": 3,
+        "days": {
+          "Mon": 0,
+          "Tue": 1,
+          "Wed": 1,
+          "Thu": 0,
+          "Fri": 1,
+          "Sat": 0,
+          "Sun": 0
+        }
+      },
+      "WAS": {
+        "total": 4,
+        "days": {
+          "Mon": 1,
+          "Tue": 0,
+          "Wed": 1,
+          "Thu": 0,
+          "Fri": 0,
+          "Sat": 1,
+          "Sun": 1
+        }
+      }
+    },
+    "Week 5": {
+      "ATL": {
+        "total": 3,
+        "days": {
+          "Mon": 1,
+          "Tue": 0,
+          "Wed": 0,
+          "Thu": 1,
+          "Fri": 1,
+          "Sat": 0,
+          "Sun": 0
+        }
+      },
+      "BOS": {
+        "total": 4,
+        "days": {
+          "Mon": 0,
+          "Tue": 0,
+          "Wed": 1,
+          "Thu": 0,
+          "Fri": 1,
+          "Sat": 1,
+          "Sun": 1
+        }
+      },
+      "BKN": {
+        "total": 3,
+        "days": {
+          "Mon": 0,
+          "Tue": 1,
+          "Wed": 0,
+          "Thu": 1,
+          "Fri": 0,
+          "Sat": 0,
+          "Sun": 1
+        }
+      },
+      "CHA": {
+        "total": 4,
+        "days": {
+          "Mon": 1,
+          "Tue": 0,
+          "Wed": 0,
+          "Thu": 1,
+          "Fri": 1,
+          "Sat": 0,
+          "Sun": 1
+        }
+      },
+      "CHI": {
+        "total": 3,
+        "days": {
+          "Mon": 0,
+          "Tue": 0,
+          "Wed": 1,
+          "Thu": 0,
+          "Fri": 1,
+          "Sat": 0,
+          "Sun": 1
+        }
+      },
+      "CLE": {
+        "total": 4,
+        "days": {
+          "Mon": 1,
+          "Tue": 0,
+          "Wed": 1,
+          "Thu": 0,
+          "Fri": 1,
+          "Sat": 1,
+          "Sun": 0
+        }
+      },
+      "DAL": {
+        "total": 3,
+        "days": {
+          "Mon": 0,
+          "Tue": 0,
+          "Wed": 1,
+          "Thu": 0,
+          "Fri": 1,
+          "Sat": 1,
+          "Sun": 0
+        }
+      },
+      "DEN": {
+        "total": 3,
+        "days": {
+          "Mon": 0,
+          "Tue": 1,
+          "Wed": 1,
+          "Thu": 0,
+          "Fri": 1,
+          "Sat": 0,
+          "Sun": 0
+        }
+      },
+      "DET": {
+        "total": 4,
+        "days": {
+          "Mon": 1,
+          "Tue": 1,
+          "Wed": 0,
+          "Thu": 0,
+          "Fri": 1,
+          "Sat": 1,
+          "Sun": 0
+        }
+      },
+      "GSW": {
+        "total": 3,
+        "days": {
+          "Mon": 0,
+          "Tue": 1,
+          "Wed": 1,
+          "Thu": 0,
+          "Fri": 1,
+          "Sat": 0,
+          "Sun": 0
+        }
+      },
+      "HOU": {
+        "total": 4,
+        "days": {
+          "Mon": 0,
+          "Tue": 0,
+          "Wed": 1,
+          "Thu": 0,
+          "Fri": 1,
+          "Sat": 1,
+          "Sun": 1
+        }
+      },
+      "IND": {
+        "total": 4,
+        "days": {
+          "Mon": 0,
+          "Tue": 1,
+          "Wed": 0,
+          "Thu": 1,
+          "Fri": 1,
+          "Sat": 1,
+          "Sun": 0
+        }
+      },
+      "LAC": {
+        "total": 4,
+        "days": {
+          "Mon": 1,
+          "Tue": 0,
+          "Wed": 1,
+          "Thu": 0,
+          "Fri": 1,
+          "Sat": 0,
+          "Sun": 1
+        }
+      },
+      "LAL": {
+        "total": 4,
+        "days": {
+          "Mon": 1,
+          "Tue": 1,
+          "Wed": 1,
+          "Thu": 0,
+          "Fri": 0,
+          "Sat": 1,
+          "Sun": 0
+        }
+      },
+      "MEM": {
+        "total": 3,
+        "days": {
+          "Mon": 0,
+          "Tue": 0,
+          "Wed": 0,
+          "Thu": 1,
+          "Fri": 1,
+          "Sat": 0,
+          "Sun": 1
+        }
+      },
+      "MIA": {
+        "total": 3,
+        "days": {
+          "Mon": 0,
+          "Tue": 0,
+          "Wed": 1,
+          "Thu": 0,
+          "Fri": 1,
+          "Sat": 0,
+          "Sun": 1
+        }
+      },
+      "MIL": {
+        "total": 4,
+        "days": {
+          "Mon": 1,
+          "Tue": 1,
+          "Wed": 1,
+          "Thu": 0,
+          "Fri": 1,
+          "Sat": 0,
+          "Sun": 0
+        }
+      },
+      "MIN": {
+        "total": 3,
+        "days": {
+          "Mon": 0,
+          "Tue": 0,
+          "Wed": 0,
+          "Thu": 0,
+          "Fri": 1,
+          "Sat": 1,
+          "Sun": 1
+        }
+      },
+      "NOP": {
+        "total": 4,
+        "days": {
+          "Mon": 1,
+          "Tue": 0,
+          "Wed": 0,
+          "Thu": 0,
+          "Fri": 1,
+          "Sat": 1,
+          "Sun": 1
+        }
+      },
+      "NYK": {
+        "total": 4,
+        "days": {
+          "Mon": 0,
+          "Tue": 0,
+          "Wed": 1,
+          "Thu": 1,
+          "Fri": 1,
+          "Sat": 0,
+          "Sun": 1
+        }
+      },
+      "OKC": {
+        "total": 3,
+        "days": {
+          "Mon": 1,
+          "Tue": 0,
+          "Wed": 1,
+          "Thu": 0,
+          "Fri": 1,
+          "Sat": 0,
+          "Sun": 0
+        }
+      },
+      "ORL": {
+        "total": 3,
+        "days": {
+          "Mon": 0,
+          "Tue": 1,
+          "Wed": 0,
+          "Thu": 1,
+          "Fri": 1,
+          "Sat": 0,
+          "Sun": 0
+        }
+      },
+      "PHI": {
+        "total": 3,
+        "days": {
+          "Mon": 0,
+          "Tue": 0,
+          "Wed": 1,
+          "Thu": 0,
+          "Fri": 1,
+          "Sat": 0,
+          "Sun": 1
+        }
+      },
+      "PHX": {
+        "total": 4,
+        "days": {
+          "Mon": 0,
+          "Tue": 1,
+          "Wed": 1,
+          "Thu": 0,
+          "Fri": 0,
+          "Sat": 1,
+          "Sun": 1
+        }
+      },
+      "POR": {
+        "total": 4,
+        "days": {
+          "Mon": 1,
+          "Tue": 0,
+          "Wed": 0,
+          "Thu": 1,
+          "Fri": 1,
+          "Sat": 0,
+          "Sun": 1
+        }
+      },
+      "SAC": {
+        "total": 4,
+        "days": {
+          "Mon": 0,
+          "Tue": 1,
+          "Wed": 1,
+          "Thu": 0,
+          "Fri": 1,
+          "Sat": 1,
+          "Sun": 0
+        }
+      },
+      "SAS": {
+        "total": 3,
+        "days": {
+          "Mon": 0,
+          "Tue": 1,
+          "Wed": 0,
+          "Thu": 1,
+          "Fri": 0,
+          "Sat": 1,
+          "Sun": 0
+        }
+      },
+      "TOR": {
+        "total": 2,
+        "days": {
+          "Mon": 0,
+          "Tue": 1,
+          "Wed": 1,
+          "Thu": 0,
+          "Fri": 0,
+          "Sat": 0,
+          "Sun": 0
+        }
+      },
+      "UTA": {
+        "total": 3,
+        "days": {
+          "Mon": 1,
+          "Tue": 0,
+          "Wed": 1,
+          "Thu": 0,
+          "Fri": 0,
+          "Sat": 0,
+          "Sun": 1
+        }
+      },
+      "WAS": {
+        "total": 2,
+        "days": {
+          "Mon": 1,
+          "Tue": 0,
+          "Wed": 1,
+          "Thu": 0,
+          "Fri": 0,
+          "Sat": 0,
+          "Sun": 0
+        }
+      }
+    },
+    "Week 6": {
+      "ATL": {
+        "total": 4,
+        "days": {
+          "Mon": 1,
+          "Tue": 0,
+          "Wed": 1,
+          "Thu": 0,
+          "Fri": 0,
+          "Sat": 1,
+          "Sun": 1
+        }
+      },
+      "BOS": {
+        "total": 4,
+        "days": {
+          "Mon": 0,
+          "Tue": 1,
+          "Wed": 1,
+          "Thu": 0,
+          "Fri": 1,
+          "Sat": 0,
+          "Sun": 1
+        }
+      },
+      "BKN": {
+        "total": 4,
+        "days": {
+          "Mon": 1,
+          "Tue": 1,
+          "Wed": 0,
+          "Thu": 1,
+          "Fri": 1,
+          "Sat": 0,
+          "Sun": 0
+        }
+      },
+      "CHA": {
+        "total": 3,
+        "days": {
+          "Mon": 1,
+          "Tue": 0,
+          "Wed": 1,
+          "Thu": 0,
+          "Fri": 0,
+          "Sat": 1,
+          "Sun": 0
+        }
+      },
+      "CHI": {
+        "total": 3,
+        "days": {
+          "Mon": 1,
+          "Tue": 0,
+          "Wed": 1,
+          "Thu": 0,
+          "Fri": 1,
+          "Sat": 0,
+          "Sun": 0
+        }
+      },
+      "CLE": {
+        "total": 3,
+        "days": {
+          "Mon": 1,
+          "Tue": 1,
+          "Wed": 0,
+          "Thu": 0,
+          "Fri": 1,
+          "Sat": 0,
+          "Sun": 0
+        }
+      },
+      "DAL": {
+        "total": 4,
+        "days": {
+          "Mon": 1,
+          "Tue": 0,
+          "Wed": 1,
+          "Thu": 0,
+          "Fri": 1,
+          "Sat": 1,
+          "Sun": 0
+        }
+      },
+      "DEN": {
+        "total": 3,
+        "days": {
+          "Mon": 1,
+          "Tue": 1,
+          "Wed": 0,
+          "Thu": 1,
+          "Fri": 0,
+          "Sat": 0,
+          "Sun": 0
+        }
+      },
+      "DET": {
+        "total": 3,
+        "days": {
+          "Mon": 1,
+          "Tue": 0,
+          "Wed": 1,
+          "Thu": 0,
+          "Fri": 1,
+          "Sat": 0,
+          "Sun": 0
+        }
+      },
+      "GSW": {
+        "total": 3,
+        "days": {
+          "Mon": 0,
+          "Tue": 0,
+          "Wed": 1,
+          "Thu": 0,
+          "Fri": 1,
+          "Sat": 1,
+          "Sun": 0
+        }
+      },
+      "HOU": {
+        "total": 4,
+        "days": {
+          "Mon": 1,
+          "Tue": 1,
+          "Wed": 1,
+          "Thu": 0,
+          "Fri": 0,
+          "Sat": 1,
+          "Sun": 0
+        }
+      },
+      "IND": {
+        "total": 3,
+        "days": {
+          "Mon": 0,
+          "Tue": 0,
+          "Wed": 1,
+          "Thu": 1,
+          "Fri": 0,
+          "Sat": 0,
+          "Sun": 1
+        }
+      },
+      "LAC": {
+        "total": 4,
+        "days": {
+          "Mon": 0,
+          "Tue": 0,
+          "Wed": 1,
+          "Thu": 0,
+          "Fri": 1,
+          "Sat": 1,
+          "Sun": 1
+        }
+      },
+      "LAL": {
+        "total": 4,
+        "days": {
+          "Mon": 1,
+          "Tue": 1,
+          "Wed": 1,
+          "Thu": 0,
+          "Fri": 0,
+          "Sat": 0,
+          "Sun": 1
+        }
+      },
+      "MEM": {
+        "total": 4,
+        "days": {
+          "Mon": 1,
+          "Tue": 0,
+          "Wed": 1,
+          "Thu": 1,
+          "Fri": 1,
+          "Sat": 0,
+          "Sun": 0
+        }
+      },
+      "MIA": {
+        "total": 2,
+        "days": {
+          "Mon": 0,
+          "Tue": 0,
+          "Wed": 0,
+          "Thu": 0,
+          "Fri": 1,
+          "Sat": 1,
+          "Sun": 0
+        }
+      },
+      "MIL": {
+        "total": 2,
+        "days": {
+          "Mon": 1,
+          "Tue": 0,
+          "Wed": 0,
+          "Thu": 0,
+          "Fri": 1,
+          "Sat": 0,
+          "Sun": 0
+        }
+      },
+      "MIN": {
+        "total": 4,
+        "days": {
+          "Mon": 1,
+          "Tue": 0,
+          "Wed": 0,
+          "Thu": 0,
+          "Fri": 1,
+          "Sat": 1,
+          "Sun": 1
+        }
+      },
+      "NOP": {
+        "total": 4,
+        "days": {
+          "Mon": 1,
+          "Tue": 1,
+          "Wed": 0,
+          "Thu": 1,
+          "Fri": 0,
+          "Sat": 1,
+          "Sun": 0
+        }
+      },
+      "NYK": {
+        "total": 3,
+        "days": {
+          "Mon": 0,
+          "Tue": 0,
+          "Wed": 1,
+          "Thu": 0,
+          "Fri": 1,
+          "Sat": 0,
+          "Sun": 1
+        }
+      },
+      "OKC": {
+        "total": 3,
+        "days": {
+          "Mon": 1,
+          "Tue": 0,
+          "Wed": 0,
+          "Thu": 0,
+          "Fri": 1,
+          "Sat": 1,
+          "Sun": 0
+        }
+      },
+      "ORL": {
+        "total": 3,
+        "days": {
+          "Mon": 1,
+          "Tue": 0,
+          "Wed": 0,
+          "Thu": 0,
+          "Fri": 0,
+          "Sat": 1,
+          "Sun": 1
+        }
+      },
+      "PHI": {
+        "total": 3,
+        "days": {
+          "Mon": 1,
+          "Tue": 0,
+          "Wed": 0,
+          "Thu": 0,
+          "Fri": 1,
+          "Sat": 0,
+          "Sun": 1
+        }
+      },
+      "PHX": {
+        "total": 4,
+        "days": {
+          "Mon": 0,
+          "Tue": 1,
+          "Wed": 1,
+          "Thu": 1,
+          "Fri": 0,
+          "Sat": 1,
+          "Sun": 0
+        }
+      },
+      "POR": {
+        "total": 3,
+        "days": {
+          "Mon": 0,
+          "Tue": 0,
+          "Wed": 1,
+          "Thu": 1,
+          "Fri": 0,
+          "Sat": 0,
+          "Sun": 1
+        }
+      },
+      "SAC": {
+        "total": 3,
+        "days": {
+          "Mon": 1,
+          "Tue": 0,
+          "Wed": 0,
+          "Thu": 0,
+          "Fri": 0,
+          "Sat": 1,
+          "Sun": 1
+        }
+      },
+      "SAS": {
+        "total": 3,
+        "days": {
+          "Mon": 0,
+          "Tue": 0,
+          "Wed": 0,
+          "Thu": 1,
+          "Fri": 1,
+          "Sat": 1,
+          "Sun": 0
+        }
+      },
+      "TOR": {
+        "total": 4,
+        "days": {
+          "Mon": 1,
+          "Tue": 0,
+          "Wed": 1,
+          "Thu": 0,
+          "Fri": 0,
+          "Sat": 1,
+          "Sun": 1
+        }
+      },
+      "UTA": {
+        "total": 4,
+        "days": {
+          "Mon": 0,
+          "Tue": 1,
+          "Wed": 1,
+          "Thu": 1,
+          "Fri": 0,
+          "Sat": 1,
+          "Sun": 0
+        }
+      },
+      "WAS": {
+        "total": 3,
+        "days": {
+          "Mon": 0,
+          "Tue": 1,
+          "Wed": 0,
+          "Thu": 0,
+          "Fri": 1,
+          "Sat": 0,
+          "Sun": 1
+        }
+      }
+    },
+    "Week 7": {
+      "ATL": {
+        "total": 4,
+        "days": {
+          "Mon": 0,
+          "Tue": 1,
+          "Wed": 1,
+          "Thu": 1,
+          "Fri": 0,
+          "Sat": 1,
+          "Sun": 0
+        }
+      },
+      "BOS": {
+        "total": 3,
+        "days": {
+          "Mon": 0,
+          "Tue": 1,
+          "Wed": 0,
+          "Thu": 0,
+          "Fri": 1,
+          "Sat": 0,
+          "Sun": 1
+        }
+      },
+      "BKN": {
+        "total": 3,
+        "days": {
+          "Mon": 1,
+          "Tue": 1,
+          "Wed": 0,
+          "Thu": 0,
+          "Fri": 0,
+          "Sat": 0,
+          "Sun": 1
+        }
+      },
+      "CHA": {
+        "total": 3,
+        "days": {
+          "Mon": 0,
+          "Tue": 0,
+          "Wed": 1,
+          "Thu": 0,
+          "Fri": 1,
+          "Sat": 1,
+          "Sun": 0
+        }
+      },
+      "CHI": {
+        "total": 3,
+        "days": {
+          "Mon": 0,
+          "Tue": 0,
+          "Wed": 1,
+          "Thu": 1,
+          "Fri": 1,
+          "Sat": 0,
+          "Sun": 0
+        }
+      },
+      "CLE": {
+        "total": 3,
+        "days": {
+          "Mon": 1,
+          "Tue": 0,
+          "Wed": 1,
+          "Thu": 0,
+          "Fri": 0,
+          "Sat": 1,
+          "Sun": 0
+        }
+      },
+      "DAL": {
+        "total": 3,
+        "days": {
+          "Mon": 0,
+          "Tue": 1,
+          "Wed": 0,
+          "Thu": 1,
+          "Fri": 1,
+          "Sat": 0,
+          "Sun": 0
+        }
+      },
+      "DEN": {
+        "total": 4,
+        "days": {
+          "Mon": 0,
+          "Tue": 0,
+          "Wed": 1,
+          "Thu": 1,
+          "Fri": 1,
+          "Sat": 1,
+          "Sun": 0
+        }
+      },
+      "DET": {
+        "total": 4,
+        "days": {
+          "Mon": 1,
+          "Tue": 1,
+          "Wed": 1,
+          "Thu": 0,
+          "Fri": 0,
+          "Sat": 1,
+          "Sun": 0
+        }
+      },
+      "GSW": {
+        "total": 2,
+        "days": {
+          "Mon": 1,
+          "Tue": 0,
+          "Wed": 1,
+          "Thu": 0,
+          "Fri": 0,
+          "Sat": 0,
+          "Sun": 0
+        }
+      },
+      "HOU": {
+        "total": 4,
+        "days": {
+          "Mon": 1,
+          "Tue": 1,
+          "Wed": 0,
+          "Thu": 0,
+          "Fri": 1,
+          "Sat": 1,
+          "Sun": 0
+        }
+      },
+      "IND": {
+        "total": 3,
+        "days": {
+          "Mon": 0,
+          "Tue": 1,
+          "Wed": 0,
+          "Thu": 1,
+          "Fri": 0,
+          "Sat": 1,
+          "Sun": 0
+        }
+      },
+      "LAC": {
+        "total": 4,
+        "days": {
+          "Mon": 1,
+          "Tue": 1,
+          "Wed": 1,
+          "Thu": 0,
+          "Fri": 0,
+          "Sat": 0,
+          "Sun": 1
+        }
+      },
+      "LAL": {
+        "total": 3,
+        "days": {
+          "Mon": 1,
+          "Tue": 1,
+          "Wed": 1,
+          "Thu": 0,
+          "Fri": 0,
+          "Sat": 0,
+          "Sun": 0
+        }
+      },
+      "MEM": {
+        "total": 4,
+        "days": {
+          "Mon": 1,
+          "Tue": 0,
+          "Wed": 1,
+          "Thu": 0,
+          "Fri": 1,
+          "Sat": 0,
+          "Sun": 1
+        }
+      },
+      "MIA": {
+        "total": 3,
+        "days": {
+          "Mon": 1,
+          "Tue": 0,
+          "Wed": 0,
+          "Thu": 1,
+          "Fri": 1,
+          "Sat": 0,
+          "Sun": 0
+        }
+      },
+      "MIL": {
+        "total": 3,
+        "days": {
+          "Mon": 0,
+          "Tue": 0,
+          "Wed": 1,
+          "Thu": 0,
+          "Fri": 0,
+          "Sat": 1,
+          "Sun": 1
+        }
+      },
+      "MIN": {
+        "total": 3,
+        "days": {
+          "Mon": 0,
+          "Tue": 1,
+          "Wed": 1,
+          "Thu": 0,
+          "Fri": 1,
+          "Sat": 0,
+          "Sun": 0
+        }
+      },
+      "NOP": {
+        "total": 4,
+        "days": {
+          "Mon": 1,
+          "Tue": 1,
+          "Wed": 0,
+          "Thu": 0,
+          "Fri": 1,
+          "Sat": 0,
+          "Sun": 1
+        }
+      },
+      "NYK": {
+        "total": 4,
+        "days": {
+          "Mon": 1,
+          "Tue": 0,
+          "Wed": 1,
+          "Thu": 0,
+          "Fri": 1,
+          "Sat": 1,
+          "Sun": 0
+        }
+      },
+      "OKC": {
+        "total": 3,
+        "days": {
+          "Mon": 1,
+          "Tue": 0,
+          "Wed": 1,
+          "Thu": 0,
+          "Fri": 1,
+          "Sat": 0,
+          "Sun": 0
+        }
+      },
+      "ORL": {
+        "total": 4,
+        "days": {
+          "Mon": 1,
+          "Tue": 0,
+          "Wed": 1,
+          "Thu": 0,
+          "Fri": 1,
+          "Sat": 0,
+          "Sun": 1
+        }
+      },
+      "PHI": {
+        "total": 3,
+        "days": {
+          "Mon": 1,
+          "Tue": 0,
+          "Wed": 0,
+          "Thu": 0,
+          "Fri": 1,
+          "Sat": 1,
+          "Sun": 0
+        }
+      },
+      "PHX": {
+        "total": 3,
+        "days": {
+          "Mon": 0,
+          "Tue": 0,
+          "Wed": 1,
+          "Thu": 1,
+          "Fri": 1,
+          "Sat": 0,
+          "Sun": 0
+        }
+      },
+      "POR": {
+        "total": 4,
+        "days": {
+          "Mon": 0,
+          "Tue": 1,
+          "Wed": 0,
+          "Thu": 1,
+          "Fri": 0,
+          "Sat": 1,
+          "Sun": 1
+        }
+      },
+      "SAC": {
+        "total": 3,
+        "days": {
+          "Mon": 0,
+          "Tue": 0,
+          "Wed": 0,
+          "Thu": 0,
+          "Fri": 1,
+          "Sat": 1,
+          "Sun": 1
+        }
+      },
+      "SAS": {
+        "total": 3,
+        "days": {
+          "Mon": 0,
+          "Tue": 1,
+          "Wed": 1,
+          "Thu": 0,
+          "Fri": 0,
+          "Sat": 1,
+          "Sun": 0
+        }
+      },
+      "TOR": {
+        "total": 4,
+        "days": {
+          "Mon": 1,
+          "Tue": 1,
+          "Wed": 1,
+          "Thu": 1,
+          "Fri": 0,
+          "Sat": 0,
+          "Sun": 0
+        }
+      },
+      "UTA": {
+        "total": 4,
+        "days": {
+          "Mon": 1,
+          "Tue": 1,
+          "Wed": 1,
+          "Thu": 0,
+          "Fri": 1,
+          "Sat": 0,
+          "Sun": 0
+        }
+      },
+      "WAS": {
+        "total": 3,
+        "days": {
+          "Mon": 0,
+          "Tue": 0,
+          "Wed": 1,
+          "Thu": 0,
+          "Fri": 1,
+          "Sat": 1,
+          "Sun": 0
+        }
+      }
+    },
+    "Week 8": {
+      "ATL": {
+        "total": 4,
+        "days": {
+          "Mon": 0,
+          "Tue": 0,
+          "Wed": 0,
+          "Thu": 1,
+          "Fri": 1,
+          "Sat": 1,
+          "Sun": 1
+        }
+      },
+      "BOS": {
+        "total": 4,
+        "days": {
+          "Mon": 0,
+          "Tue": 1,
+          "Wed": 1,
+          "Thu": 1,
+          "Fri": 1,
+          "Sat": 0,
+          "Sun": 0
+        }
+      },
+      "BKN": {
+        "total": 3,
+        "days": {
+          "Mon": 0,
+          "Tue": 1,
+          "Wed": 1,
+          "Thu": 0,
+          "Fri": 1,
+          "Sat": 0,
+          "Sun": 0
+        }
+      },
+      "CHA": {
+        "total": 4,
+        "days": {
+          "Mon": 0,
+          "Tue": 0,
+          "Wed": 1,
+          "Thu": 1,
+          "Fri": 1,
+          "Sat": 0,
+          "Sun": 1
+        }
+      },
+      "CHI": {
+        "total": 4,
+        "days": {
+          "Mon": 1,
+          "Tue": 0,
+          "Wed": 1,
+          "Thu": 0,
+          "Fri": 0,
+          "Sat": 1,
+          "Sun": 1
+        }
+      },
+      "CLE": {
+        "total": 3,
+        "days": {
+          "Mon": 1,
+          "Tue": 0,
+          "Wed": 0,
+          "Thu": 0,
+          "Fri": 1,
+          "Sat": 1,
+          "Sun": 0
+        }
+      },
+      "DAL": {
+        "total": 4,
+        "days": {
+          "Mon": 1,
+          "Tue": 0,
+          "Wed": 0,
+          "Thu": 1,
+          "Fri": 1,
+          "Sat": 1,
+          "Sun": 0
+        }
+      },
+      "DEN": {
+        "total": 4,
+        "days": {
+          "Mon": 0,
+          "Tue": 1,
+          "Wed": 1,
+          "Thu": 1,
+          "Fri": 0,
+          "Sat": 0,
+          "Sun": 1
+        }
+      },
+      "DET": {
+        "total": 4,
+        "days": {
+          "Mon": 0,
+          "Tue": 1,
+          "Wed": 1,
+          "Thu": 0,
+          "Fri": 0,
+          "Sat": 1,
+          "Sun": 1
+        }
+      },
+      "GSW": {
+        "total": 3,
+        "days": {
+          "Mon": 1,
+          "Tue": 1,
+          "Wed": 1,
+          "Thu": 0,
+          "Fri": 0,
+          "Sat": 0,
+          "Sun": 0
+        }
+      },
+      "HOU": {
+        "total": 3,
+        "days": {
+          "Mon": 1,
+          "Tue": 0,
+          "Wed": 0,
+          "Thu": 1,
+          "Fri": 1,
+          "Sat": 0,
+          "Sun": 0
+        }
+      },
+      "IND": {
+        "total": 3,
+        "days": {
+          "Mon": 0,
+          "Tue": 0,
+          "Wed": 1,
+          "Thu": 0,
+          "Fri": 1,
+          "Sat": 1,
+          "Sun": 0
+        }
+      },
+      "LAC": {
+        "total": 3,
+        "days": {
+          "Mon": 1,
+          "Tue": 1,
+          "Wed": 1,
+          "Thu": 0,
+          "Fri": 0,
+          "Sat": 0,
+          "Sun": 0
+        }
+      },
+      "LAL": {
+        "total": 4,
+        "days": {
+          "Mon": 1,
+          "Tue": 0,
+          "Wed": 0,
+          "Thu": 0,
+          "Fri": 1,
+          "Sat": 1,
+          "Sun": 1
+        }
+      },
+      "MEM": {
+        "total": 3,
+        "days": {
+          "Mon": 1,
+          "Tue": 0,
+          "Wed": 0,
+          "Thu": 1,
+          "Fri": 0,
+          "Sat": 0,
+          "Sun": 1
+        }
+      },
+      "MIA": {
+        "total": 3,
+        "days": {
+          "Mon": 1,
+          "Tue": 0,
+          "Wed": 0,
+          "Thu": 0,
+          "Fri": 1,
+          "Sat": 1,
+          "Sun": 0
+        }
+      },
+      "MIL": {
+        "total": 3,
+        "days": {
+          "Mon": 1,
+          "Tue": 0,
+          "Wed": 1,
+          "Thu": 1,
+          "Fri": 0,
+          "Sat": 0,
+          "Sun": 0
+        }
+      },
+      "MIN": {
+        "total": 4,
+        "days": {
+          "Mon": 1,
+          "Tue": 1,
+          "Wed": 0,
+          "Thu": 1,
+          "Fri": 0,
+          "Sat": 0,
+          "Sun": 1
+        }
+      },
+      "NOP": {
+        "total": 4,
+        "days": {
+          "Mon": 1,
+          "Tue": 0,
+          "Wed": 0,
+          "Thu": 1,
+          "Fri": 1,
+          "Sat": 0,
+          "Sun": 1
+        }
+      },
+      "NYK": {
+        "total": 4,
+        "days": {
+          "Mon": 1,
+          "Tue": 1,
+          "Wed": 0,
+          "Thu": 1,
+          "Fri": 1,
+          "Sat": 0,
+          "Sun": 0
+        }
+      },
+      "OKC": {
+        "total": 4,
+        "days": {
+          "Mon": 1,
+          "Tue": 1,
+          "Wed": 0,
+          "Thu": 0,
+          "Fri": 0,
+          "Sat": 1,
+          "Sun": 1
+        }
+      },
+      "ORL": {
+        "total": 4,
+        "days": {
+          "Mon": 1,
+          "Tue": 0,
+          "Wed": 1,
+          "Thu": 0,
+          "Fri": 1,
+          "Sat": 0,
+          "Sun": 1
+        }
+      },
+      "PHI": {
+        "total": 3,
+        "days": {
+          "Mon": 0,
+          "Tue": 0,
+          "Wed": 1,
+          "Thu": 1,
+          "Fri": 1,
+          "Sat": 0,
+          "Sun": 0
+        }
+      },
+      "PHX": {
+        "total": 3,
+        "days": {
+          "Mon": 1,
+          "Tue": 0,
+          "Wed": 1,
+          "Thu": 1,
+          "Fri": 0,
+          "Sat": 0,
+          "Sun": 0
+        }
+      },
+      "POR": {
+        "total": 3,
+        "days": {
+          "Mon": 0,
+          "Tue": 1,
+          "Wed": 0,
+          "Thu": 0,
+          "Fri": 1,
+          "Sat": 1,
+          "Sun": 0
+        }
+      },
+      "SAC": {
+        "total": 4,
+        "days": {
+          "Mon": 1,
+          "Tue": 1,
+          "Wed": 0,
+          "Thu": 0,
+          "Fri": 0,
+          "Sat": 1,
+          "Sun": 1
+        }
+      },
+      "SAS": {
+        "total": 3,
+        "days": {
+          "Mon": 0,
+          "Tue": 1,
+          "Wed": 1,
+          "Thu": 0,
+          "Fri": 0,
+          "Sat": 1,
+          "Sun": 0
+        }
+      },
+      "TOR": {
+        "total": 4,
+        "days": {
+          "Mon": 1,
+          "Tue": 0,
+          "Wed": 0,
+          "Thu": 1,
+          "Fri": 0,
+          "Sat": 1,
+          "Sun": 1
+        }
+      },
+      "UTA": {
+        "total": 4,
+        "days": {
+          "Mon": 0,
+          "Tue": 1,
+          "Wed": 1,
+          "Thu": 0,
+          "Fri": 1,
+          "Sat": 0,
+          "Sun": 1
+        }
+      },
+      "WAS": {
+        "total": 4,
+        "days": {
+          "Mon": 0,
+          "Tue": 1,
+          "Wed": 1,
+          "Thu": 0,
+          "Fri": 0,
+          "Sat": 1,
+          "Sun": 1
+        }
+      }
+    },
+    "Week 9": {
+      "ATL": {
+        "total": 3,
+        "days": {
+          "Mon": 1,
+          "Tue": 0,
+          "Wed": 1,
+          "Thu": 0,
+          "Fri": 0,
+          "Sat": 0,
+          "Sun": 1
+        }
+      },
+      "BOS": {
+        "total": 4,
+        "days": {
+          "Mon": 1,
+          "Tue": 1,
+          "Wed": 0,
+          "Thu": 0,
+          "Fri": 0,
+          "Sat": 1,
+          "Sun": 1
+        }
+      },
+      "BKN": {
+        "total": 3,
+        "days": {
+          "Mon": 1,
+          "Tue": 0,
+          "Wed": 1,
+          "Thu": 0,
+          "Fri": 0,
+          "Sat": 0,
+          "Sun": 1
+        }
+      },
+      "CHA": {
+        "total": 3,
+        "days": {
+          "Mon": 1,
+          "Tue": 0,
+          "Wed": 0,
+          "Thu": 0,
+          "Fri": 1,
+          "Sat": 0,
+          "Sun": 1
+        }
+      },
+      "CHI": {
+        "total": 4,
+        "days": {
+          "Mon": 1,
+          "Tue": 1,
+          "Wed": 1,
+          "Thu": 0,
+          "Fri": 1,
+          "Sat": 0,
+          "Sun": 0
+        }
+      },
+      "CLE": {
+        "total": 3,
+        "days": {
+          "Mon": 0,
+          "Tue": 0,
+          "Wed": 1,
+          "Thu": 1,
+          "Fri": 1,
+          "Sat": 0,
+          "Sun": 0
+        }
+      },
+      "DAL": {
+        "total": 3,
+        "days": {
+          "Mon": 0,
+          "Tue": 0,
+          "Wed": 0,
+          "Thu": 1,
+          "Fri": 0,
+          "Sat": 1,
+          "Sun": 1
+        }
+      },
+      "DEN": {
+        "total": 4,
+        "days": {
+          "Mon": 1,
+          "Tue": 0,
+          "Wed": 1,
+          "Thu": 1,
+          "Fri": 1,
+          "Sat": 0,
+          "Sun": 0
+        }
+      },
+      "DET": {
+        "total": 3,
+        "days": {
+          "Mon": 1,
+          "Tue": 1,
+          "Wed": 0,
+          "Thu": 0,
+          "Fri": 1,
+          "Sat": 0,
+          "Sun": 0
+        }
+      },
+      "GSW": {
+        "total": 3,
+        "days": {
+          "Mon": 1,
+          "Tue": 0,
+          "Wed": 0,
+          "Thu": 0,
+          "Fri": 1,
+          "Sat": 0,
+          "Sun": 1
+        }
+      },
+      "HOU": {
+        "total": 4,
+        "days": {
+          "Mon": 1,
+          "Tue": 0,
+          "Wed": 1,
+          "Thu": 1,
+          "Fri": 1,
+          "Sat": 0,
+          "Sun": 0
+        }
+      },
+      "IND": {
+        "total": 3,
+        "days": {
+          "Mon": 1,
+          "Tue": 1,
+          "Wed": 1,
+          "Thu": 0,
+          "Fri": 0,
+          "Sat": 0,
+          "Sun": 0
+        }
+      },
+      "LAC": {
+        "total": 4,
+        "days": {
+          "Mon": 0,
+          "Tue": 1,
+          "Wed": 1,
+          "Thu": 1,
+          "Fri": 1,
+          "Sat": 0,
+          "Sun": 0
+        }
+      },
+      "LAL": {
+        "total": 4,
+        "days": {
+          "Mon": 1,
+          "Tue": 0,
+          "Wed": 1,
+          "Thu": 0,
+          "Fri": 1,
+          "Sat": 1,
+          "Sun": 0
+        }
+      },
+      "MEM": {
+        "total": 3,
+        "days": {
+          "Mon": 0,
+          "Tue": 0,
+          "Wed": 1,
+          "Thu": 1,
+          "Fri": 1,
+          "Sat": 0,
+          "Sun": 0
+        }
+      },
+      "MIA": {
+        "total": 4,
+        "days": {
+          "Mon": 0,
+          "Tue": 1,
+          "Wed": 1,
+          "Thu": 1,
+          "Fri": 1,
+          "Sat": 0,
+          "Sun": 0
+        }
+      },
+      "MIL": {
+        "total": 3,
+        "days": {
+          "Mon": 0,
+          "Tue": 0,
+          "Wed": 1,
+          "Thu": 0,
+          "Fri": 1,
+          "Sat": 0,
+          "Sun": 1
+        }
+      },
+      "MIN": {
+        "total": 3,
+        "days": {
+          "Mon": 1,
+          "Tue": 0,
+          "Wed": 1,
+          "Thu": 0,
+          "Fri": 1,
+          "Sat": 0,
+          "Sun": 0
+        }
+      },
+      "NOP": {
+        "total": 4,
+        "days": {
+          "Mon": 0,
+          "Tue": 1,
+          "Wed": 0,
+          "Thu": 0,
+          "Fri": 1,
+          "Sat": 1,
+          "Sun": 1
+        }
+      },
+      "NYK": {
+        "total": 4,
+        "days": {
+          "Mon": 0,
+          "Tue": 1,
+          "Wed": 1,
+          "Thu": 0,
+          "Fri": 1,
+          "Sat": 0,
+          "Sun": 1
+        }
+      },
+      "OKC": {
+        "total": 3,
+        "days": {
+          "Mon": 1,
+          "Tue": 0,
+          "Wed": 1,
+          "Thu": 0,
+          "Fri": 0,
+          "Sat": 1,
+          "Sun": 0
+        }
+      },
+      "ORL": {
+        "total": 3,
+        "days": {
+          "Mon": 0,
+          "Tue": 1,
+          "Wed": 1,
+          "Thu": 0,
+          "Fri": 0,
+          "Sat": 1,
+          "Sun": 0
+        }
+      },
+      "PHI": {
+        "total": 4,
+        "days": {
+          "Mon": 1,
+          "Tue": 1,
+          "Wed": 1,
+          "Thu": 0,
+          "Fri": 0,
+          "Sat": 1,
+          "Sun": 0
+        }
+      },
+      "PHX": {
+        "total": 2,
+        "days": {
+          "Mon": 0,
+          "Tue": 0,
+          "Wed": 0,
+          "Thu": 0,
+          "Fri": 1,
+          "Sat": 1,
+          "Sun": 0
+        }
+      },
+      "POR": {
+        "total": 4,
+        "days": {
+          "Mon": 0,
+          "Tue": 0,
+          "Wed": 1,
+          "Thu": 0,
+          "Fri": 1,
+          "Sat": 1,
+          "Sun": 1
+        }
+      },
+      "SAC": {
+        "total": 3,
+        "days": {
+          "Mon": 1,
+          "Tue": 0,
+          "Wed": 0,
+          "Thu": 0,
+          "Fri": 1,
+          "Sat": 0,
+          "Sun": 1
+        }
+      },
+      "SAS": {
+        "total": 4,
+        "days": {
+          "Mon": 1,
+          "Tue": 1,
+          "Wed": 1,
+          "Thu": 0,
+          "Fri": 0,
+          "Sat": 1,
+          "Sun": 0
+        }
+      },
+      "TOR": {
+        "total": 3,
+        "days": {
+          "Mon": 0,
+          "Tue": 0,
+          "Wed": 1,
+          "Thu": 0,
+          "Fri": 1,
+          "Sat": 1,
+          "Sun": 0
+        }
+      },
+      "UTA": {
+        "total": 4,
+        "days": {
+          "Mon": 1,
+          "Tue": 1,
+          "Wed": 1,
+          "Thu": 0,
+          "Fri": 1,
+          "Sat": 0,
+          "Sun": 0
+        }
+      },
+      "WAS": {
+        "total": 3,
+        "days": {
+          "Mon": 1,
+          "Tue": 0,
+          "Wed": 1,
+          "Thu": 0,
+          "Fri": 0,
+          "Sat": 1,
+          "Sun": 0
+        }
+      }
+    },
+    "Week 10": {
+      "ATL": {
+        "total": 3,
+        "days": {
+          "Mon": 0,
+          "Tue": 1,
+          "Wed": 0,
+          "Thu": 1,
+          "Fri": 0,
+          "Sat": 1,
+          "Sun": 0
+        }
+      },
+      "BOS": {
+        "total": 3,
+        "days": {
+          "Mon": 0,
+          "Tue": 1,
+          "Wed": 0,
+          "Thu": 0,
+          "Fri": 1,
+          "Sat": 1,
+          "Sun": 0
+        }
+      },
+      "BKN": {
+        "total": 4,
+        "days": {
+          "Mon": 1,
+          "Tue": 1,
+          "Wed": 0,
+          "Thu": 0,
+          "Fri": 0,
+          "Sat": 1,
+          "Sun": 1
+        }
+      },
+      "CHA": {
+        "total": 3,
+        "days": {
+          "Mon": 0,
+          "Tue": 0,
+          "Wed": 0,
+          "Thu": 0,
+          "Fri": 1,
+          "Sat": 1,
+          "Sun": 1
+        }
+      },
+      "CHI": {
+        "total": 4,
+        "days": {
+          "Mon": 0,
+          "Tue": 1,
+          "Wed": 0,
+          "Thu": 1,
+          "Fri": 1,
+          "Sat": 0,
+          "Sun": 1
+        }
+      },
+      "CLE": {
+        "total": 4,
+        "days": {
+          "Mon": 1,
+          "Tue": 0,
+          "Wed": 1,
+          "Thu": 0,
+          "Fri": 1,
+          "Sat": 1,
+          "Sun": 0
+        }
+      },
+      "DAL": {
+        "total": 4,
+        "days": {
+          "Mon": 0,
+          "Tue": 0,
+          "Wed": 1,
+          "Thu": 0,
+          "Fri": 1,
+          "Sat": 1,
+          "Sun": 1
+        }
+      },
+      "DEN": {
+        "total": 3,
+        "days": {
+          "Mon": 1,
+          "Tue": 1,
+          "Wed": 1,
+          "Thu": 0,
+          "Fri": 0,
+          "Sat": 0,
+          "Sun": 0
+        }
+      },
+      "DET": {
+        "total": 4,
+        "days": {
+          "Mon": 1,
+          "Tue": 0,
+          "Wed": 0,
+          "Thu": 1,
+          "Fri": 0,
+          "Sat": 1,
+          "Sun": 1
+        }
+      },
+      "GSW": {
+        "total": 4,
+        "days": {
+          "Mon": 1,
+          "Tue": 0,
+          "Wed": 1,
+          "Thu": 0,
+          "Fri": 0,
+          "Sat": 1,
+          "Sun": 1
+        }
+      },
+      "HOU": {
+        "total": 4,
+        "days": {
+          "Mon": 1,
+          "Tue": 0,
+          "Wed": 1,
+          "Thu": 1,
+          "Fri": 0,
+          "Sat": 0,
+          "Sun": 1
+        }
+      },
+      "IND": {
+        "total": 4,
+        "days": {
+          "Mon": 1,
+          "Tue": 1,
+          "Wed": 0,
+          "Thu": 1,
+          "Fri": 0,
+          "Sat": 0,
+          "Sun": 1
+        }
+      },
+      "LAC": {
+        "total": 3,
+        "days": {
+          "Mon": 0,
+          "Tue": 0,
+          "Wed": 1,
+          "Thu": 0,
+          "Fri": 1,
+          "Sat": 1,
+          "Sun": 0
+        }
+      },
+      "LAL": {
+        "total": 4,
+        "days": {
+          "Mon": 1,
+          "Tue": 0,
+          "Wed": 1,
+          "Thu": 0,
+          "Fri": 1,
+          "Sat": 0,
+          "Sun": 1
+        }
+      },
+      "MEM": {
+        "total": 3,
+        "days": {
+          "Mon": 1,
+          "Tue": 0,
+          "Wed": 1,
+          "Thu": 0,
+          "Fri": 1,
+          "Sat": 0,
+          "Sun": 0
+        }
+      },
+      "MIA": {
+        "total": 3,
+        "days": {
+          "Mon": 1,
+          "Tue": 0,
+          "Wed": 1,
+          "Thu": 0,
+          "Fri": 0,
+          "Sat": 0,
+          "Sun": 1
+        }
+      },
+      "MIL": {
+        "total": 4,
+        "days": {
+          "Mon": 0,
+          "Tue": 0,
+          "Wed": 1,
+          "Thu": 1,
+          "Fri": 0,
+          "Sat": 1,
+          "Sun": 1
+        }
+      },
+      "MIN": {
+        "total": 4,
+        "days": {
+          "Mon": 1,
+          "Tue": 0,
+          "Wed": 0,
+          "Thu": 1,
+          "Fri": 1,
+          "Sat": 0,
+          "Sun": 1
+        }
+      },
+      "NOP": {
+        "total": 3,
+        "days": {
+          "Mon": 1,
+          "Tue": 0,
+          "Wed": 1,
+          "Thu": 1,
+          "Fri": 0,
+          "Sat": 0,
+          "Sun": 0
+        }
+      },
+      "NYK": {
+        "total": 4,
+        "days": {
+          "Mon": 1,
+          "Tue": 0,
+          "Wed": 0,
+          "Thu": 1,
+          "Fri": 1,
+          "Sat": 0,
+          "Sun": 1
+        }
+      },
+      "OKC": {
+        "total": 3,
+        "days": {
+          "Mon": 1,
+          "Tue": 0,
+          "Wed": 0,
+          "Thu": 1,
+          "Fri": 1,
+          "Sat": 0,
+          "Sun": 0
+        }
+      },
+      "ORL": {
+        "total": 3,
+        "days": {
+          "Mon": 1,
+          "Tue": 1,
+          "Wed": 0,
+          "Thu": 0,
+          "Fri": 0,
+          "Sat": 1,
+          "Sun": 0
+        }
+      },
+      "PHI": {
+        "total": 3,
+        "days": {
+          "Mon": 1,
+          "Tue": 0,
+          "Wed": 0,
+          "Thu": 0,
+          "Fri": 1,
+          "Sat": 1,
+          "Sun": 0
+        }
+      },
+      "PHX": {
+        "total": 4,
+        "days": {
+          "Mon": 0,
+          "Tue": 1,
+          "Wed": 1,
+          "Thu": 1,
+          "Fri": 0,
+          "Sat": 0,
+          "Sun": 1
+        }
+      },
+      "POR": {
+        "total": 3,
+        "days": {
+          "Mon": 1,
+          "Tue": 1,
+          "Wed": 0,
+          "Thu": 0,
+          "Fri": 0,
+          "Sat": 0,
+          "Sun": 1
+        }
+      },
+      "SAC": {
+        "total": 3,
+        "days": {
+          "Mon": 1,
+          "Tue": 1,
+          "Wed": 0,
+          "Thu": 0,
+          "Fri": 0,
+          "Sat": 1,
+          "Sun": 0
+        }
+      },
+      "SAS": {
+        "total": 3,
+        "days": {
+          "Mon": 1,
+          "Tue": 1,
+          "Wed": 0,
+          "Thu": 0,
+          "Fri": 1,
+          "Sat": 0,
+          "Sun": 0
+        }
+      },
+      "TOR": {
+        "total": 3,
+        "days": {
+          "Mon": 1,
+          "Tue": 1,
+          "Wed": 0,
+          "Thu": 0,
+          "Fri": 0,
+          "Sat": 1,
+          "Sun": 0
+        }
+      },
+      "UTA": {
+        "total": 3,
+        "days": {
+          "Mon": 1,
+          "Tue": 1,
+          "Wed": 1,
+          "Thu": 0,
+          "Fri": 0,
+          "Sat": 0,
+          "Sun": 0
+        }
+      },
+      "WAS": {
+        "total": 3,
+        "days": {
+          "Mon": 1,
+          "Tue": 0,
+          "Wed": 0,
+          "Thu": 1,
+          "Fri": 0,
+          "Sat": 1,
+          "Sun": 0
+        }
+      }
+    },
+    "Week 11": {
+      "ATL": {
+        "total": 4,
+        "days": {
+          "Mon": 1,
+          "Tue": 0,
+          "Wed": 1,
+          "Thu": 0,
+          "Fri": 1,
+          "Sat": 0,
+          "Sun": 1
+        }
+      },
+      "BOS": {
+        "total": 4,
+        "days": {
+          "Mon": 1,
+          "Tue": 0,
+          "Wed": 1,
+          "Thu": 0,
+          "Fri": 1,
+          "Sat": 0,
+          "Sun": 1
+        }
+      },
+      "BKN": {
+        "total": 4,
+        "days": {
+          "Mon": 1,
+          "Tue": 0,
+          "Wed": 1,
+          "Thu": 0,
+          "Fri": 1,
+          "Sat": 1,
+          "Sun": 0
+        }
+      },
+      "CHA": {
+        "total": 4,
+        "days": {
+          "Mon": 1,
+          "Tue": 0,
+          "Wed": 1,
+          "Thu": 0,
+          "Fri": 1,
+          "Sat": 1,
+          "Sun": 0
+        }
+      },
+      "CHI": {
+        "total": 3,
+        "days": {
+          "Mon": 0,
+          "Tue": 0,
+          "Wed": 1,
+          "Thu": 1,
+          "Fri": 0,
+          "Sat": 1,
+          "Sun": 0
+        }
+      },
+      "CLE": {
+        "total": 3,
+        "days": {
+          "Mon": 1,
+          "Tue": 0,
+          "Wed": 0,
+          "Thu": 0,
+          "Fri": 1,
+          "Sat": 0,
+          "Sun": 1
+        }
+      },
+      "DAL": {
+        "total": 3,
+        "days": {
+          "Mon": 0,
+          "Tue": 0,
+          "Wed": 1,
+          "Thu": 1,
+          "Fri": 0,
+          "Sat": 0,
+          "Sun": 1
+        }
+      },
+      "DEN": {
+        "total": 4,
+        "days": {
+          "Mon": 0,
+          "Tue": 1,
+          "Wed": 1,
+          "Thu": 0,
+          "Fri": 1,
+          "Sat": 0,
+          "Sun": 1
+        }
+      },
+      "DET": {
+        "total": 3,
+        "days": {
+          "Mon": 0,
+          "Tue": 1,
+          "Wed": 1,
+          "Thu": 0,
+          "Fri": 1,
+          "Sat": 0,
+          "Sun": 0
+        }
+      },
+      "GSW": {
+        "total": 4,
+        "days": {
+          "Mon": 0,
+          "Tue": 1,
+          "Wed": 1,
+          "Thu": 0,
+          "Fri": 1,
+          "Sat": 0,
+          "Sun": 1
+        }
+      },
+      "HOU": {
+        "total": 4,
+        "days": {
+          "Mon": 1,
+          "Tue": 1,
+          "Wed": 0,
+          "Thu": 0,
+          "Fri": 1,
+          "Sat": 1,
+          "Sun": 0
+        }
+      },
+      "IND": {
+        "total": 4,
+        "days": {
+          "Mon": 1,
+          "Tue": 1,
+          "Wed": 1,
+          "Thu": 0,
+          "Fri": 0,
+          "Sat": 0,
+          "Sun": 1
+        }
+      },
+      "LAC": {
+        "total": 3,
+        "days": {
+          "Mon": 0,
+          "Tue": 0,
+          "Wed": 1,
+          "Thu": 1,
+          "Fri": 1,
+          "Sat": 0,
+          "Sun": 0
+        }
+      },
+      "LAL": {
+        "total": 3,
+        "days": {
+          "Mon": 0,
+          "Tue": 0,
+          "Wed": 1,
+          "Thu": 0,
+          "Fri": 0,
+          "Sat": 1,
+          "Sun": 1
+        }
+      },
+      "MEM": {
+        "total": 4,
+        "days": {
+          "Mon": 1,
+          "Tue": 0,
+          "Wed": 1,
+          "Thu": 1,
+          "Fri": 0,
+          "Sat": 0,
+          "Sun": 1
+        }
+      },
+      "MIA": {
+        "total": 4,
+        "days": {
+          "Mon": 1,
+          "Tue": 1,
+          "Wed": 0,
+          "Thu": 1,
+          "Fri": 1,
+          "Sat": 0,
+          "Sun": 0
+        }
+      },
+      "MIL": {
+        "total": 4,
+        "days": {
+          "Mon": 1,
+          "Tue": 0,
+          "Wed": 1,
+          "Thu": 0,
+          "Fri": 1,
+          "Sat": 1,
+          "Sun": 0
+        }
+      },
+      "MIN": {
+        "total": 3,
+        "days": {
+          "Mon": 0,
+          "Tue": 1,
+          "Wed": 1,
+          "Thu": 0,
+          "Fri": 1,
+          "Sat": 0,
+          "Sun": 0
+        }
+      },
+      "NOP": {
+        "total": 4,
+        "days": {
+          "Mon": 0,
+          "Tue": 0,
+          "Wed": 1,
+          "Thu": 1,
+          "Fri": 1,
+          "Sat": 1,
+          "Sun": 0
+        }
+      },
+      "NYK": {
+        "total": 3,
+        "days": {
+          "Mon": 0,
+          "Tue": 0,
+          "Wed": 1,
+          "Thu": 1,
+          "Fri": 1,
+          "Sat": 0,
+          "Sun": 0
+        }
+      },
+      "OKC": {
+        "total": 4,
+        "days": {
+          "Mon": 1,
+          "Tue": 0,
+          "Wed": 1,
+          "Thu": 0,
+          "Fri": 1,
+          "Sat": 0,
+          "Sun": 1
+        }
+      },
+      "ORL": {
+        "total": 4,
+        "days": {
+          "Mon": 1,
+          "Tue": 1,
+          "Wed": 1,
+          "Thu": 0,
+          "Fri": 0,
+          "Sat": 0,
+          "Sun": 1
+        }
+      },
+      "PHI": {
+        "total": 3,
+        "days": {
+          "Mon": 1,
+          "Tue": 0,
+          "Wed": 0,
+          "Thu": 0,
+          "Fri": 1,
+          "Sat": 1,
+          "Sun": 0
+        }
+      },
+      "PHX": {
+        "total": 3,
+        "days": {
+          "Mon": 1,
+          "Tue": 0,
+          "Wed": 0,
+          "Thu": 1,
+          "Fri": 0,
+          "Sat": 0,
+          "Sun": 1
+        }
+      },
+      "POR": {
+        "total": 4,
+        "days": {
+          "Mon": 1,
+          "Tue": 0,
+          "Wed": 1,
+          "Thu": 1,
+          "Fri": 1,
+          "Sat": 0,
+          "Sun": 0
+        }
+      },
+      "SAC": {
+        "total": 3,
+        "days": {
+          "Mon": 0,
+          "Tue": 0,
+          "Wed": 1,
+          "Thu": 0,
+          "Fri": 1,
+          "Sat": 0,
+          "Sun": 1
+        }
+      },
+      "SAS": {
+        "total": 4,
+        "days": {
+          "Mon": 1,
+          "Tue": 1,
+          "Wed": 0,
+          "Thu": 0,
+          "Fri": 1,
+          "Sat": 0,
+          "Sun": 1
+        }
+      },
+      "TOR": {
+        "total": 4,
+        "days": {
+          "Mon": 1,
+          "Tue": 0,
+          "Wed": 0,
+          "Thu": 1,
+          "Fri": 1,
+          "Sat": 1,
+          "Sun": 0
+        }
+      },
+      "UTA": {
+        "total": 3,
+        "days": {
+          "Mon": 0,
+          "Tue": 1,
+          "Wed": 1,
+          "Thu": 0,
+          "Fri": 1,
+          "Sat": 0,
+          "Sun": 0
+        }
+      },
+      "WAS": {
+        "total": 3,
+        "days": {
+          "Mon": 1,
+          "Tue": 0,
+          "Wed": 1,
+          "Thu": 0,
+          "Fri": 0,
+          "Sat": 1,
+          "Sun": 0
+        }
+      }
+    },
+    "Week 12": {
+      "ATL": {
+        "total": 4,
+        "days": {
+          "Mon": 1,
+          "Tue": 0,
+          "Wed": 1,
+          "Thu": 0,
+          "Fri": 1,
+          "Sat": 1,
+          "Sun": 0
+        }
+      },
+      "BOS": {
+        "total": 4,
+        "days": {
+          "Mon": 0,
+          "Tue": 0,
+          "Wed": 1,
+          "Thu": 0,
+          "Fri": 1,
+          "Sat": 1,
+          "Sun": 1
+        }
+      },
+      "BKN": {
+        "total": 3,
+        "days": {
+          "Mon": 1,
+          "Tue": 1,
+          "Wed": 0,
+          "Thu": 0,
+          "Fri": 0,
+          "Sat": 0,
+          "Sun": 1
+        }
+      },
+      "CHA": {
+        "total": 3,
+        "days": {
+          "Mon": 1,
+          "Tue": 0,
+          "Wed": 0,
+          "Thu": 0,
+          "Fri": 0,
+          "Sat": 1,
+          "Sun": 1
+        }
+      },
+      "CHI": {
+        "total": 4,
+        "days": {
+          "Mon": 0,
+          "Tue": 1,
+          "Wed": 1,
+          "Thu": 0,
+          "Fri": 1,
+          "Sat": 1,
+          "Sun": 0
+        }
+      },
+      "CLE": {
+        "total": 3,
+        "days": {
+          "Mon": 1,
+          "Tue": 1,
+          "Wed": 0,
+          "Thu": 1,
+          "Fri": 0,
+          "Sat": 0,
+          "Sun": 0
+        }
+      },
+      "DAL": {
+        "total": 4,
+        "days": {
+          "Mon": 0,
+          "Tue": 0,
+          "Wed": 0,
+          "Thu": 1,
+          "Fri": 1,
+          "Sat": 1,
+          "Sun": 1
+        }
+      },
+      "DEN": {
+        "total": 4,
+        "days": {
+          "Mon": 1,
+          "Tue": 0,
+          "Wed": 1,
+          "Thu": 0,
+          "Fri": 1,
+          "Sat": 1,
+          "Sun": 0
+        }
+      },
+      "DET": {
+        "total": 4,
+        "days": {
+          "Mon": 0,
+          "Tue": 1,
+          "Wed": 1,
+          "Thu": 1,
+          "Fri": 1,
+          "Sat": 0,
+          "Sun": 0
+        }
+      },
+      "GSW": {
+        "total": 4,
+        "days": {
+          "Mon": 1,
+          "Tue": 1,
+          "Wed": 1,
+          "Thu": 0,
+          "Fri": 1,
+          "Sat": 0,
+          "Sun": 0
+        }
+      },
+      "HOU": {
+        "total": 3,
+        "days": {
+          "Mon": 0,
+          "Tue": 0,
+          "Wed": 1,
+          "Thu": 1,
+          "Fri": 0,
+          "Sat": 0,
+          "Sun": 1
+        }
+      },
+      "IND": {
+        "total": 3,
+        "days": {
+          "Mon": 0,
+          "Tue": 0,
+          "Wed": 0,
+          "Thu": 0,
+          "Fri": 1,
+          "Sat": 1,
+          "Sun": 1
+        }
+      },
+      "LAC": {
+        "total": 4,
+        "days": {
+          "Mon": 1,
+          "Tue": 1,
+          "Wed": 1,
+          "Thu": 0,
+          "Fri": 0,
+          "Sat": 1,
+          "Sun": 0
+        }
+      },
+      "LAL": {
+        "total": 3,
+        "days": {
+          "Mon": 1,
+          "Tue": 0,
+          "Wed": 0,
+          "Thu": 0,
+          "Fri": 1,
+          "Sat": 1,
+          "Sun": 0
+        }
+      },
+      "MEM": {
+        "total": 3,
+        "days": {
+          "Mon": 0,
+          "Tue": 0,
+          "Wed": 1,
+          "Thu": 0,
+          "Fri": 1,
+          "Sat": 1,
+          "Sun": 0
+        }
+      },
+      "MIA": {
+        "total": 4,
+        "days": {
+          "Mon": 0,
+          "Tue": 0,
+          "Wed": 1,
+          "Thu": 1,
+          "Fri": 0,
+          "Sat": 1,
+          "Sun": 1
+        }
+      },
+      "MIL": {
+        "total": 4,
+        "days": {
+          "Mon": 0,
+          "Tue": 0,
+          "Wed": 1,
+          "Thu": 1,
+          "Fri": 1,
+          "Sat": 0,
+          "Sun": 1
+        }
+      },
+      "MIN": {
+        "total": 3,
+        "days": {
+          "Mon": 1,
+          "Tue": 1,
+          "Wed": 0,
+          "Thu": 0,
+          "Fri": 1,
+          "Sat": 0,
+          "Sun": 0
+        }
+      },
+      "NOP": {
+        "total": 3,
+        "days": {
+          "Mon": 1,
+          "Tue": 1,
+          "Wed": 1,
+          "Thu": 0,
+          "Fri": 0,
+          "Sat": 0,
+          "Sun": 0
+        }
+      },
+      "NYK": {
+        "total": 4,
+        "days": {
+          "Mon": 1,
+          "Tue": 0,
+          "Wed": 1,
+          "Thu": 1,
+          "Fri": 1,
+          "Sat": 0,
+          "Sun": 0
+        }
+      },
+      "OKC": {
+        "total": 3,
+        "days": {
+          "Mon": 1,
+          "Tue": 0,
+          "Wed": 0,
+          "Thu": 0,
+          "Fri": 0,
+          "Sat": 1,
+          "Sun": 1
+        }
+      },
+      "ORL": {
+        "total": 4,
+        "days": {
+          "Mon": 0,
+          "Tue": 0,
+          "Wed": 1,
+          "Thu": 1,
+          "Fri": 1,
+          "Sat": 1,
+          "Sun": 0
+        }
+      },
+      "PHI": {
+        "total": 4,
+        "days": {
+          "Mon": 0,
+          "Tue": 0,
+          "Wed": 1,
+          "Thu": 1,
+          "Fri": 0,
+          "Sat": 1,
+          "Sun": 1
+        }
+      },
+      "PHX": {
+        "total": 3,
+        "days": {
+          "Mon": 0,
+          "Tue": 1,
+          "Wed": 0,
+          "Thu": 0,
+          "Fri": 1,
+          "Sat": 1,
+          "Sun": 0
+        }
+      },
+      "POR": {
+        "total": 2,
+        "days": {
+          "Mon": 1,
+          "Tue": 0,
+          "Wed": 0,
+          "Thu": 1,
+          "Fri": 0,
+          "Sat": 0,
+          "Sun": 0
+        }
+      },
+      "SAC": {
+        "total": 4,
+        "days": {
+          "Mon": 1,
+          "Tue": 1,
+          "Wed": 0,
+          "Thu": 1,
+          "Fri": 0,
+          "Sat": 0,
+          "Sun": 1
+        }
+      },
+      "SAS": {
+        "total": 4,
+        "days": {
+          "Mon": 1,
+          "Tue": 0,
+          "Wed": 1,
+          "Thu": 1,
+          "Fri": 1,
+          "Sat": 0,
+          "Sun": 0
+        }
+      },
+      "TOR": {
+        "total": 3,
+        "days": {
+          "Mon": 0,
+          "Tue": 0,
+          "Wed": 1,
+          "Thu": 1,
+          "Fri": 1,
+          "Sat": 0,
+          "Sun": 0
+        }
+      },
+      "UTA": {
+        "total": 4,
+        "days": {
+          "Mon": 1,
+          "Tue": 0,
+          "Wed": 1,
+          "Thu": 1,
+          "Fri": 1,
+          "Sat": 0,
+          "Sun": 0
+        }
+      },
+      "WAS": {
+        "total": 3,
+        "days": {
+          "Mon": 0,
+          "Tue": 0,
+          "Wed": 1,
+          "Thu": 0,
+          "Fri": 1,
+          "Sat": 0,
+          "Sun": 1
+        }
+      }
+    },
+    "Week 13": {
+      "ATL": {
+        "total": 3,
+        "days": {
+          "Mon": 1,
+          "Tue": 1,
+          "Wed": 0,
+          "Thu": 0,
+          "Fri": 0,
+          "Sat": 1,
+          "Sun": 0
+        }
+      },
+      "BOS": {
+        "total": 3,
+        "days": {
+          "Mon": 0,
+          "Tue": 1,
+          "Wed": 0,
+          "Thu": 1,
+          "Fri": 1,
+          "Sat": 0,
+          "Sun": 0
+        }
+      },
+      "BKN": {
+        "total": 4,
+        "days": {
+          "Mon": 1,
+          "Tue": 0,
+          "Wed": 0,
+          "Thu": 0,
+          "Fri": 1,
+          "Sat": 1,
+          "Sun": 1
+        }
+      },
+      "CHA": {
+        "total": 4,
+        "days": {
+          "Mon": 1,
+          "Tue": 0,
+          "Wed": 1,
+          "Thu": 0,
+          "Fri": 1,
+          "Sat": 0,
+          "Sun": 1
+        }
+      },
+      "CHI": {
+        "total": 4,
+        "days": {
+          "Mon": 1,
+          "Tue": 0,
+          "Wed": 1,
+          "Thu": 1,
+          "Fri": 0,
+          "Sat": 0,
+          "Sun": 1
+        }
+      },
+      "CLE": {
+        "total": 3,
+        "days": {
+          "Mon": 1,
+          "Tue": 0,
+          "Wed": 0,
+          "Thu": 0,
+          "Fri": 0,
+          "Sat": 1,
+          "Sun": 1
+        }
+      },
+      "DAL": {
+        "total": 3,
+        "days": {
+          "Mon": 1,
+          "Tue": 0,
+          "Wed": 1,
+          "Thu": 0,
+          "Fri": 0,
+          "Sat": 1,
+          "Sun": 0
+        }
+      },
+      "DEN": {
+        "total": 3,
+        "days": {
+          "Mon": 0,
+          "Tue": 0,
+          "Wed": 0,
+          "Thu": 1,
+          "Fri": 1,
+          "Sat": 1,
+          "Sun": 0
+        }
+      },
+      "DET": {
+        "total": 4,
+        "days": {
+          "Mon": 0,
+          "Tue": 0,
+          "Wed": 1,
+          "Thu": 1,
+          "Fri": 1,
+          "Sat": 0,
+          "Sun": 1
+        }
+      },
+      "GSW": {
+        "total": 4,
+        "days": {
+          "Mon": 1,
+          "Tue": 0,
+          "Wed": 1,
+          "Thu": 0,
+          "Fri": 1,
+          "Sat": 1,
+          "Sun": 0
+        }
+      },
+      "HOU": {
+        "total": 4,
+        "days": {
+          "Mon": 1,
+          "Tue": 0,
+          "Wed": 0,
+          "Thu": 1,
+          "Fri": 1,
+          "Sat": 0,
+          "Sun": 1
+        }
+      },
+      "IND": {
+        "total": 4,
+        "days": {
+          "Mon": 0,
+          "Tue": 0,
+          "Wed": 1,
+          "Thu": 1,
+          "Fri": 0,
+          "Sat": 1,
+          "Sun": 1
+        }
+      },
+      "LAC": {
+        "total": 4,
+        "days": {
+          "Mon": 1,
+          "Tue": 0,
+          "Wed": 1,
+          "Thu": 0,
+          "Fri": 1,
+          "Sat": 1,
+          "Sun": 0
+        }
+      },
+      "LAL": {
+        "total": 3,
+        "days": {
+          "Mon": 0,
+          "Tue": 0,
+          "Wed": 0,
+          "Thu": 0,
+          "Fri": 1,
+          "Sat": 1,
+          "Sun": 1
+        }
+      },
+      "MEM": {
+        "total": 2,
+        "days": {
+          "Mon": 0,
+          "Tue": 1,
+          "Wed": 0,
+          "Thu": 0,
+          "Fri": 1,
+          "Sat": 0,
+          "Sun": 0
+        }
+      },
+      "MIA": {
+        "total": 3,
+        "days": {
+          "Mon": 0,
+          "Tue": 0,
+          "Wed": 1,
+          "Thu": 0,
+          "Fri": 1,
+          "Sat": 1,
+          "Sun": 0
+        }
+      },
+      "MIL": {
+        "total": 4,
+        "days": {
+          "Mon": 1,
+          "Tue": 0,
+          "Wed": 1,
+          "Thu": 1,
+          "Fri": 0,
+          "Sat": 1,
+          "Sun": 0
+        }
+      },
+      "MIN": {
+        "total": 4,
+        "days": {
+          "Mon": 1,
+          "Tue": 1,
+          "Wed": 0,
+          "Thu": 0,
+          "Fri": 1,
+          "Sat": 0,
+          "Sun": 1
+        }
+      },
+      "NOP": {
+        "total": 4,
+        "days": {
+          "Mon": 0,
+          "Tue": 0,
+          "Wed": 1,
+          "Thu": 1,
+          "Fri": 1,
+          "Sat": 0,
+          "Sun": 1
+        }
+      },
+      "NYK": {
+        "total": 4,
+        "days": {
+          "Mon": 1,
+          "Tue": 1,
+          "Wed": 1,
+          "Thu": 1,
+          "Fri": 0,
+          "Sat": 0,
+          "Sun": 0
+        }
+      },
+      "OKC": {
+        "total": 4,
+        "days": {
+          "Mon": 1,
+          "Tue": 0,
+          "Wed": 1,
+          "Thu": 0,
+          "Fri": 1,
+          "Sat": 0,
+          "Sun": 1
+        }
+      },
+      "ORL": {
+        "total": 4,
+        "days": {
+          "Mon": 0,
+          "Tue": 0,
+          "Wed": 0,
+          "Thu": 1,
+          "Fri": 1,
+          "Sat": 1,
+          "Sun": 1
+        }
+      },
+      "PHI": {
+        "total": 3,
+        "days": {
+          "Mon": 0,
+          "Tue": 1,
+          "Wed": 1,
+          "Thu": 1,
+          "Fri": 0,
+          "Sat": 0,
+          "Sun": 0
+        }
+      },
+      "PHX": {
+        "total": 3,
+        "days": {
+          "Mon": 1,
+          "Tue": 0,
+          "Wed": 1,
+          "Thu": 1,
+          "Fri": 0,
+          "Sat": 0,
+          "Sun": 0
+        }
+      },
+      "POR": {
+        "total": 3,
+        "days": {
+          "Mon": 1,
+          "Tue": 0,
+          "Wed": 1,
+          "Thu": 0,
+          "Fri": 0,
+          "Sat": 1,
+          "Sun": 0
+        }
+      },
+      "SAC": {
+        "total": 3,
+        "days": {
+          "Mon": 1,
+          "Tue": 1,
+          "Wed": 1,
+          "Thu": 0,
+          "Fri": 0,
+          "Sat": 0,
+          "Sun": 0
+        }
+      },
+      "SAS": {
+        "total": 2,
+        "days": {
+          "Mon": 0,
+          "Tue": 0,
+          "Wed": 1,
+          "Thu": 0,
+          "Fri": 0,
+          "Sat": 0,
+          "Sun": 1
+        }
+      },
+      "TOR": {
+        "total": 4,
+        "days": {
+          "Mon": 0,
+          "Tue": 0,
+          "Wed": 1,
+          "Thu": 1,
+          "Fri": 1,
+          "Sat": 1,
+          "Sun": 0
+        }
+      },
+      "UTA": {
+        "total": 4,
+        "days": {
+          "Mon": 1,
+          "Tue": 1,
+          "Wed": 1,
+          "Thu": 0,
+          "Fri": 0,
+          "Sat": 0,
+          "Sun": 1
+        }
+      },
+      "WAS": {
+        "total": 4,
+        "days": {
+          "Mon": 0,
+          "Tue": 0,
+          "Wed": 1,
+          "Thu": 1,
+          "Fri": 1,
+          "Sat": 0,
+          "Sun": 1
+        }
+      }
+    },
+    "Week 14": {
+      "ATL": {
+        "total": 4,
+        "days": {
+          "Mon": 1,
+          "Tue": 1,
+          "Wed": 1,
+          "Thu": 0,
+          "Fri": 1,
+          "Sat": 0,
+          "Sun": 0
+        }
+      },
+      "BOS": {
+        "total": 4,
+        "days": {
+          "Mon": 1,
+          "Tue": 0,
+          "Wed": 1,
+          "Thu": 0,
+          "Fri": 1,
+          "Sat": 1,
+          "Sun": 0
+        }
+      },
+      "BKN": {
+        "total": 4,
+        "days": {
+          "Mon": 0,
+          "Tue": 0,
+          "Wed": 1,
+          "Thu": 0,
+          "Fri": 1,
+          "Sat": 1,
+          "Sun": 1
+        }
+      },
+      "CHA": {
+        "total": 4,
+        "days": {
+          "Mon": 1,
+          "Tue": 1,
+          "Wed": 0,
+          "Thu": 1,
+          "Fri": 0,
+          "Sat": 0,
+          "Sun": 1
+        }
+      },
+      "CHI": {
+        "total": 3,
+        "days": {
+          "Mon": 0,
+          "Tue": 0,
+          "Wed": 1,
+          "Thu": 1,
+          "Fri": 0,
+          "Sat": 1,
+          "Sun": 0
+        }
+      },
+      "CLE": {
+        "total": 3,
+        "days": {
+          "Mon": 1,
+          "Tue": 0,
+          "Wed": 1,
+          "Thu": 1,
+          "Fri": 0,
+          "Sat": 0,
+          "Sun": 0
+        }
+      },
+      "DAL": {
+        "total": 3,
+        "days": {
+          "Mon": 1,
+          "Tue": 0,
+          "Wed": 0,
+          "Thu": 1,
+          "Fri": 1,
+          "Sat": 0,
+          "Sun": 0
+        }
+      },
+      "DEN": {
+        "total": 4,
+        "days": {
+          "Mon": 1,
+          "Tue": 0,
+          "Wed": 1,
+          "Thu": 1,
+          "Fri": 1,
+          "Sat": 0,
+          "Sun": 0
+        }
+      },
+      "DET": {
+        "total": 3,
+        "days": {
+          "Mon": 0,
+          "Tue": 0,
+          "Wed": 1,
+          "Thu": 0,
+          "Fri": 1,
+          "Sat": 1,
+          "Sun": 0
+        }
+      },
+      "GSW": {
+        "total": 4,
+        "days": {
+          "Mon": 1,
+          "Tue": 1,
+          "Wed": 1,
+          "Thu": 0,
+          "Fri": 0,
+          "Sat": 0,
+          "Sun": 1
+        }
+      },
+      "HOU": {
+        "total": 3,
+        "days": {
+          "Mon": 1,
+          "Tue": 0,
+          "Wed": 0,
+          "Thu": 0,
+          "Fri": 1,
+          "Sat": 0,
+          "Sun": 1
+        }
+      },
+      "IND": {
+        "total": 2,
+        "days": {
+          "Mon": 0,
+          "Tue": 1,
+          "Wed": 0,
+          "Thu": 0,
+          "Fri": 0,
+          "Sat": 1,
+          "Sun": 0
+        }
+      },
+      "LAC": {
+        "total": 3,
+        "days": {
+          "Mon": 0,
+          "Tue": 1,
+          "Wed": 1,
+          "Thu": 0,
+          "Fri": 0,
+          "Sat": 0,
+          "Sun": 1
+        }
+      },
+      "LAL": {
+        "total": 4,
+        "days": {
+          "Mon": 1,
+          "Tue": 0,
+          "Wed": 1,
+          "Thu": 1,
+          "Fri": 0,
+          "Sat": 1,
+          "Sun": 0
+        }
+      },
+      "MEM": {
+        "total": 4,
+        "days": {
+          "Mon": 1,
+          "Tue": 1,
+          "Wed": 0,
+          "Thu": 0,
+          "Fri": 1,
+          "Sat": 0,
+          "Sun": 1
+        }
+      },
+      "MIA": {
+        "total": 4,
+        "days": {
+          "Mon": 0,
+          "Tue": 1,
+          "Wed": 1,
+          "Thu": 0,
+          "Fri": 1,
+          "Sat": 1,
+          "Sun": 0
+        }
+      },
+      "MIL": {
+        "total": 3,
+        "days": {
+          "Mon": 0,
+          "Tue": 0,
+          "Wed": 1,
+          "Thu": 1,
+          "Fri": 0,
+          "Sat": 0,
+          "Sun": 1
+        }
+      },
+      "MIN": {
+        "total": 4,
+        "days": {
+          "Mon": 1,
+          "Tue": 0,
+          "Wed": 1,
+          "Thu": 0,
+          "Fri": 1,
+          "Sat": 1,
+          "Sun": 0
+        }
+      },
+      "NOP": {
+        "total": 2,
+        "days": {
+          "Mon": 0,
+          "Tue": 1,
+          "Wed": 0,
+          "Thu": 0,
+          "Fri": 0,
+          "Sat": 1,
+          "Sun": 0
+        }
+      },
+      "NYK": {
+        "total": 4,
+        "days": {
+          "Mon": 1,
+          "Tue": 0,
+          "Wed": 0,
+          "Thu": 1,
+          "Fri": 1,
+          "Sat": 0,
+          "Sun": 1
+        }
+      },
+      "OKC": {
+        "total": 4,
+        "days": {
+          "Mon": 1,
+          "Tue": 1,
+          "Wed": 1,
+          "Thu": 0,
+          "Fri": 1,
+          "Sat": 0,
+          "Sun": 0
+        }
+      },
+      "ORL": {
+        "total": 3,
+        "days": {
+          "Mon": 0,
+          "Tue": 0,
+          "Wed": 1,
+          "Thu": 1,
+          "Fri": 0,
+          "Sat": 1,
+          "Sun": 0
+        }
+      },
+      "PHI": {
+        "total": 3,
+        "days": {
+          "Mon": 1,
+          "Tue": 0,
+          "Wed": 0,
+          "Thu": 1,
+          "Fri": 1,
+          "Sat": 0,
+          "Sun": 0
+        }
+      },
+      "PHX": {
+        "total": 3,
+        "days": {
+          "Mon": 0,
+          "Tue": 0,
+          "Wed": 1,
+          "Thu": 0,
+          "Fri": 1,
+          "Sat": 0,
+          "Sun": 1
+        }
+      },
+      "POR": {
+        "total": 3,
+        "days": {
+          "Mon": 0,
+          "Tue": 0,
+          "Wed": 1,
+          "Thu": 0,
+          "Fri": 1,
+          "Sat": 0,
+          "Sun": 1
+        }
+      },
+      "SAC": {
+        "total": 3,
+        "days": {
+          "Mon": 1,
+          "Tue": 0,
+          "Wed": 1,
+          "Thu": 0,
+          "Fri": 1,
+          "Sat": 0,
+          "Sun": 0
+        }
+      },
+      "SAS": {
+        "total": 3,
+        "days": {
+          "Mon": 1,
+          "Tue": 0,
+          "Wed": 0,
+          "Thu": 1,
+          "Fri": 0,
+          "Sat": 1,
+          "Sun": 0
+        }
+      },
+      "TOR": {
+        "total": 3,
+        "days": {
+          "Mon": 1,
+          "Tue": 0,
+          "Wed": 0,
+          "Thu": 0,
+          "Fri": 1,
+          "Sat": 0,
+          "Sun": 1
+        }
+      },
+      "UTA": {
+        "total": 4,
+        "days": {
+          "Mon": 1,
+          "Tue": 0,
+          "Wed": 1,
+          "Thu": 1,
+          "Fri": 0,
+          "Sat": 1,
+          "Sun": 0
+        }
+      },
+      "WAS": {
+        "total": 3,
+        "days": {
+          "Mon": 1,
+          "Tue": 0,
+          "Wed": 1,
+          "Thu": 0,
+          "Fri": 0,
+          "Sat": 0,
+          "Sun": 1
+        }
+      }
+    },
+    "Week 15": {
+      "ATL": {
+        "total": 3,
+        "days": {
+          "Mon": 1,
+          "Tue": 0,
+          "Wed": 1,
+          "Thu": 0,
+          "Fri": 0,
+          "Sat": 0,
+          "Sun": 1
+        }
+      },
+      "BOS": {
+        "total": 3,
+        "days": {
+          "Mon": 1,
+          "Tue": 0,
+          "Wed": 0,
+          "Thu": 1,
+          "Fri": 0,
+          "Sat": 0,
+          "Sun": 1
+        }
+      },
+      "BKN": {
+        "total": 4,
+        "days": {
+          "Mon": 1,
+          "Tue": 0,
+          "Wed": 0,
+          "Thu": 1,
+          "Fri": 1,
+          "Sat": 1,
+          "Sun": 0
+        }
+      },
+      "CHA": {
+        "total": 3,
+        "days": {
+          "Mon": 1,
+          "Tue": 0,
+          "Wed": 0,
+          "Thu": 0,
+          "Fri": 1,
+          "Sat": 0,
+          "Sun": 1
+        }
+      },
+      "CHI": {
+        "total": 4,
+        "days": {
+          "Mon": 1,
+          "Tue": 1,
+          "Wed": 1,
+          "Thu": 0,
+          "Fri": 0,
+          "Sat": 1,
+          "Sun": 0
+        }
+      },
+      "CLE": {
+        "total": 3,
+        "days": {
+          "Mon": 0,
+          "Tue": 0,
+          "Wed": 0,
+          "Thu": 0,
+          "Fri": 1,
+          "Sat": 1,
+          "Sun": 1
+        }
+      },
+      "DAL": {
+        "total": 3,
+        "days": {
+          "Mon": 0,
+          "Tue": 0,
+          "Wed": 0,
+          "Thu": 1,
+          "Fri": 1,
+          "Sat": 0,
+          "Sun": 1
+        }
+      },
+      "DEN": {
+        "total": 3,
+        "days": {
+          "Mon": 0,
+          "Tue": 1,
+          "Wed": 1,
+          "Thu": 1,
+          "Fri": 0,
+          "Sat": 0,
+          "Sun": 0
+        }
+      },
+      "DET": {
+        "total": 2,
+        "days": {
+          "Mon": 1,
+          "Tue": 0,
+          "Wed": 0,
+          "Thu": 0,
+          "Fri": 0,
+          "Sat": 1,
+          "Sun": 0
+        }
+      },
+      "GSW": {
+        "total": 3,
+        "days": {
+          "Mon": 1,
+          "Tue": 0,
+          "Wed": 1,
+          "Thu": 0,
+          "Fri": 1,
+          "Sat": 0,
+          "Sun": 0
+        }
+      },
+      "HOU": {
+        "total": 4,
+        "days": {
+          "Mon": 1,
+          "Tue": 1,
+          "Wed": 0,
+          "Thu": 0,
+          "Fri": 1,
+          "Sat": 0,
+          "Sun": 1
+        }
+      },
+      "IND": {
+        "total": 4,
+        "days": {
+          "Mon": 0,
+          "Tue": 1,
+          "Wed": 1,
+          "Thu": 1,
+          "Fri": 1,
+          "Sat": 0,
+          "Sun": 0
+        }
+      },
+      "LAC": {
+        "total": 4,
+        "days": {
+          "Mon": 1,
+          "Tue": 1,
+          "Wed": 0,
+          "Thu": 0,
+          "Fri": 0,
+          "Sat": 1,
+          "Sun": 1
+        }
+      },
+      "LAL": {
+        "total": 3,
+        "days": {
+          "Mon": 0,
+          "Tue": 0,
+          "Wed": 1,
+          "Thu": 1,
+          "Fri": 0,
+          "Sat": 1,
+          "Sun": 0
+        }
+      },
+      "MEM": {
+        "total": 4,
+        "days": {
+          "Mon": 1,
+          "Tue": 0,
+          "Wed": 1,
+          "Thu": 1,
+          "Fri": 1,
+          "Sat": 0,
+          "Sun": 0
+        }
+      },
+      "MIA": {
+        "total": 3,
+        "days": {
+          "Mon": 1,
+          "Tue": 0,
+          "Wed": 1,
+          "Thu": 0,
+          "Fri": 1,
+          "Sat": 0,
+          "Sun": 0
+        }
+      },
+      "MIL": {
+        "total": 4,
+        "days": {
+          "Mon": 1,
+          "Tue": 0,
+          "Wed": 0,
+          "Thu": 1,
+          "Fri": 1,
+          "Sat": 0,
+          "Sun": 1
+        }
+      },
+      "MIN": {
+        "total": 3,
+        "days": {
+          "Mon": 1,
+          "Tue": 0,
+          "Wed": 0,
+          "Thu": 0,
+          "Fri": 1,
+          "Sat": 1,
+          "Sun": 0
+        }
+      },
+      "NOP": {
+        "total": 4,
+        "days": {
+          "Mon": 0,
+          "Tue": 0,
+          "Wed": 1,
+          "Thu": 1,
+          "Fri": 1,
+          "Sat": 0,
+          "Sun": 1
+        }
+      },
+      "NYK": {
+        "total": 3,
+        "days": {
+          "Mon": 1,
+          "Tue": 0,
+          "Wed": 1,
+          "Thu": 0,
+          "Fri": 0,
+          "Sat": 0,
+          "Sun": 1
+        }
+      },
+      "OKC": {
+        "total": 3,
+        "days": {
+          "Mon": 0,
+          "Tue": 1,
+          "Wed": 0,
+          "Thu": 1,
+          "Fri": 0,
+          "Sat": 0,
+          "Sun": 1
+        }
+      },
+      "ORL": {
+        "total": 4,
+        "days": {
+          "Mon": 1,
+          "Tue": 0,
+          "Wed": 1,
+          "Thu": 1,
+          "Fri": 0,
+          "Sat": 0,
+          "Sun": 1
+        }
+      },
+      "PHI": {
+        "total": 3,
+        "days": {
+          "Mon": 0,
+          "Tue": 0,
+          "Wed": 1,
+          "Thu": 0,
+          "Fri": 1,
+          "Sat": 1,
+          "Sun": 0
+        }
+      },
+      "PHX": {
+        "total": 3,
+        "days": {
+          "Mon": 1,
+          "Tue": 0,
+          "Wed": 0,
+          "Thu": 1,
+          "Fri": 1,
+          "Sat": 0,
+          "Sun": 0
+        }
+      },
+      "POR": {
+        "total": 4,
+        "days": {
+          "Mon": 1,
+          "Tue": 0,
+          "Wed": 0,
+          "Thu": 0,
+          "Fri": 1,
+          "Sat": 1,
+          "Sun": 1
+        }
+      },
+      "SAC": {
+        "total": 3,
+        "days": {
+          "Mon": 1,
+          "Tue": 0,
+          "Wed": 1,
+          "Thu": 0,
+          "Fri": 0,
+          "Sat": 0,
+          "Sun": 1
+        }
+      },
+      "SAS": {
+        "total": 4,
+        "days": {
+          "Mon": 1,
+          "Tue": 0,
+          "Wed": 0,
+          "Thu": 0,
+          "Fri": 1,
+          "Sat": 1,
+          "Sun": 1
+        }
+      },
+      "TOR": {
+        "total": 4,
+        "days": {
+          "Mon": 0,
+          "Tue": 1,
+          "Wed": 1,
+          "Thu": 0,
+          "Fri": 1,
+          "Sat": 1,
+          "Sun": 0
+        }
+      },
+      "UTA": {
+        "total": 4,
+        "days": {
+          "Mon": 1,
+          "Tue": 0,
+          "Wed": 0,
+          "Thu": 1,
+          "Fri": 1,
+          "Sat": 0,
+          "Sun": 1
+        }
+      },
+      "WAS": {
+        "total": 2,
+        "days": {
+          "Mon": 0,
+          "Tue": 1,
+          "Wed": 1,
+          "Thu": 0,
+          "Fri": 0,
+          "Sat": 0,
+          "Sun": 0
+        }
+      }
+    },
+    "Week 16": {
+      "ATL": {
+        "total": 3,
+        "days": {
+          "Mon": 0,
+          "Tue": 1,
+          "Wed": 1,
+          "Thu": 0,
+          "Fri": 0,
+          "Sat": 0,
+          "Sun": 1
+        }
+      },
+      "BOS": {
+        "total": 4,
+        "days": {
+          "Mon": 1,
+          "Tue": 0,
+          "Wed": 1,
+          "Thu": 1,
+          "Fri": 0,
+          "Sat": 1,
+          "Sun": 0
+        }
+      },
+      "BKN": {
+        "total": 4,
+        "days": {
+          "Mon": 1,
+          "Tue": 1,
+          "Wed": 1,
+          "Thu": 1,
+          "Fri": 0,
+          "Sat": 0,
+          "Sun": 0
+        }
+      },
+      "CHA": {
+        "total": 3,
+        "days": {
+          "Mon": 0,
+          "Tue": 0,
+          "Wed": 1,
+          "Thu": 0,
+          "Fri": 1,
+          "Sat": 0,
+          "Sun": 1
+        }
+      },
+      "CHI": {
+        "total": 4,
+        "days": {
+          "Mon": 0,
+          "Tue": 0,
+          "Wed": 0,
+          "Thu": 1,
+          "Fri": 1,
+          "Sat": 1,
+          "Sun": 1
+        }
+      },
+      "CLE": {
+        "total": 4,
+        "days": {
+          "Mon": 1,
+          "Tue": 0,
+          "Wed": 1,
+          "Thu": 0,
+          "Fri": 1,
+          "Sat": 0,
+          "Sun": 1
+        }
+      },
+      "DAL": {
+        "total": 4,
+        "days": {
+          "Mon": 1,
+          "Tue": 0,
+          "Wed": 1,
+          "Thu": 1,
+          "Fri": 0,
+          "Sat": 0,
+          "Sun": 1
+        }
+      },
+      "DEN": {
+        "total": 3,
+        "days": {
+          "Mon": 1,
+          "Tue": 0,
+          "Wed": 1,
+          "Thu": 0,
+          "Fri": 1,
+          "Sat": 0,
+          "Sun": 0
+        }
+      },
+      "DET": {
+        "total": 3,
+        "days": {
+          "Mon": 1,
+          "Tue": 0,
+          "Wed": 1,
+          "Thu": 0,
+          "Fri": 1,
+          "Sat": 0,
+          "Sun": 0
+        }
+      },
+      "GSW": {
+        "total": 4,
+        "days": {
+          "Mon": 1,
+          "Tue": 0,
+          "Wed": 1,
+          "Thu": 0,
+          "Fri": 1,
+          "Sat": 0,
+          "Sun": 1
+        }
+      },
+      "HOU": {
+        "total": 4,
+        "days": {
+          "Mon": 1,
+          "Tue": 1,
+          "Wed": 1,
+          "Thu": 0,
+          "Fri": 1,
+          "Sat": 0,
+          "Sun": 0
+        }
+      },
+      "IND": {
+        "total": 4,
+        "days": {
+          "Mon": 1,
+          "Tue": 1,
+          "Wed": 1,
+          "Thu": 1,
+          "Fri": 0,
+          "Sat": 0,
+          "Sun": 0
+        }
+      },
+      "LAC": {
+        "total": 4,
+        "days": {
+          "Mon": 0,
+          "Tue": 1,
+          "Wed": 1,
+          "Thu": 1,
+          "Fri": 1,
+          "Sat": 0,
+          "Sun": 0
+        }
+      },
+      "LAL": {
+        "total": 4,
+        "days": {
+          "Mon": 0,
+          "Tue": 0,
+          "Wed": 1,
+          "Thu": 1,
+          "Fri": 1,
+          "Sat": 0,
+          "Sun": 1
+        }
+      },
+      "MEM": {
+        "total": 4,
+        "days": {
+          "Mon": 1,
+          "Tue": 1,
+          "Wed": 1,
+          "Thu": 0,
+          "Fri": 1,
+          "Sat": 0,
+          "Sun": 0
+        }
+      },
+      "MIA": {
+        "total": 4,
+        "days": {
+          "Mon": 1,
+          "Tue": 0,
+          "Wed": 1,
+          "Thu": 1,
+          "Fri": 0,
+          "Sat": 0,
+          "Sun": 1
+        }
+      },
+      "MIL": {
+        "total": 3,
+        "days": {
+          "Mon": 1,
+          "Tue": 0,
+          "Wed": 1,
+          "Thu": 0,
+          "Fri": 1,
+          "Sat": 0,
+          "Sun": 0
+        }
+      },
+      "MIN": {
+        "total": 4,
+        "days": {
+          "Mon": 1,
+          "Tue": 0,
+          "Wed": 1,
+          "Thu": 0,
+          "Fri": 1,
+          "Sat": 1,
+          "Sun": 0
+        }
+      },
+      "NOP": {
+        "total": 3,
+        "days": {
+          "Mon": 1,
+          "Tue": 1,
+          "Wed": 0,
+          "Thu": 0,
+          "Fri": 0,
+          "Sat": 0,
+          "Sun": 1
+        }
+      },
+      "NYK": {
+        "total": 3,
+        "days": {
+          "Mon": 0,
+          "Tue": 1,
+          "Wed": 1,
+          "Thu": 0,
+          "Fri": 0,
+          "Sat": 0,
+          "Sun": 1
+        }
+      },
+      "OKC": {
+        "total": 3,
+        "days": {
+          "Mon": 0,
+          "Tue": 0,
+          "Wed": 1,
+          "Thu": 0,
+          "Fri": 1,
+          "Sat": 0,
+          "Sun": 1
+        }
+      },
+      "ORL": {
+        "total": 4,
+        "days": {
+          "Mon": 0,
+          "Tue": 0,
+          "Wed": 1,
+          "Thu": 1,
+          "Fri": 1,
+          "Sat": 1,
+          "Sun": 0
+        }
+      },
+      "PHI": {
+        "total": 4,
+        "days": {
+          "Mon": 1,
+          "Tue": 1,
+          "Wed": 1,
+          "Thu": 1,
+          "Fri": 0,
+          "Sat": 0,
+          "Sun": 0
+        }
+      },
+      "PHX": {
+        "total": 3,
+        "days": {
+          "Mon": 0,
+          "Tue": 1,
+          "Wed": 1,
+          "Thu": 0,
+          "Fri": 0,
+          "Sat": 0,
+          "Sun": 1
+        }
+      },
+      "POR": {
+        "total": 3,
+        "days": {
+          "Mon": 0,
+          "Tue": 0,
+          "Wed": 1,
+          "Thu": 1,
+          "Fri": 0,
+          "Sat": 0,
+          "Sun": 1
+        }
+      },
+      "SAC": {
+        "total": 4,
+        "days": {
+          "Mon": 0,
+          "Tue": 1,
+          "Wed": 1,
+          "Thu": 0,
+          "Fri": 1,
+          "Sat": 0,
+          "Sun": 1
+        }
+      },
+      "SAS": {
+        "total": 3,
+        "days": {
+          "Mon": 1,
+          "Tue": 1,
+          "Wed": 0,
+          "Thu": 0,
+          "Fri": 1,
+          "Sat": 0,
+          "Sun": 0
+        }
+      },
+      "TOR": {
+        "total": 4,
+        "days": {
+          "Mon": 0,
+          "Tue": 1,
+          "Wed": 0,
+          "Thu": 1,
+          "Fri": 1,
+          "Sat": 1,
+          "Sun": 0
+        }
+      },
+      "UTA": {
+        "total": 2,
+        "days": {
+          "Mon": 0,
+          "Tue": 1,
+          "Wed": 0,
+          "Thu": 0,
+          "Fri": 0,
+          "Sat": 1,
+          "Sun": 0
+        }
+      },
+      "WAS": {
+        "total": 3,
+        "days": {
+          "Mon": 1,
+          "Tue": 0,
+          "Wed": 0,
+          "Thu": 0,
+          "Fri": 1,
+          "Sat": 1,
+          "Sun": 0
+        }
+      }
+    },
+    "Week 17": {
+      "ATL": {
+        "total": 3,
+        "days": {
+          "Mon": 0,
+          "Tue": 0,
+          "Wed": 1,
+          "Thu": 1,
+          "Fri": 0,
+          "Sat": 0,
+          "Sun": 1
+        }
+      },
+      "BOS": {
+        "total": 4,
+        "days": {
+          "Mon": 0,
+          "Tue": 0,
+          "Wed": 0,
+          "Thu": 1,
+          "Fri": 1,
+          "Sat": 1,
+          "Sun": 1
+        }
+      },
+      "BKN": {
+        "total": 3,
+        "days": {
+          "Mon": 0,
+          "Tue": 1,
+          "Wed": 0,
+          "Thu": 0,
+          "Fri": 1,
+          "Sat": 1,
+          "Sun": 0
+        }
+      },
+      "CHA": {
+        "total": 3,
+        "days": {
+          "Mon": 0,
+          "Tue": 1,
+          "Wed": 0,
+          "Thu": 1,
+          "Fri": 0,
+          "Sat": 0,
+          "Sun": 1
+        }
+      },
+      "CHI": {
+        "total": 4,
+        "days": {
+          "Mon": 0,
+          "Tue": 0,
+          "Wed": 1,
+          "Thu": 0,
+          "Fri": 1,
+          "Sat": 1,
+          "Sun": 1
+        }
+      },
+      "CLE": {
+        "total": 3,
+        "days": {
+          "Mon": 0,
+          "Tue": 0,
+          "Wed": 1,
+          "Thu": 1,
+          "Fri": 1,
+          "Sat": 0,
+          "Sun": 0
+        }
+      },
+      "DAL": {
+        "total": 4,
+        "days": {
+          "Mon": 0,
+          "Tue": 0,
+          "Wed": 1,
+          "Thu": 1,
+          "Fri": 1,
+          "Sat": 0,
+          "Sun": 1
+        }
+      },
+      "DEN": {
+        "total": 3,
+        "days": {
+          "Mon": 0,
+          "Tue": 0,
+          "Wed": 1,
+          "Thu": 1,
+          "Fri": 1,
+          "Sat": 0,
+          "Sun": 0
+        }
+      },
+      "DET": {
+        "total": 3,
+        "days": {
+          "Mon": 0,
+          "Tue": 1,
+          "Wed": 1,
+          "Thu": 0,
+          "Fri": 0,
+          "Sat": 0,
+          "Sun": 1
+        }
+      },
+      "GSW": {
+        "total": 3,
+        "days": {
+          "Mon": 1,
+          "Tue": 1,
+          "Wed": 0,
+          "Thu": 0,
+          "Fri": 0,
+          "Sat": 1,
+          "Sun": 0
+        }
+      },
+      "HOU": {
+        "total": 4,
+        "days": {
+          "Mon": 1,
+          "Tue": 0,
+          "Wed": 0,
+          "Thu": 1,
+          "Fri": 0,
+          "Sat": 1,
+          "Sun": 1
+        }
+      },
+      "IND": {
+        "total": 3,
+        "days": {
+          "Mon": 1,
+          "Tue": 0,
+          "Wed": 0,
+          "Thu": 0,
+          "Fri": 1,
+          "Sat": 0,
+          "Sun": 1
+        }
+      },
+      "LAC": {
+        "total": 3,
+        "days": {
+          "Mon": 0,
+          "Tue": 1,
+          "Wed": 1,
+          "Thu": 0,
+          "Fri": 1,
+          "Sat": 0,
+          "Sun": 0
+        }
+      },
+      "LAL": {
+        "total": 4,
+        "days": {
+          "Mon": 1,
+          "Tue": 1,
+          "Wed": 1,
+          "Thu": 0,
+          "Fri": 0,
+          "Sat": 1,
+          "Sun": 0
+        }
+      },
+      "MEM": {
+        "total": 3,
+        "days": {
+          "Mon": 0,
+          "Tue": 1,
+          "Wed": 1,
+          "Thu": 0,
+          "Fri": 0,
+          "Sat": 0,
+          "Sun": 1
+        }
+      },
+      "MIA": {
+        "total": 4,
+        "days": {
+          "Mon": 1,
+          "Tue": 0,
+          "Wed": 1,
+          "Thu": 0,
+          "Fri": 1,
+          "Sat": 1,
+          "Sun": 0
+        }
+      },
+      "MIL": {
+        "total": 4,
+        "days": {
+          "Mon": 1,
+          "Tue": 1,
+          "Wed": 0,
+          "Thu": 0,
+          "Fri": 0,
+          "Sat": 1,
+          "Sun": 1
+        }
+      },
+      "MIN": {
+        "total": 3,
+        "days": {
+          "Mon": 0,
+          "Tue": 0,
+          "Wed": 1,
+          "Thu": 0,
+          "Fri": 1,
+          "Sat": 0,
+          "Sun": 1
+        }
+      },
+      "NOP": {
+        "total": 3,
+        "days": {
+          "Mon": 0,
+          "Tue": 1,
+          "Wed": 0,
+          "Thu": 0,
+          "Fri": 1,
+          "Sat": 1,
+          "Sun": 0
+        }
+      },
+      "NYK": {
+        "total": 4,
+        "days": {
+          "Mon": 1,
+          "Tue": 0,
+          "Wed": 1,
+          "Thu": 0,
+          "Fri": 1,
+          "Sat": 1,
+          "Sun": 0
+        }
+      },
+      "OKC": {
+        "total": 2,
+        "days": {
+          "Mon": 0,
+          "Tue": 1,
+          "Wed": 0,
+          "Thu": 0,
+          "Fri": 0,
+          "Sat": 1,
+          "Sun": 0
+        }
+      },
+      "ORL": {
+        "total": 2,
+        "days": {
+          "Mon": 1,
+          "Tue": 0,
+          "Wed": 0,
+          "Thu": 0,
+          "Fri": 0,
+          "Sat": 1,
+          "Sun": 0
+        }
+      },
+      "PHI": {
+        "total": 4,
+        "days": {
+          "Mon": 0,
+          "Tue": 0,
+          "Wed": 1,
+          "Thu": 0,
+          "Fri": 1,
+          "Sat": 1,
+          "Sun": 1
+        }
+      },
+      "PHX": {
+        "total": 3,
+        "days": {
+          "Mon": 1,
+          "Tue": 0,
+          "Wed": 0,
+          "Thu": 0,
+          "Fri": 1,
+          "Sat": 1,
+          "Sun": 0
+        }
+      },
+      "POR": {
+        "total": 4,
+        "days": {
+          "Mon": 0,
+          "Tue": 1,
+          "Wed": 1,
+          "Thu": 0,
+          "Fri": 0,
+          "Sat": 1,
+          "Sun": 1
+        }
+      },
+      "SAC": {
+        "total": 4,
+        "days": {
+          "Mon": 1,
+          "Tue": 0,
+          "Wed": 1,
+          "Thu": 0,
+          "Fri": 1,
+          "Sat": 0,
+          "Sun": 1
+        }
+      },
+      "SAS": {
+        "total": 4,
+        "days": {
+          "Mon": 0,
+          "Tue": 1,
+          "Wed": 1,
+          "Thu": 0,
+          "Fri": 1,
+          "Sat": 1,
+          "Sun": 0
+        }
+      },
+      "TOR": {
+        "total": 4,
+        "days": {
+          "Mon": 1,
+          "Tue": 0,
+          "Wed": 1,
+          "Thu": 1,
+          "Fri": 0,
+          "Sat": 0,
+          "Sun": 1
+        }
+      },
+      "UTA": {
+        "total": 4,
+        "days": {
+          "Mon": 0,
+          "Tue": 0,
+          "Wed": 1,
+          "Thu": 1,
+          "Fri": 1,
+          "Sat": 1,
+          "Sun": 0
+        }
+      },
+      "WAS": {
+        "total": 4,
+        "days": {
+          "Mon": 1,
+          "Tue": 0,
+          "Wed": 1,
+          "Thu": 1,
+          "Fri": 1,
+          "Sat": 0,
+          "Sun": 0
+        }
+      }
+    },
+    "Week 18": {
+      "ATL": {
+        "total": 3,
+        "days": {
+          "Mon": 0,
+          "Tue": 1,
+          "Wed": 1,
+          "Thu": 0,
+          "Fri": 0,
+          "Sat": 1,
+          "Sun": 0
+        }
+      },
+      "BOS": {
+        "total": 3,
+        "days": {
+          "Mon": 0,
+          "Tue": 1,
+          "Wed": 0,
+          "Thu": 0,
+          "Fri": 1,
+          "Sat": 0,
+          "Sun": 1
+        }
+      },
+      "BKN": {
+        "total": 4,
+        "days": {
+          "Mon": 1,
+          "Tue": 1,
+          "Wed": 0,
+          "Thu": 0,
+          "Fri": 1,
+          "Sat": 1,
+          "Sun": 0
+        }
+      },
+      "CHA": {
+        "total": 4,
+        "days": {
+          "Mon": 1,
+          "Tue": 0,
+          "Wed": 1,
+          "Thu": 0,
+          "Fri": 1,
+          "Sat": 1,
+          "Sun": 0
+        }
+      },
+      "CHI": {
+        "total": 4,
+        "days": {
+          "Mon": 1,
+          "Tue": 1,
+          "Wed": 0,
+          "Thu": 0,
+          "Fri": 1,
+          "Sat": 0,
+          "Sun": 1
+        }
+      },
+      "CLE": {
+        "total": 4,
+        "days": {
+          "Mon": 1,
+          "Tue": 1,
+          "Wed": 0,
+          "Thu": 0,
+          "Fri": 1,
+          "Sat": 0,
+          "Sun": 1
+        }
+      },
+      "DAL": {
+        "total": 4,
+        "days": {
+          "Mon": 1,
+          "Tue": 0,
+          "Wed": 1,
+          "Thu": 0,
+          "Fri": 1,
+          "Sat": 1,
+          "Sun": 0
+        }
+      },
+      "DEN": {
+        "total": 3,
+        "days": {
+          "Mon": 0,
+          "Tue": 0,
+          "Wed": 1,
+          "Thu": 1,
+          "Fri": 1,
+          "Sat": 0,
+          "Sun": 0
+        }
+      },
+      "DET": {
+        "total": 3,
+        "days": {
+          "Mon": 1,
+          "Tue": 0,
+          "Wed": 0,
+          "Thu": 1,
+          "Fri": 1,
+          "Sat": 0,
+          "Sun": 0
+        }
+      },
+      "GSW": {
+        "total": 3,
+        "days": {
+          "Mon": 0,
+          "Tue": 1,
+          "Wed": 0,
+          "Thu": 0,
+          "Fri": 0,
+          "Sat": 1,
+          "Sun": 1
+        }
+      },
+      "HOU": {
+        "total": 4,
+        "days": {
+          "Mon": 1,
+          "Tue": 1,
+          "Wed": 0,
+          "Thu": 1,
+          "Fri": 0,
+          "Sat": 1,
+          "Sun": 0
+        }
+      },
+      "IND": {
+        "total": 3,
+        "days": {
+          "Mon": 1,
+          "Tue": 0,
+          "Wed": 0,
+          "Thu": 1,
+          "Fri": 1,
+          "Sat": 0,
+          "Sun": 0
+        }
+      },
+      "LAC": {
+        "total": 4,
+        "days": {
+          "Mon": 1,
+          "Tue": 0,
+          "Wed": 1,
+          "Thu": 1,
+          "Fri": 1,
+          "Sat": 0,
+          "Sun": 0
+        }
+      },
+      "LAL": {
+        "total": 4,
+        "days": {
+          "Mon": 1,
+          "Tue": 0,
+          "Wed": 1,
+          "Thu": 1,
+          "Fri": 0,
+          "Sat": 1,
+          "Sun": 0
+        }
+      },
+      "MEM": {
+        "total": 3,
+        "days": {
+          "Mon": 1,
+          "Tue": 0,
+          "Wed": 0,
+          "Thu": 0,
+          "Fri": 1,
+          "Sat": 0,
+          "Sun": 1
+        }
+      },
+      "MIA": {
+        "total": 4,
+        "days": {
+          "Mon": 1,
+          "Tue": 0,
+          "Wed": 1,
+          "Thu": 1,
+          "Fri": 1,
+          "Sat": 0,
+          "Sun": 0
+        }
+      },
+      "MIL": {
+        "total": 4,
+        "days": {
+          "Mon": 0,
+          "Tue": 1,
+          "Wed": 1,
+          "Thu": 0,
+          "Fri": 1,
+          "Sat": 1,
+          "Sun": 0
+        }
+      },
+      "MIN": {
+        "total": 4,
+        "days": {
+          "Mon": 1,
+          "Tue": 0,
+          "Wed": 1,
+          "Thu": 0,
+          "Fri": 1,
+          "Sat": 1,
+          "Sun": 0
+        }
+      },
+      "NOP": {
+        "total": 4,
+        "days": {
+          "Mon": 1,
+          "Tue": 0,
+          "Wed": 1,
+          "Thu": 0,
+          "Fri": 0,
+          "Sat": 1,
+          "Sun": 1
+        }
+      },
+      "NYK": {
+        "total": 4,
+        "days": {
+          "Mon": 1,
+          "Tue": 1,
+          "Wed": 0,
+          "Thu": 1,
+          "Fri": 0,
+          "Sat": 0,
+          "Sun": 1
+        }
+      },
+      "OKC": {
+        "total": 4,
+        "days": {
+          "Mon": 0,
+          "Tue": 0,
+          "Wed": 1,
+          "Thu": 0,
+          "Fri": 1,
+          "Sat": 1,
+          "Sun": 1
+        }
+      },
+      "ORL": {
+        "total": 3,
+        "days": {
+          "Mon": 0,
+          "Tue": 1,
+          "Wed": 1,
+          "Thu": 0,
+          "Fri": 0,
+          "Sat": 0,
+          "Sun": 1
+        }
+      },
+      "PHI": {
+        "total": 3,
+        "days": {
+          "Mon": 0,
+          "Tue": 0,
+          "Wed": 1,
+          "Thu": 0,
+          "Fri": 0,
+          "Sat": 1,
+          "Sun": 1
+        }
+      },
+      "PHX": {
+        "total": 3,
+        "days": {
+          "Mon": 0,
+          "Tue": 0,
+          "Wed": 1,
+          "Thu": 1,
+          "Fri": 1,
+          "Sat": 0,
+          "Sun": 0
+        }
+      },
+      "POR": {
+        "total": 4,
+        "days": {
+          "Mon": 1,
+          "Tue": 0,
+          "Wed": 1,
+          "Thu": 0,
+          "Fri": 1,
+          "Sat": 1,
+          "Sun": 0
+        }
+      },
+      "SAC": {
+        "total": 3,
+        "days": {
+          "Mon": 1,
+          "Tue": 0,
+          "Wed": 0,
+          "Thu": 1,
+          "Fri": 1,
+          "Sat": 0,
+          "Sun": 0
+        }
+      },
+      "SAS": {
+        "total": 3,
+        "days": {
+          "Mon": 1,
+          "Tue": 1,
+          "Wed": 0,
+          "Thu": 1,
+          "Fri": 0,
+          "Sat": 0,
+          "Sun": 0
+        }
+      },
+      "TOR": {
+        "total": 4,
+        "days": {
+          "Mon": 0,
+          "Tue": 0,
+          "Wed": 1,
+          "Thu": 1,
+          "Fri": 1,
+          "Sat": 0,
+          "Sun": 1
+        }
+      },
+      "UTA": {
+        "total": 3,
+        "days": {
+          "Mon": 0,
+          "Tue": 1,
+          "Wed": 1,
+          "Thu": 1,
+          "Fri": 0,
+          "Sat": 0,
+          "Sun": 0
+        }
+      },
+      "WAS": {
+        "total": 4,
+        "days": {
+          "Mon": 1,
+          "Tue": 0,
+          "Wed": 0,
+          "Thu": 0,
+          "Fri": 1,
+          "Sat": 1,
+          "Sun": 1
+        }
+      }
+    },
+    "Week 19": {
+      "ATL": {
+        "total": 4,
+        "days": {
+          "Mon": 1,
+          "Tue": 0,
+          "Wed": 0,
+          "Thu": 1,
+          "Fri": 1,
+          "Sat": 1,
+          "Sun": 0
+        }
+      },
+      "BOS": {
+        "total": 4,
+        "days": {
+          "Mon": 0,
+          "Tue": 1,
+          "Wed": 0,
+          "Thu": 1,
+          "Fri": 0,
+          "Sat": 1,
+          "Sun": 1
+        }
+      },
+      "BKN": {
+        "total": 4,
+        "days": {
+          "Mon": 1,
+          "Tue": 0,
+          "Wed": 0,
+          "Thu": 0,
+          "Fri": 1,
+          "Sat": 1,
+          "Sun": 1
+        }
+      },
+      "CHA": {
+        "total": 4,
+        "days": {
+          "Mon": 0,
+          "Tue": 1,
+          "Wed": 1,
+          "Thu": 0,
+          "Fri": 0,
+          "Sat": 1,
+          "Sun": 1
+        }
+      },
+      "CHI": {
+        "total": 3,
+        "days": {
+          "Mon": 0,
+          "Tue": 0,
+          "Wed": 1,
+          "Thu": 1,
+          "Fri": 1,
+          "Sat": 0,
+          "Sun": 0
+        }
+      },
+      "CLE": {
+        "total": 3,
+        "days": {
+          "Mon": 1,
+          "Tue": 0,
+          "Wed": 0,
+          "Thu": 0,
+          "Fri": 1,
+          "Sat": 1,
+          "Sun": 0
+        }
+      },
+      "DAL": {
+        "total": 4,
+        "days": {
+          "Mon": 1,
+          "Tue": 0,
+          "Wed": 1,
+          "Thu": 1,
+          "Fri": 0,
+          "Sat": 1,
+          "Sun": 0
+        }
+      },
+      "DEN": {
+        "total": 4,
+        "days": {
+          "Mon": 0,
+          "Tue": 1,
+          "Wed": 1,
+          "Thu": 0,
+          "Fri": 1,
+          "Sat": 1,
+          "Sun": 0
+        }
+      },
+      "DET": {
+        "total": 3,
+        "days": {
+          "Mon": 1,
+          "Tue": 0,
+          "Wed": 1,
+          "Thu": 0,
+          "Fri": 1,
+          "Sat": 0,
+          "Sun": 0
+        }
+      },
+      "GSW": {
+        "total": 3,
+        "days": {
+          "Mon": 0,
+          "Tue": 1,
+          "Wed": 1,
+          "Thu": 0,
+          "Fri": 0,
+          "Sat": 0,
+          "Sun": 1
+        }
+      },
+      "HOU": {
+        "total": 2,
+        "days": {
+          "Mon": 1,
+          "Tue": 0,
+          "Wed": 0,
+          "Thu": 1,
+          "Fri": 0,
+          "Sat": 0,
+          "Sun": 0
+        }
+      },
+      "IND": {
+        "total": 3,
+        "days": {
+          "Mon": 1,
+          "Tue": 0,
+          "Wed": 0,
+          "Thu": 1,
+          "Fri": 1,
+          "Sat": 0,
+          "Sun": 0
+        }
+      },
+      "LAC": {
+        "total": 4,
+        "days": {
+          "Mon": 0,
+          "Tue": 1,
+          "Wed": 1,
+          "Thu": 1,
+          "Fri": 1,
+          "Sat": 0,
+          "Sun": 0
+        }
+      },
+      "LAL": {
+        "total": 3,
+        "days": {
+          "Mon": 1,
+          "Tue": 0,
+          "Wed": 1,
+          "Thu": 1,
+          "Fri": 0,
+          "Sat": 0,
+          "Sun": 0
+        }
+      },
+      "MEM": {
+        "total": 4,
+        "days": {
+          "Mon": 1,
+          "Tue": 0,
+          "Wed": 1,
+          "Thu": 1,
+          "Fri": 0,
+          "Sat": 1,
+          "Sun": 0
+        }
+      },
+      "MIA": {
+        "total": 3,
+        "days": {
+          "Mon": 1,
+          "Tue": 1,
+          "Wed": 0,
+          "Thu": 0,
+          "Fri": 1,
+          "Sat": 0,
+          "Sun": 0
+        }
+      },
+      "MIL": {
+        "total": 3,
+        "days": {
+          "Mon": 0,
+          "Tue": 0,
+          "Wed": 0,
+          "Thu": 1,
+          "Fri": 1,
+          "Sat": 1,
+          "Sun": 0
+        }
+      },
+      "MIN": {
+        "total": 3,
+        "days": {
+          "Mon": 0,
+          "Tue": 1,
+          "Wed": 1,
+          "Thu": 0,
+          "Fri": 0,
+          "Sat": 0,
+          "Sun": 1
+        }
+      },
+      "NOP": {
+        "total": 4,
+        "days": {
+          "Mon": 1,
+          "Tue": 1,
+          "Wed": 1,
+          "Thu": 0,
+          "Fri": 0,
+          "Sat": 0,
+          "Sun": 1
+        }
+      },
+      "NYK": {
+        "total": 4,
+        "days": {
+          "Mon": 0,
+          "Tue": 0,
+          "Wed": 0,
+          "Thu": 1,
+          "Fri": 1,
+          "Sat": 1,
+          "Sun": 1
+        }
+      },
+      "OKC": {
+        "total": 3,
+        "days": {
+          "Mon": 0,
+          "Tue": 0,
+          "Wed": 1,
+          "Thu": 0,
+          "Fri": 1,
+          "Sat": 1,
+          "Sun": 0
+        }
+      },
+      "ORL": {
+        "total": 4,
+        "days": {
+          "Mon": 0,
+          "Tue": 1,
+          "Wed": 1,
+          "Thu": 1,
+          "Fri": 1,
+          "Sat": 0,
+          "Sun": 0
+        }
+      },
+      "PHI": {
+        "total": 4,
+        "days": {
+          "Mon": 0,
+          "Tue": 1,
+          "Wed": 1,
+          "Thu": 0,
+          "Fri": 1,
+          "Sat": 0,
+          "Sun": 1
+        }
+      },
+      "PHX": {
+        "total": 3,
+        "days": {
+          "Mon": 0,
+          "Tue": 0,
+          "Wed": 1,
+          "Thu": 0,
+          "Fri": 1,
+          "Sat": 1,
+          "Sun": 0
+        }
+      },
+      "POR": {
+        "total": 4,
+        "days": {
+          "Mon": 1,
+          "Tue": 0,
+          "Wed": 1,
+          "Thu": 1,
+          "Fri": 0,
+          "Sat": 1,
+          "Sun": 0
+        }
+      },
+      "SAC": {
+        "total": 3,
+        "days": {
+          "Mon": 1,
+          "Tue": 0,
+          "Wed": 0,
+          "Thu": 0,
+          "Fri": 1,
+          "Sat": 0,
+          "Sun": 1
+        }
+      },
+      "SAS": {
+        "total": 4,
+        "days": {
+          "Mon": 1,
+          "Tue": 0,
+          "Wed": 0,
+          "Thu": 1,
+          "Fri": 1,
+          "Sat": 1,
+          "Sun": 0
+        }
+      },
+      "TOR": {
+        "total": 3,
+        "days": {
+          "Mon": 1,
+          "Tue": 0,
+          "Wed": 1,
+          "Thu": 1,
+          "Fri": 0,
+          "Sat": 0,
+          "Sun": 0
+        }
+      },
+      "UTA": {
+        "total": 3,
+        "days": {
+          "Mon": 0,
+          "Tue": 1,
+          "Wed": 0,
+          "Thu": 1,
+          "Fri": 1,
+          "Sat": 0,
+          "Sun": 0
+        }
+      },
+      "WAS": {
+        "total": 4,
+        "days": {
+          "Mon": 0,
+          "Tue": 1,
+          "Wed": 1,
+          "Thu": 0,
+          "Fri": 1,
+          "Sat": 0,
+          "Sun": 1
+        }
+      }
+    },
+    "Week 20": {
+      "ATL": {
+        "total": 3,
+        "days": {
+          "Mon": 0,
+          "Tue": 0,
+          "Wed": 0,
+          "Thu": 1,
+          "Fri": 1,
+          "Sat": 0,
+          "Sun": 1
+        }
+      },
+      "BOS": {
+        "total": 4,
+        "days": {
+          "Mon": 1,
+          "Tue": 0,
+          "Wed": 1,
+          "Thu": 0,
+          "Fri": 1,
+          "Sat": 0,
+          "Sun": 1
+        }
+      },
+      "BKN": {
+        "total": 3,
+        "days": {
+          "Mon": 1,
+          "Tue": 0,
+          "Wed": 1,
+          "Thu": 0,
+          "Fri": 1,
+          "Sat": 0,
+          "Sun": 0
+        }
+      },
+      "CHA": {
+        "total": 3,
+        "days": {
+          "Mon": 0,
+          "Tue": 0,
+          "Wed": 1,
+          "Thu": 1,
+          "Fri": 1,
+          "Sat": 0,
+          "Sun": 0
+        }
+      },
+      "CHI": {
+        "total": 4,
+        "days": {
+          "Mon": 1,
+          "Tue": 0,
+          "Wed": 1,
+          "Thu": 1,
+          "Fri": 1,
+          "Sat": 0,
+          "Sun": 0
+        }
+      },
+      "CLE": {
+        "total": 4,
+        "days": {
+          "Mon": 1,
+          "Tue": 0,
+          "Wed": 1,
+          "Thu": 0,
+          "Fri": 1,
+          "Sat": 0,
+          "Sun": 1
+        }
+      },
+      "DAL": {
+        "total": 3,
+        "days": {
+          "Mon": 1,
+          "Tue": 0,
+          "Wed": 0,
+          "Thu": 0,
+          "Fri": 1,
+          "Sat": 1,
+          "Sun": 0
+        }
+      },
+      "DEN": {
+        "total": 3,
+        "days": {
+          "Mon": 1,
+          "Tue": 0,
+          "Wed": 0,
+          "Thu": 0,
+          "Fri": 0,
+          "Sat": 1,
+          "Sun": 1
+        }
+      },
+      "DET": {
+        "total": 3,
+        "days": {
+          "Mon": 1,
+          "Tue": 0,
+          "Wed": 1,
+          "Thu": 1,
+          "Fri": 0,
+          "Sat": 0,
+          "Sun": 0
+        }
+      },
+      "GSW": {
+        "total": 3,
+        "days": {
+          "Mon": 0,
+          "Tue": 1,
+          "Wed": 0,
+          "Thu": 1,
+          "Fri": 0,
+          "Sat": 1,
+          "Sun": 0
+        }
+      },
+      "HOU": {
+        "total": 3,
+        "days": {
+          "Mon": 0,
+          "Tue": 0,
+          "Wed": 1,
+          "Thu": 1,
+          "Fri": 1,
+          "Sat": 0,
+          "Sun": 0
+        }
+      },
+      "IND": {
+        "total": 4,
+        "days": {
+          "Mon": 1,
+          "Tue": 0,
+          "Wed": 0,
+          "Thu": 1,
+          "Fri": 1,
+          "Sat": 0,
+          "Sun": 1
+        }
+      },
+      "LAC": {
+        "total": 3,
+        "days": {
+          "Mon": 0,
+          "Tue": 0,
+          "Wed": 0,
+          "Thu": 0,
+          "Fri": 1,
+          "Sat": 1,
+          "Sun": 1
+        }
+      },
+      "LAL": {
+        "total": 4,
+        "days": {
+          "Mon": 1,
+          "Tue": 0,
+          "Wed": 1,
+          "Thu": 0,
+          "Fri": 1,
+          "Sat": 1,
+          "Sun": 0
+        }
+      },
+      "MEM": {
+        "total": 4,
+        "days": {
+          "Mon": 1,
+          "Tue": 1,
+          "Wed": 1,
+          "Thu": 0,
+          "Fri": 1,
+          "Sat": 0,
+          "Sun": 0
+        }
+      },
+      "MIA": {
+        "total": 4,
+        "days": {
+          "Mon": 0,
+          "Tue": 0,
+          "Wed": 1,
+          "Thu": 0,
+          "Fri": 1,
+          "Sat": 1,
+          "Sun": 1
+        }
+      },
+      "MIL": {
+        "total": 4,
+        "days": {
+          "Mon": 1,
+          "Tue": 1,
+          "Wed": 1,
+          "Thu": 0,
+          "Fri": 1,
+          "Sat": 0,
+          "Sun": 0
+        }
+      },
+      "MIN": {
+        "total": 4,
+        "days": {
+          "Mon": 1,
+          "Tue": 0,
+          "Wed": 1,
+          "Thu": 0,
+          "Fri": 0,
+          "Sat": 1,
+          "Sun": 1
+        }
+      },
+      "NOP": {
+        "total": 3,
+        "days": {
+          "Mon": 1,
+          "Tue": 0,
+          "Wed": 0,
+          "Thu": 0,
+          "Fri": 0,
+          "Sat": 1,
+          "Sun": 1
+        }
+      },
+      "NYK": {
+        "total": 3,
+        "days": {
+          "Mon": 1,
+          "Tue": 0,
+          "Wed": 0,
+          "Thu": 0,
+          "Fri": 1,
+          "Sat": 0,
+          "Sun": 1
+        }
+      },
+      "OKC": {
+        "total": 4,
+        "days": {
+          "Mon": 0,
+          "Tue": 0,
+          "Wed": 1,
+          "Thu": 1,
+          "Fri": 1,
+          "Sat": 0,
+          "Sun": 1
+        }
+      },
+      "ORL": {
+        "total": 3,
+        "days": {
+          "Mon": 1,
+          "Tue": 0,
+          "Wed": 1,
+          "Thu": 0,
+          "Fri": 1,
+          "Sat": 0,
+          "Sun": 0
+        }
+      },
+      "PHI": {
+        "total": 4,
+        "days": {
+          "Mon": 1,
+          "Tue": 0,
+          "Wed": 1,
+          "Thu": 0,
+          "Fri": 1,
+          "Sat": 0,
+          "Sun": 1
+        }
+      },
+      "PHX": {
+        "total": 4,
+        "days": {
+          "Mon": 1,
+          "Tue": 0,
+          "Wed": 1,
+          "Thu": 0,
+          "Fri": 1,
+          "Sat": 0,
+          "Sun": 1
+        }
+      },
+      "POR": {
+        "total": 3,
+        "days": {
+          "Mon": 0,
+          "Tue": 0,
+          "Wed": 1,
+          "Thu": 0,
+          "Fri": 1,
+          "Sat": 0,
+          "Sun": 1
+        }
+      },
+      "SAC": {
+        "total": 4,
+        "days": {
+          "Mon": 1,
+          "Tue": 0,
+          "Wed": 0,
+          "Thu": 1,
+          "Fri": 0,
+          "Sat": 1,
+          "Sun": 1
+        }
+      },
+      "SAS": {
+        "total": 4,
+        "days": {
+          "Mon": 0,
+          "Tue": 1,
+          "Wed": 1,
+          "Thu": 0,
+          "Fri": 0,
+          "Sat": 1,
+          "Sun": 1
+        }
+      },
+      "TOR": {
+        "total": 4,
+        "days": {
+          "Mon": 1,
+          "Tue": 0,
+          "Wed": 1,
+          "Thu": 0,
+          "Fri": 0,
+          "Sat": 1,
+          "Sun": 1
+        }
+      },
+      "UTA": {
+        "total": 4,
+        "days": {
+          "Mon": 0,
+          "Tue": 1,
+          "Wed": 1,
+          "Thu": 1,
+          "Fri": 0,
+          "Sat": 0,
+          "Sun": 1
+        }
+      },
+      "WAS": {
+        "total": 4,
+        "days": {
+          "Mon": 1,
+          "Tue": 0,
+          "Wed": 0,
+          "Thu": 1,
+          "Fri": 1,
+          "Sat": 1,
+          "Sun": 0
+        }
+      }
+    },
+    "Week 21": {
+      "ATL": {
+        "total": 3,
+        "days": {
+          "Mon": 1,
+          "Tue": 0,
+          "Wed": 1,
+          "Thu": 0,
+          "Fri": 1,
+          "Sat": 0,
+          "Sun": 0
+        }
+      },
+      "BOS": {
+        "total": 3,
+        "days": {
+          "Mon": 1,
+          "Tue": 1,
+          "Wed": 1,
+          "Thu": 0,
+          "Fri": 0,
+          "Sat": 0,
+          "Sun": 0
+        }
+      },
+      "BKN": {
+        "total": 4,
+        "days": {
+          "Mon": 1,
+          "Tue": 1,
+          "Wed": 1,
+          "Thu": 0,
+          "Fri": 1,
+          "Sat": 0,
+          "Sun": 0
+        }
+      },
+      "CHA": {
+        "total": 4,
+        "days": {
+          "Mon": 1,
+          "Tue": 0,
+          "Wed": 1,
+          "Thu": 1,
+          "Fri": 1,
+          "Sat": 0,
+          "Sun": 0
+        }
+      },
+      "CHI": {
+        "total": 4,
+        "days": {
+          "Mon": 1,
+          "Tue": 1,
+          "Wed": 1,
+          "Thu": 0,
+          "Fri": 1,
+          "Sat": 0,
+          "Sun": 0
+        }
+      },
+      "CLE": {
+        "total": 3,
+        "days": {
+          "Mon": 0,
+          "Tue": 0,
+          "Wed": 0,
+          "Thu": 0,
+          "Fri": 1,
+          "Sat": 1,
+          "Sun": 1
+        }
+      },
+      "DAL": {
+        "total": 3,
+        "days": {
+          "Mon": 1,
+          "Tue": 0,
+          "Wed": 1,
+          "Thu": 0,
+          "Fri": 1,
+          "Sat": 0,
+          "Sun": 0
+        }
+      },
+      "DEN": {
+        "total": 3,
+        "days": {
+          "Mon": 1,
+          "Tue": 0,
+          "Wed": 1,
+          "Thu": 0,
+          "Fri": 1,
+          "Sat": 0,
+          "Sun": 0
+        }
+      },
+      "DET": {
+        "total": 4,
+        "days": {
+          "Mon": 1,
+          "Tue": 0,
+          "Wed": 1,
+          "Thu": 1,
+          "Fri": 1,
+          "Sat": 0,
+          "Sun": 0
+        }
+      },
+      "GSW": {
+        "total": 3,
+        "days": {
+          "Mon": 1,
+          "Tue": 0,
+          "Wed": 1,
+          "Thu": 1,
+          "Fri": 0,
+          "Sat": 0,
+          "Sun": 0
+        }
+      },
+      "HOU": {
+        "total": 4,
+        "days": {
+          "Mon": 1,
+          "Tue": 1,
+          "Wed": 0,
+          "Thu": 1,
+          "Fri": 1,
+          "Sat": 0,
+          "Sun": 0
+        }
+      },
+      "IND": {
+        "total": 4,
+        "days": {
+          "Mon": 0,
+          "Tue": 1,
+          "Wed": 1,
+          "Thu": 0,
+          "Fri": 1,
+          "Sat": 0,
+          "Sun": 1
+        }
+      },
+      "LAC": {
+        "total": 4,
+        "days": {
+          "Mon": 0,
+          "Tue": 1,
+          "Wed": 1,
+          "Thu": 0,
+          "Fri": 0,
+          "Sat": 1,
+          "Sun": 1
+        }
+      },
+      "LAL": {
+        "total": 3,
+        "days": {
+          "Mon": 1,
+          "Tue": 0,
+          "Wed": 0,
+          "Thu": 0,
+          "Fri": 0,
+          "Sat": 1,
+          "Sun": 1
+        }
+      },
+      "MEM": {
+        "total": 3,
+        "days": {
+          "Mon": 1,
+          "Tue": 0,
+          "Wed": 1,
+          "Thu": 0,
+          "Fri": 0,
+          "Sat": 0,
+          "Sun": 1
+        }
+      },
+      "MIA": {
+        "total": 3,
+        "days": {
+          "Mon": 0,
+          "Tue": 0,
+          "Wed": 1,
+          "Thu": 0,
+          "Fri": 0,
+          "Sat": 1,
+          "Sun": 1
+        }
+      },
+      "MIL": {
+        "total": 3,
+        "days": {
+          "Mon": 0,
+          "Tue": 0,
+          "Wed": 1,
+          "Thu": 1,
+          "Fri": 1,
+          "Sat": 0,
+          "Sun": 0
+        }
+      },
+      "MIN": {
+        "total": 3,
+        "days": {
+          "Mon": 0,
+          "Tue": 1,
+          "Wed": 1,
+          "Thu": 0,
+          "Fri": 1,
+          "Sat": 0,
+          "Sun": 0
+        }
+      },
+      "NOP": {
+        "total": 3,
+        "days": {
+          "Mon": 1,
+          "Tue": 0,
+          "Wed": 1,
+          "Thu": 0,
+          "Fri": 0,
+          "Sat": 1,
+          "Sun": 0
+        }
+      },
+      "NYK": {
+        "total": 3,
+        "days": {
+          "Mon": 0,
+          "Tue": 0,
+          "Wed": 1,
+          "Thu": 1,
+          "Fri": 1,
+          "Sat": 0,
+          "Sun": 0
+        }
+      },
+      "OKC": {
+        "total": 4,
+        "days": {
+          "Mon": 0,
+          "Tue": 1,
+          "Wed": 1,
+          "Thu": 0,
+          "Fri": 1,
+          "Sat": 0,
+          "Sun": 1
+        }
+      },
+      "ORL": {
+        "total": 3,
+        "days": {
+          "Mon": 0,
+          "Tue": 1,
+          "Wed": 1,
+          "Thu": 0,
+          "Fri": 1,
+          "Sat": 0,
+          "Sun": 0
+        }
+      },
+      "PHI": {
+        "total": 4,
+        "days": {
+          "Mon": 0,
+          "Tue": 1,
+          "Wed": 0,
+          "Thu": 1,
+          "Fri": 1,
+          "Sat": 1,
+          "Sun": 0
+        }
+      },
+      "PHX": {
+        "total": 3,
+        "days": {
+          "Mon": 0,
+          "Tue": 1,
+          "Wed": 0,
+          "Thu": 1,
+          "Fri": 1,
+          "Sat": 0,
+          "Sun": 0
+        }
+      },
+      "POR": {
+        "total": 4,
+        "days": {
+          "Mon": 1,
+          "Tue": 0,
+          "Wed": 0,
+          "Thu": 1,
+          "Fri": 1,
+          "Sat": 1,
+          "Sun": 0
+        }
+      },
+      "SAC": {
+        "total": 4,
+        "days": {
+          "Mon": 0,
+          "Tue": 1,
+          "Wed": 1,
+          "Thu": 0,
+          "Fri": 1,
+          "Sat": 0,
+          "Sun": 1
+        }
+      },
+      "SAS": {
+        "total": 3,
+        "days": {
+          "Mon": 0,
+          "Tue": 0,
+          "Wed": 1,
+          "Thu": 0,
+          "Fri": 1,
+          "Sat": 0,
+          "Sun": 1
+        }
+      },
+      "TOR": {
+        "total": 3,
+        "days": {
+          "Mon": 0,
+          "Tue": 0,
+          "Wed": 1,
+          "Thu": 0,
+          "Fri": 0,
+          "Sat": 1,
+          "Sun": 1
+        }
+      },
+      "UTA": {
+        "total": 4,
+        "days": {
+          "Mon": 1,
+          "Tue": 0,
+          "Wed": 0,
+          "Thu": 1,
+          "Fri": 1,
+          "Sat": 0,
+          "Sun": 1
+        }
+      },
+      "WAS": {
+        "total": 4,
+        "days": {
+          "Mon": 1,
+          "Tue": 0,
+          "Wed": 1,
+          "Thu": 0,
+          "Fri": 1,
+          "Sat": 1,
+          "Sun": 0
+        }
+      }
+    },
+    "Week 22": {
+      "ATL": {
+        "total": 4,
+        "days": {
+          "Mon": 1,
+          "Tue": 0,
+          "Wed": 0,
+          "Thu": 1,
+          "Fri": 1,
+          "Sat": 0,
+          "Sun": 1
+        }
+      },
+      "BOS": {
+        "total": 3,
+        "days": {
+          "Mon": 0,
+          "Tue": 1,
+          "Wed": 0,
+          "Thu": 1,
+          "Fri": 0,
+          "Sat": 0,
+          "Sun": 1
+        }
+      },
+      "BKN": {
+        "total": 3,
+        "days": {
+          "Mon": 1,
+          "Tue": 0,
+          "Wed": 0,
+          "Thu": 0,
+          "Fri": 1,
+          "Sat": 1,
+          "Sun": 0
+        }
+      },
+      "CHA": {
+        "total": 4,
+        "days": {
+          "Mon": 0,
+          "Tue": 0,
+          "Wed": 1,
+          "Thu": 1,
+          "Fri": 1,
+          "Sat": 1,
+          "Sun": 0
+        }
+      },
+      "CHI": {
+        "total": 3,
+        "days": {
+          "Mon": 1,
+          "Tue": 0,
+          "Wed": 1,
+          "Thu": 0,
+          "Fri": 0,
+          "Sat": 1,
+          "Sun": 0
+        }
+      },
+      "CLE": {
+        "total": 4,
+        "days": {
+          "Mon": 1,
+          "Tue": 1,
+          "Wed": 1,
+          "Thu": 0,
+          "Fri": 0,
+          "Sat": 1,
+          "Sun": 0
+        }
+      },
+      "DAL": {
+        "total": 4,
+        "days": {
+          "Mon": 1,
+          "Tue": 1,
+          "Wed": 1,
+          "Thu": 0,
+          "Fri": 0,
+          "Sat": 0,
+          "Sun": 1
+        }
+      },
+      "DEN": {
+        "total": 4,
+        "days": {
+          "Mon": 0,
+          "Tue": 1,
+          "Wed": 1,
+          "Thu": 0,
+          "Fri": 1,
+          "Sat": 0,
+          "Sun": 1
+        }
+      },
+      "DET": {
+        "total": 4,
+        "days": {
+          "Mon": 0,
+          "Tue": 0,
+          "Wed": 1,
+          "Thu": 1,
+          "Fri": 1,
+          "Sat": 0,
+          "Sun": 1
+        }
+      },
+      "GSW": {
+        "total": 3,
+        "days": {
+          "Mon": 1,
+          "Tue": 0,
+          "Wed": 0,
+          "Thu": 0,
+          "Fri": 1,
+          "Sat": 1,
+          "Sun": 0
+        }
+      },
+      "HOU": {
+        "total": 4,
+        "days": {
+          "Mon": 0,
+          "Tue": 1,
+          "Wed": 1,
+          "Thu": 0,
+          "Fri": 0,
+          "Sat": 1,
+          "Sun": 1
+        }
+      },
+      "IND": {
+        "total": 3,
+        "days": {
+          "Mon": 1,
+          "Tue": 0,
+          "Wed": 1,
+          "Thu": 1,
+          "Fri": 0,
+          "Sat": 0,
+          "Sun": 0
+        }
+      },
+      "LAC": {
+        "total": 4,
+        "days": {
+          "Mon": 0,
+          "Tue": 0,
+          "Wed": 1,
+          "Thu": 1,
+          "Fri": 1,
+          "Sat": 1,
+          "Sun": 0
+        }
+      },
+      "LAL": {
+        "total": 4,
+        "days": {
+          "Mon": 1,
+          "Tue": 0,
+          "Wed": 1,
+          "Thu": 1,
+          "Fri": 0,
+          "Sat": 1,
+          "Sun": 0
+        }
+      },
+      "MEM": {
+        "total": 4,
+        "days": {
+          "Mon": 1,
+          "Tue": 0,
+          "Wed": 0,
+          "Thu": 1,
+          "Fri": 1,
+          "Sat": 0,
+          "Sun": 1
+        }
+      },
+      "MIA": {
+        "total": 3,
+        "days": {
+          "Mon": 0,
+          "Tue": 0,
+          "Wed": 1,
+          "Thu": 1,
+          "Fri": 1,
+          "Sat": 0,
+          "Sun": 0
+        }
+      },
+      "MIL": {
+        "total": 4,
+        "days": {
+          "Mon": 1,
+          "Tue": 1,
+          "Wed": 1,
+          "Thu": 0,
+          "Fri": 1,
+          "Sat": 0,
+          "Sun": 0
+        }
+      },
+      "MIN": {
+        "total": 3,
+        "days": {
+          "Mon": 0,
+          "Tue": 0,
+          "Wed": 0,
+          "Thu": 0,
+          "Fri": 1,
+          "Sat": 1,
+          "Sun": 1
+        }
+      },
+      "NOP": {
+        "total": 4,
+        "days": {
+          "Mon": 1,
+          "Tue": 1,
+          "Wed": 0,
+          "Thu": 1,
+          "Fri": 1,
+          "Sat": 0,
+          "Sun": 0
+        }
+      },
+      "NYK": {
+        "total": 4,
+        "days": {
+          "Mon": 1,
+          "Tue": 0,
+          "Wed": 1,
+          "Thu": 1,
+          "Fri": 1,
+          "Sat": 0,
+          "Sun": 0
+        }
+      },
+      "OKC": {
+        "total": 4,
+        "days": {
+          "Mon": 0,
+          "Tue": 1,
+          "Wed": 1,
+          "Thu": 1,
+          "Fri": 1,
+          "Sat": 0,
+          "Sun": 0
+        }
+      },
+      "ORL": {
+        "total": 4,
+        "days": {
+          "Mon": 1,
+          "Tue": 0,
+          "Wed": 0,
+          "Thu": 1,
+          "Fri": 0,
+          "Sat": 1,
+          "Sun": 1
+        }
+      },
+      "PHI": {
+        "total": 3,
+        "days": {
+          "Mon": 1,
+          "Tue": 0,
+          "Wed": 1,
+          "Thu": 1,
+          "Fri": 0,
+          "Sat": 0,
+          "Sun": 0
+        }
+      },
+      "PHX": {
+        "total": 4,
+        "days": {
+          "Mon": 0,
+          "Tue": 0,
+          "Wed": 0,
+          "Thu": 1,
+          "Fri": 1,
+          "Sat": 1,
+          "Sun": 1
+        }
+      },
+      "POR": {
+        "total": 4,
+        "days": {
+          "Mon": 0,
+          "Tue": 1,
+          "Wed": 1,
+          "Thu": 1,
+          "Fri": 1,
+          "Sat": 0,
+          "Sun": 0
+        }
+      },
+      "SAC": {
+        "total": 3,
+        "days": {
+          "Mon": 0,
+          "Tue": 0,
+          "Wed": 1,
+          "Thu": 1,
+          "Fri": 1,
+          "Sat": 0,
+          "Sun": 0
+        }
+      },
+      "SAS": {
+        "total": 3,
+        "days": {
+          "Mon": 1,
+          "Tue": 0,
+          "Wed": 1,
+          "Thu": 0,
+          "Fri": 1,
+          "Sat": 0,
+          "Sun": 0
+        }
+      },
+      "TOR": {
+        "total": 3,
+        "days": {
+          "Mon": 1,
+          "Tue": 0,
+          "Wed": 0,
+          "Thu": 0,
+          "Fri": 1,
+          "Sat": 1,
+          "Sun": 0
+        }
+      },
+      "UTA": {
+        "total": 2,
+        "days": {
+          "Mon": 1,
+          "Tue": 0,
+          "Wed": 1,
+          "Thu": 0,
+          "Fri": 0,
+          "Sat": 0,
+          "Sun": 0
+        }
+      },
+      "WAS": {
+        "total": 3,
+        "days": {
+          "Mon": 0,
+          "Tue": 0,
+          "Wed": 1,
+          "Thu": 0,
+          "Fri": 1,
+          "Sat": 1,
+          "Sun": 0
+        }
+      }
+    },
+    "Week 23": {
+      "ATL": {
+        "total": 2,
+        "days": {
+          "Mon": 0,
+          "Tue": 1,
+          "Wed": 0,
+          "Thu": 0,
+          "Fri": 1,
+          "Sat": 0,
+          "Sun": 0
+        }
+      },
+      "BOS": {
+        "total": 4,
+        "days": {
+          "Mon": 0,
+          "Tue": 1,
+          "Wed": 1,
+          "Thu": 0,
+          "Fri": 0,
+          "Sat": 1,
+          "Sun": 1
+        }
+      },
+      "BKN": {
+        "total": 3,
+        "days": {
+          "Mon": 0,
+          "Tue": 0,
+          "Wed": 1,
+          "Thu": 0,
+          "Fri": 1,
+          "Sat": 0,
+          "Sun": 1
+        }
+      },
+      "CHA": {
+        "total": 4,
+        "days": {
+          "Mon": 0,
+          "Tue": 1,
+          "Wed": 1,
+          "Thu": 0,
+          "Fri": 1,
+          "Sat": 1,
+          "Sun": 0
+        }
+      },
+      "CHI": {
+        "total": 3,
+        "days": {
+          "Mon": 1,
+          "Tue": 0,
+          "Wed": 0,
+          "Thu": 1,
+          "Fri": 1,
+          "Sat": 0,
+          "Sun": 0
+        }
+      },
+      "CLE": {
+        "total": 3,
+        "days": {
+          "Mon": 1,
+          "Tue": 0,
+          "Wed": 1,
+          "Thu": 1,
+          "Fri": 0,
+          "Sat": 0,
+          "Sun": 0
+        }
+      },
+      "DAL": {
+        "total": 4,
+        "days": {
+          "Mon": 1,
+          "Tue": 0,
+          "Wed": 1,
+          "Thu": 1,
+          "Fri": 1,
+          "Sat": 0,
+          "Sun": 0
+        }
+      },
+      "DEN": {
+        "total": 3,
+        "days": {
+          "Mon": 0,
+          "Tue": 1,
+          "Wed": 1,
+          "Thu": 0,
+          "Fri": 0,
+          "Sat": 1,
+          "Sun": 0
+        }
+      },
+      "DET": {
+        "total": 4,
+        "days": {
+          "Mon": 0,
+          "Tue": 1,
+          "Wed": 0,
+          "Thu": 1,
+          "Fri": 0,
+          "Sat": 1,
+          "Sun": 1
+        }
+      },
+      "GSW": {
+        "total": 3,
+        "days": {
+          "Mon": 1,
+          "Tue": 0,
+          "Wed": 0,
+          "Thu": 0,
+          "Fri": 1,
+          "Sat": 0,
+          "Sun": 1
+        }
+      },
+      "HOU": {
+        "total": 3,
+        "days": {
+          "Mon": 0,
+          "Tue": 0,
+          "Wed": 0,
+          "Thu": 0,
+          "Fri": 1,
+          "Sat": 1,
+          "Sun": 1
+        }
+      },
+      "IND": {
+        "total": 4,
+        "days": {
+          "Mon": 1,
+          "Tue": 0,
+          "Wed": 1,
+          "Thu": 0,
+          "Fri": 1,
+          "Sat": 0,
+          "Sun": 1
+        }
+      },
+      "LAC": {
+        "total": 3,
+        "days": {
+          "Mon": 0,
+          "Tue": 0,
+          "Wed": 1,
+          "Thu": 0,
+          "Fri": 1,
+          "Sat": 1,
+          "Sun": 0
+        }
+      },
+      "LAL": {
+        "total": 4,
+        "days": {
+          "Mon": 0,
+          "Tue": 1,
+          "Wed": 1,
+          "Thu": 1,
+          "Fri": 1,
+          "Sat": 0,
+          "Sun": 0
+        }
+      },
+      "MEM": {
+        "total": 4,
+        "days": {
+          "Mon": 1,
+          "Tue": 0,
+          "Wed": 1,
+          "Thu": 0,
+          "Fri": 1,
+          "Sat": 0,
+          "Sun": 1
+        }
+      },
+      "MIA": {
+        "total": 3,
+        "days": {
+          "Mon": 0,
+          "Tue": 1,
+          "Wed": 0,
+          "Thu": 1,
+          "Fri": 0,
+          "Sat": 0,
+          "Sun": 1
+        }
+      },
+      "MIL": {
+        "total": 4,
+        "days": {
+          "Mon": 1,
+          "Tue": 1,
+          "Wed": 1,
+          "Thu": 0,
+          "Fri": 0,
+          "Sat": 0,
+          "Sun": 1
+        }
+      },
+      "MIN": {
+        "total": 4,
+        "days": {
+          "Mon": 0,
+          "Tue": 0,
+          "Wed": 1,
+          "Thu": 1,
+          "Fri": 1,
+          "Sat": 1,
+          "Sun": 0
+        }
+      },
+      "NOP": {
+        "total": 4,
+        "days": {
+          "Mon": 1,
+          "Tue": 0,
+          "Wed": 1,
+          "Thu": 0,
+          "Fri": 1,
+          "Sat": 1,
+          "Sun": 0
+        }
+      },
+      "NYK": {
+        "total": 3,
+        "days": {
+          "Mon": 0,
+          "Tue": 1,
+          "Wed": 1,
+          "Thu": 1,
+          "Fri": 0,
+          "Sat": 0,
+          "Sun": 0
+        }
+      },
+      "OKC": {
+        "total": 3,
+        "days": {
+          "Mon": 0,
+          "Tue": 1,
+          "Wed": 1,
+          "Thu": 0,
+          "Fri": 0,
+          "Sat": 1,
+          "Sun": 0
+        }
+      },
+      "ORL": {
+        "total": 4,
+        "days": {
+          "Mon": 0,
+          "Tue": 1,
+          "Wed": 1,
+          "Thu": 1,
+          "Fri": 1,
+          "Sat": 0,
+          "Sun": 0
+        }
+      },
+      "PHI": {
+        "total": 2,
+        "days": {
+          "Mon": 1,
+          "Tue": 0,
+          "Wed": 0,
+          "Thu": 0,
+          "Fri": 1,
+          "Sat": 0,
+          "Sun": 0
+        }
+      },
+      "PHX": {
+        "total": 4,
+        "days": {
+          "Mon": 1,
+          "Tue": 1,
+          "Wed": 0,
+          "Thu": 1,
+          "Fri": 0,
+          "Sat": 1,
+          "Sun": 0
+        }
+      },
+      "POR": {
+        "total": 3,
+        "days": {
+          "Mon": 1,
+          "Tue": 0,
+          "Wed": 1,
+          "Thu": 0,
+          "Fri": 0,
+          "Sat": 1,
+          "Sun": 0
+        }
+      },
+      "SAC": {
+        "total": 4,
+        "days": {
+          "Mon": 1,
+          "Tue": 1,
+          "Wed": 0,
+          "Thu": 0,
+          "Fri": 1,
+          "Sat": 0,
+          "Sun": 1
+        }
+      },
+      "SAS": {
+        "total": 3,
+        "days": {
+          "Mon": 1,
+          "Tue": 0,
+          "Wed": 0,
+          "Thu": 0,
+          "Fri": 1,
+          "Sat": 0,
+          "Sun": 1
+        }
+      },
+      "TOR": {
+        "total": 4,
+        "days": {
+          "Mon": 1,
+          "Tue": 0,
+          "Wed": 1,
+          "Thu": 1,
+          "Fri": 1,
+          "Sat": 0,
+          "Sun": 0
+        }
+      },
+      "UTA": {
+        "total": 3,
+        "days": {
+          "Mon": 1,
+          "Tue": 0,
+          "Wed": 1,
+          "Thu": 0,
+          "Fri": 0,
+          "Sat": 0,
+          "Sun": 1
+        }
+      },
+      "WAS": {
+        "total": 4,
+        "days": {
+          "Mon": 1,
+          "Tue": 0,
+          "Wed": 1,
+          "Thu": 0,
+          "Fri": 1,
+          "Sat": 1,
+          "Sun": 0
+        }
+      }
+    },
+    "Week 24": {
+      "ATL": {
+        "total": 4,
+        "days": {
+          "Mon": 1,
+          "Tue": 1,
+          "Wed": 1,
+          "Thu": 0,
+          "Fri": 0,
+          "Sat": 1,
+          "Sun": 0
+        }
+      },
+      "BOS": {
+        "total": 2,
+        "days": {
+          "Mon": 0,
+          "Tue": 1,
+          "Wed": 1,
+          "Thu": 0,
+          "Fri": 0,
+          "Sat": 0,
+          "Sun": 0
+        }
+      },
+      "BKN": {
+        "total": 4,
+        "days": {
+          "Mon": 0,
+          "Tue": 0,
+          "Wed": 1,
+          "Thu": 0,
+          "Fri": 1,
+          "Sat": 1,
+          "Sun": 1
+        }
+      },
+      "CHA": {
+        "total": 4,
+        "days": {
+          "Mon": 1,
+          "Tue": 0,
+          "Wed": 0,
+          "Thu": 1,
+          "Fri": 1,
+          "Sat": 1,
+          "Sun": 0
+        }
+      },
+      "CHI": {
+        "total": 4,
+        "days": {
+          "Mon": 1,
+          "Tue": 0,
+          "Wed": 1,
+          "Thu": 1,
+          "Fri": 0,
+          "Sat": 1,
+          "Sun": 0
+        }
+      },
+      "CLE": {
+        "total": 3,
+        "days": {
+          "Mon": 0,
+          "Tue": 0,
+          "Wed": 1,
+          "Thu": 1,
+          "Fri": 0,
+          "Sat": 0,
+          "Sun": 1
+        }
+      },
+      "DAL": {
+        "total": 4,
+        "days": {
+          "Mon": 1,
+          "Tue": 1,
+          "Wed": 1,
+          "Thu": 0,
+          "Fri": 0,
+          "Sat": 0,
+          "Sun": 1
+        }
+      },
+      "DEN": {
+        "total": 4,
+        "days": {
+          "Mon": 0,
+          "Tue": 1,
+          "Wed": 1,
+          "Thu": 0,
+          "Fri": 1,
+          "Sat": 0,
+          "Sun": 1
+        }
+      },
+      "DET": {
+        "total": 3,
+        "days": {
+          "Mon": 0,
+          "Tue": 1,
+          "Wed": 1,
+          "Thu": 0,
+          "Fri": 1,
+          "Sat": 0,
+          "Sun": 0
+        }
+      },
+      "GSW": {
+        "total": 3,
+        "days": {
+          "Mon": 0,
+          "Tue": 1,
+          "Wed": 0,
+          "Thu": 0,
+          "Fri": 1,
+          "Sat": 1,
+          "Sun": 0
+        }
+      },
+      "HOU": {
+        "total": 4,
+        "days": {
+          "Mon": 1,
+          "Tue": 0,
+          "Wed": 0,
+          "Thu": 0,
+          "Fri": 1,
+          "Sat": 1,
+          "Sun": 1
+        }
+      },
+      "IND": {
+        "total": 4,
+        "days": {
+          "Mon": 1,
+          "Tue": 1,
+          "Wed": 0,
+          "Thu": 1,
+          "Fri": 1,
+          "Sat": 0,
+          "Sun": 0
+        }
+      },
+      "LAC": {
+        "total": 3,
+        "days": {
+          "Mon": 0,
+          "Tue": 0,
+          "Wed": 0,
+          "Thu": 1,
+          "Fri": 1,
+          "Sat": 1,
+          "Sun": 0
+        }
+      },
+      "LAL": {
+        "total": 4,
+        "days": {
+          "Mon": 1,
+          "Tue": 1,
+          "Wed": 1,
+          "Thu": 0,
+          "Fri": 0,
+          "Sat": 1,
+          "Sun": 0
+        }
+      },
+      "MEM": {
+        "total": 4,
+        "days": {
+          "Mon": 1,
+          "Tue": 1,
+          "Wed": 0,
+          "Thu": 1,
+          "Fri": 0,
+          "Sat": 0,
+          "Sun": 1
+        }
+      },
+      "MIA": {
+        "total": 4,
+        "days": {
+          "Mon": 0,
+          "Tue": 1,
+          "Wed": 1,
+          "Thu": 1,
+          "Fri": 0,
+          "Sat": 0,
+          "Sun": 1
+        }
+      },
+      "MIL": {
+        "total": 4,
+        "days": {
+          "Mon": 1,
+          "Tue": 0,
+          "Wed": 0,
+          "Thu": 1,
+          "Fri": 1,
+          "Sat": 0,
+          "Sun": 1
+        }
+      },
+      "MIN": {
+        "total": 3,
+        "days": {
+          "Mon": 1,
+          "Tue": 1,
+          "Wed": 0,
+          "Thu": 0,
+          "Fri": 1,
+          "Sat": 0,
+          "Sun": 0
+        }
+      },
+      "NOP": {
+        "total": 4,
+        "days": {
+          "Mon": 0,
+          "Tue": 1,
+          "Wed": 1,
+          "Thu": 0,
+          "Fri": 0,
+          "Sat": 1,
+          "Sun": 1
+        }
+      },
+      "NYK": {
+        "total": 4,
+        "days": {
+          "Mon": 0,
+          "Tue": 1,
+          "Wed": 1,
+          "Thu": 0,
+          "Fri": 1,
+          "Sat": 1,
+          "Sun": 0
+        }
+      },
+      "OKC": {
+        "total": 3,
+        "days": {
+          "Mon": 0,
+          "Tue": 0,
+          "Wed": 1,
+          "Thu": 1,
+          "Fri": 1,
+          "Sat": 0,
+          "Sun": 0
+        }
+      },
+      "ORL": {
+        "total": 3,
+        "days": {
+          "Mon": 1,
+          "Tue": 1,
+          "Wed": 1,
+          "Thu": 0,
+          "Fri": 0,
+          "Sat": 0,
+          "Sun": 0
+        }
+      },
+      "PHI": {
+        "total": 3,
+        "days": {
+          "Mon": 1,
+          "Tue": 0,
+          "Wed": 0,
+          "Thu": 0,
+          "Fri": 0,
+          "Sat": 1,
+          "Sun": 1
+        }
+      },
+      "PHX": {
+        "total": 3,
+        "days": {
+          "Mon": 0,
+          "Tue": 0,
+          "Wed": 1,
+          "Thu": 0,
+          "Fri": 1,
+          "Sat": 1,
+          "Sun": 0
+        }
+      },
+      "POR": {
+        "total": 3,
+        "days": {
+          "Mon": 0,
+          "Tue": 1,
+          "Wed": 0,
+          "Thu": 1,
+          "Fri": 1,
+          "Sat": 0,
+          "Sun": 0
+        }
+      },
+      "SAC": {
+        "total": 4,
+        "days": {
+          "Mon": 1,
+          "Tue": 0,
+          "Wed": 1,
+          "Thu": 1,
+          "Fri": 0,
+          "Sat": 0,
+          "Sun": 1
+        }
+      },
+      "SAS": {
+        "total": 3,
+        "days": {
+          "Mon": 1,
+          "Tue": 0,
+          "Wed": 0,
+          "Thu": 0,
+          "Fri": 1,
+          "Sat": 0,
+          "Sun": 1
+        }
+      },
+      "TOR": {
+        "total": 3,
+        "days": {
+          "Mon": 1,
+          "Tue": 0,
+          "Wed": 0,
+          "Thu": 0,
+          "Fri": 1,
+          "Sat": 1,
+          "Sun": 0
+        }
+      },
+      "UTA": {
+        "total": 4,
+        "days": {
+          "Mon": 1,
+          "Tue": 1,
+          "Wed": 1,
+          "Thu": 1,
+          "Fri": 0,
+          "Sat": 0,
+          "Sun": 0
+        }
+      },
+      "WAS": {
+        "total": 4,
+        "days": {
+          "Mon": 0,
+          "Tue": 0,
+          "Wed": 1,
+          "Thu": 1,
+          "Fri": 1,
+          "Sat": 0,
+          "Sun": 1
+        }
+      }
     }
   },
   "day_game_counts_week_1": {
@@ -43,4 +8699,3 @@
     "Sun": 8
   }
 }
-
