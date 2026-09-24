@@ -182,7 +182,8 @@ class DraftManager:
     def get_recommended_picks(self, top_n: int = 10, position_filter: Optional[str] = None) -> pd.DataFrame:
         """
         Recomendador inteligente para Snake Draft en Ligas de Puntos y 9-Cat:
-        Considera FPPG / VORP y escasez en posiciones no cubiertas.
+        Combina la estrategia BPA (Best Player Available) con la necesidad de balancear
+        las posiciones del quinteto (PG, SG, SF, PF, C).
         """
         avail = self.get_available_players()
 
@@ -192,16 +193,26 @@ class DraftManager:
         coverage = self.get_positional_coverage()
         total_drafted = len(self.my_roster)
 
-        # Score de recomendación
         def calc_rec(row):
-            val = row["FPPG"] if self.league_format == "points" else row.get("Total_Value", 0.0)
+            base_val = row["FPPG"] if self.league_format == "points" else row.get("Total_Value", 0.0)
             bonus = 0.0
-            if total_drafted >= 3:
-                pos = str(row.get("Positions", ""))
-                for p, cnt in coverage.items():
-                    if p in pos and cnt == 0:
-                        bonus += 2.0 if self.league_format == "points" else 0.4
-            return val + bonus
+            pos_str = str(row.get("Positions", ""))
+
+            # Si ya tenemos jugadores drafteados, priorizar posiciones faltantes
+            if total_drafted >= 1:
+                # Bonus si cubre al menos una posición que aún tenemos en 0
+                unfilled_covered = [p for p, cnt in coverage.items() if cnt == 0 and p in pos_str]
+                if unfilled_covered:
+                    # Entre más rondas avanzamos, más importante es no dejar posiciones vacías
+                    scarcity_multiplier = 1.0 + (total_drafted * 0.4)
+                    bonus += (2.5 * scarcity_multiplier) if self.league_format == "points" else (0.5 * scarcity_multiplier)
+
+                # Penalización leve si todas sus posiciones ya están saturadas (ej: 3 o más del mismo puesto)
+                all_saturated = all(coverage.get(p, 0) >= 2 for p in pos_str.split("/") if p in coverage)
+                if all_saturated and total_drafted >= 2:
+                    bonus -= 3.0 if self.league_format == "points" else 0.6
+
+            return base_val + bonus
 
         avail["Rec_Score"] = avail.apply(calc_rec, axis=1)
         avail = avail.sort_values(by="Rec_Score", ascending=False).reset_index(drop=True)
