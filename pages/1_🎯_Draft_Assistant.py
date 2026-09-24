@@ -7,7 +7,7 @@ import pandas as pd
 import os
 import sys
 
-sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "../..")))
+sys.path.append(os.path.abspath(os.path.dirname(__file__) + "/.."))
 
 from src.core.points_engine import PointsLeagueEngine
 from src.draft.draft_manager import DraftManager
@@ -150,6 +150,18 @@ with tab1:
     
     if not df_recs.empty:
         disp_cols = ["Rank", "Player", "Team", "Positions", "FPPG", "VORP", "Total_Points", "PTS", "REB", "AST", "STL", "BLK", "3PM", "TO"]
+        col_cfg = {
+            "FPPG": st.column_config.ProgressColumn("FPPG", format="%.1f", min_value=15.0, max_value=65.0),
+            "VORP": st.column_config.NumberColumn("VORP", format="%+.1f"),
+            "Total_Points": st.column_config.NumberColumn("Total Pts", format="%d"),
+            "PTS": st.column_config.NumberColumn("PTS", format="%.1f"),
+            "REB": st.column_config.NumberColumn("REB", format="%.1f"),
+            "AST": st.column_config.NumberColumn("AST", format="%.1f"),
+            "STL": st.column_config.NumberColumn("STL", format="%.1f"),
+            "BLK": st.column_config.NumberColumn("BLK", format="%.1f"),
+            "3PM": st.column_config.NumberColumn("3PM", format="%.1f"),
+            "TO": st.column_config.NumberColumn("TO", format="%.1f"),
+        }
         st.dataframe(
             df_recs[[c for c in disp_cols if c in df_recs.columns]],
             column_config=col_cfg,
