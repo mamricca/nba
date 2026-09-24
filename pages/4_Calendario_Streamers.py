@@ -7,12 +7,10 @@ import pandas as pd
 import os
 import sys
 
-sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "../..")))
+sys.path.append(os.path.abspath(os.path.dirname(__file__) + "/.."))
 
 from src.auth.yahoo_client import YahooFantasyClient
 from src.analytics.streamer_finder import StreamerFinder
-
-st.set_page_config(page_title="Calendario & Streamers - NBA Fantasy", page_icon="📅", layout="wide")
 
 st.title("📅 Calendario NBA & Optimizador de Streamers")
 st.caption("Planifica tus fichajes semanales maximizando partidos en días de bajo volumen (Off-Days) para no dejar huecos en tu quinteto.")
@@ -78,12 +76,8 @@ if not df_fa.empty:
     
     disp_cols = ["Rank", "name", "team", "position", "Streamer_Score", "Week_Games", "Off_Day_Games", "PTS", "REB", "AST", "STL", "BLK", "3PM", "FG%", "FT%"]
     st.dataframe(
-        df_streamers[[c for c in disp_cols if c in df_streamers.columns]].style.format({
-            "Streamer_Score": "{:.1f}", "FG%": "{:.3f}", "FT%": "{:.3f}",
-            "PTS": "{:.1f}", "REB": "{:.1f}", "AST": "{:.1f}", "STL": "{:.1f}", "BLK": "{:.1f}", "3PM": "{:.1f}"
-        }).background_gradient(subset=["Streamer_Score"], cmap="YlGn"),
+        df_streamers[[c for c in disp_cols if c in df_streamers.columns]],
         use_container_width=True
     )
 else:
     st.info("No hay agentes libres disponibles para calcular streaming.")
-

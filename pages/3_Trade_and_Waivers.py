@@ -13,8 +13,6 @@ from src.auth.yahoo_client import YahooFantasyClient
 from src.core.zscore import ZScoreEngine
 from src.core.trade_evaluator import TradeEvaluator
 
-st.set_page_config(page_title="Traspasos & Waivers - NBA Fantasy", page_icon="🔄", layout="wide")
-
 st.title("🔄 Simulador de Traspasos & Asesor de Waivers")
 st.caption("Evalúa el impacto neto de traspasos propuestos y descubre los mejores jugadores en la agencia libre.")
 
@@ -43,7 +41,6 @@ def get_team_dataframe(team_key: str) -> pd.DataFrame:
     names = [p["name"] for p in raw_roster]
     df_match = df_projections[df_projections["Player"].isin(names)].copy()
     if df_match.empty:
-        # Fallback si no coinciden los nombres
         df_match = df_projections.head(13).copy()
     return z_engine.transform(df_match)
 
@@ -139,7 +136,6 @@ with tab_waivers:
         if pos_filter_waiver != "TODAS":
             df_fa = df_fa[df_fa["position"].str.contains(pos_filter_waiver, na=False)]
         
-        # Ordenar según la suma ponderada de las categorías elegidas
         def rank_waiver(row):
             score = 0.0
             for c in target_cats:

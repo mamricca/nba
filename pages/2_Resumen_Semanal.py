@@ -13,8 +13,6 @@ sys.path.append(os.path.abspath(os.path.dirname(__file__) + "/.."))
 from src.auth.yahoo_client import YahooFantasyClient
 from src.auth.yahoo_scraper import YahooWebScraper
 
-st.set_page_config(page_title="Resumen Semanal - NBA Fantasy", page_icon="📊", layout="wide")
-
 st.title("📊 Resumen Semanal de Puntos Fantasy")
 st.caption("Marcadores semanales, rendimiento frente a tu rival, líderes de puntos y 'All-Play' Power Rankings.")
 
@@ -94,7 +92,6 @@ if custom_imported:
         })
 else:
     for t in all_teams:
-        # Buscar si está en algún matchup
         found_stats = None
         for m in matchups:
             if m["team1"]["name"] == t["name"]:
@@ -105,7 +102,6 @@ else:
                 break
 
         if not found_stats:
-            # Generar simulación coherente
             noise = (hash(t["name"]) % 25 - 12) / 100.0
             found_stats = {
                 "PTS": round(620 * (1 + noise)),

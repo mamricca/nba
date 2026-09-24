@@ -12,8 +12,6 @@ sys.path.append(os.path.abspath(os.path.dirname(__file__) + "/.."))
 from src.core.points_engine import PointsLeagueEngine
 from src.draft.draft_manager import DraftManager
 
-st.set_page_config(page_title="Draft Assistant - NBA Fantasy", page_icon="🎯", layout="wide")
-
 # Cargar formato elegido en sesión o por defecto puntos
 league_format = st.session_state.get("league_format_type", "points")
 
