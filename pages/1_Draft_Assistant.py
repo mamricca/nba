@@ -18,7 +18,6 @@ league_format = st.session_state.get("league_format_type", "points")
 st.title("🎯 Live Snake Draft Assistant")
 st.caption(f"Tablero en tiempo real con orden Snake y rankings por {'Puntos Fantasy (FPPG) y VORP' if league_format == 'points' else 'Z-Scores de Categorías'}.")
 
-@st.cache_data
 def load_base_projections():
     csv_path = "data/projections_sample.csv"
     if os.path.exists(csv_path):
@@ -31,7 +30,7 @@ if df_projections.empty:
     st.error("No se encontró el archivo data/projections_sample.csv")
     st.stop()
 
-# Inicializar o recuperar DraftManager
+# Inicializar o recuperar DraftManager y sincronizar con los datos más recientes
 if "draft_manager" not in st.session_state:
     st.session_state["draft_manager"] = DraftManager(
         projections_df=df_projections,
@@ -40,6 +39,11 @@ if "draft_manager" not in st.session_state:
         league_format=league_format,
         state_file="data/draft_state.json"
     )
+else:
+    # Sincronizar con el dataset más reciente
+    st.session_state["draft_manager"].raw_df = df_projections
+    st.session_state["draft_manager"].z_engine.fit(df_projections)
+    st.session_state["draft_manager"].points_engine.fit(df_projections)
 
 draft_mgr: DraftManager = st.session_state["draft_manager"]
 draft_mgr.set_league_format(league_format)
@@ -78,6 +82,9 @@ if st.sidebar.button("↩️ Deshacer Último Pick"):
 
 if st.sidebar.button("🗑️ Reiniciar Draft"):
     draft_mgr.reset_draft()
+    draft_mgr.raw_df = df_projections
+    draft_mgr.z_engine.fit(df_projections)
+    draft_mgr.points_engine.fit(df_projections)
     st.sidebar.warning("Draft reiniciado.")
     st.rerun()
 
