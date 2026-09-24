@@ -1,6 +1,6 @@
 """
 Módulo del Administrador del Draft en Vivo con soporte para Snake Draft y Ligas de Puntos / 9-Cat.
-Calcula automáticamente los turnos Snake, cuenta regresiva hacia tu próximo pick y sugerencias por FPPG y necesidades de plantilla.
+Calcula automáticamente los turnos Snake, cuenta regresiva hacia tu próximo pick, nombres personalizados de equipos y sugerencias por FPPG.
 """
 
 import json
@@ -38,9 +38,31 @@ class DraftManager:
         self.my_roster: List[str] = []
         self.pick_history: List[Dict[str, Any]] = []
         self.punted_categories: List[str] = []
+        self.team_names: Dict[int, str] = {}
 
         # Cargar estado previo
         self.load_state()
+
+    def get_team_name(self, team_idx: int) -> str:
+        """Retorna el nombre personalizado del equipo o su nombre por defecto"""
+        if team_idx in self.team_names and self.team_names[team_idx].strip():
+            return self.team_names[team_idx].strip()
+        if team_idx == self.my_team_index:
+            return f"Mi Equipo (Tú)"
+        return f"Equipo {team_idx}"
+
+    def set_team_name(self, team_idx: int, name: str):
+        """Asigna un nombre personalizado a un equipo y guarda el estado"""
+        if name and name.strip():
+            self.team_names[team_idx] = name.strip()
+            self.save_state()
+
+    def set_all_team_names(self, names_dict: Dict[int, str]):
+        """Actualiza todos los nombres de los equipos de la liga"""
+        for idx, name in names_dict.items():
+            if name and str(name).strip():
+                self.team_names[int(idx)] = str(name).strip()
+        self.save_state()
 
     def get_snake_team_on_clock(self, overall_pick: int) -> int:
         """
@@ -102,6 +124,7 @@ class DraftManager:
             team_index = self.get_snake_team_on_clock(overall_pick)
 
         round_num = (overall_pick - 1) // self.num_teams + 1
+        t_name = self.get_team_name(team_index)
 
         self.drafted_players[player_name] = team_index
         if team_index == self.my_team_index:
@@ -111,6 +134,7 @@ class DraftManager:
             "overall_pick": overall_pick,
             "round": round_num,
             "team_index": team_index,
+            "team_name": t_name,
             "player": player_name,
             "is_my_team": (team_index == self.my_team_index)
         })
@@ -136,15 +160,13 @@ class DraftManager:
         return last_pick
 
     def reset_draft(self):
-        """Reinicia el draft completo"""
+        """Reinicia el draft completo preservando los nombres de equipos"""
+        saved_names = dict(self.team_names)
         self.drafted_players.clear()
         self.my_roster.clear()
         self.pick_history.clear()
-        if os.path.exists(self.state_file):
-            try:
-                os.remove(self.state_file)
-            except Exception:
-                pass
+        self.team_names = saved_names
+        self.save_state()
 
     def get_available_players(self) -> pd.DataFrame:
         """Retorna jugadores disponibles ordenados según el formato activo (Puntos o 9-Cat)"""
@@ -160,6 +182,17 @@ class DraftManager:
         if not self.my_roster:
             return pd.DataFrame()
         roster_df = self.raw_df[self.raw_df["Player"].isin(self.my_roster)].copy()
+        if self.league_format == "points":
+            return self.points_engine.transform(roster_df)
+        else:
+            return self.z_engine.transform(roster_df)
+
+    def get_team_roster_df(self, team_idx: int) -> pd.DataFrame:
+        """Retorna el DataFrame de los jugadores drafteados por un equipo específico"""
+        players = [p for p, t_id in self.drafted_players.items() if t_id == team_idx]
+        if not players:
+            return pd.DataFrame()
+        roster_df = self.raw_df[self.raw_df["Player"].isin(players)].copy()
         if self.league_format == "points":
             return self.points_engine.transform(roster_df)
         else:
@@ -200,14 +233,11 @@ class DraftManager:
 
             # Si ya tenemos jugadores drafteados, priorizar posiciones faltantes
             if total_drafted >= 1:
-                # Bonus si cubre al menos una posición que aún tenemos en 0
                 unfilled_covered = [p for p, cnt in coverage.items() if cnt == 0 and p in pos_str]
                 if unfilled_covered:
-                    # Entre más rondas avanzamos, más importante es no dejar posiciones vacías
                     scarcity_multiplier = 1.0 + (total_drafted * 0.4)
                     bonus += (2.5 * scarcity_multiplier) if self.league_format == "points" else (0.5 * scarcity_multiplier)
 
-                # Penalización leve si todas sus posiciones ya están saturadas (ej: 3 o más del mismo puesto)
                 all_saturated = all(coverage.get(p, 0) >= 2 for p in pos_str.split("/") if p in coverage)
                 if all_saturated and total_drafted >= 2:
                     bonus -= 3.0 if self.league_format == "points" else 0.6
@@ -226,7 +256,8 @@ class DraftManager:
             "punted_categories": self.punted_categories,
             "num_teams": self.num_teams,
             "my_team_index": self.my_team_index,
-            "league_format": self.league_format
+            "league_format": self.league_format,
+            "team_names": self.team_names
         }
         try:
             os.makedirs(os.path.dirname(self.state_file), exist_ok=True)
@@ -247,5 +278,7 @@ class DraftManager:
                     self.num_teams = state.get("num_teams", self.num_teams)
                     self.my_team_index = state.get("my_team_index", self.my_team_index)
                     self.league_format = state.get("league_format", self.league_format)
+                    raw_names = state.get("team_names", {})
+                    self.team_names = {int(k): v for k, v in raw_names.items()}
             except Exception as e:
                 print(f"[DraftManager] Error cargando estado: {e}")

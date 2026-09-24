@@ -16,7 +16,7 @@ from src.draft.draft_manager import DraftManager
 league_format = st.session_state.get("league_format_type", "points")
 
 st.title("🎯 Live Snake Draft Assistant")
-st.caption(f"Tablero en tiempo real con orden Snake y rankings por {'Puntos Fantasy (FPPG) y VORP' if league_format == 'points' else 'Z-Scores de Categorías'}.")
+st.caption(f"Tablero en tiempo real con orden Snake, nombres de equipos personalizados y rankings por {'Puntos Fantasy (FPPG) y VORP' if league_format == 'points' else 'Z-Scores de Categorías'}.")
 
 def load_base_projections():
     csv_path = "data/projections_sample.csv"
@@ -40,7 +40,6 @@ if "draft_manager" not in st.session_state:
         state_file="data/draft_state.json"
     )
 else:
-    # Sincronizar con el dataset más reciente
     st.session_state["draft_manager"].raw_df = df_projections
     st.session_state["draft_manager"].z_engine.fit(df_projections)
 
@@ -54,6 +53,22 @@ my_team_index = st.sidebar.number_input("Tu Posición / Turno en el Draft (1 a N
 draft_mgr.num_teams = num_teams
 draft_mgr.my_team_index = my_team_index
 
+# -------------------------------------------------------------
+# PERSONALIZADOR DE NOMBRES DE EQUIPOS
+# -------------------------------------------------------------
+with st.sidebar.expander("✏️ Editar Nombres de los Equipos", expanded=False):
+    st.markdown("**Personaliza los nombres de cada equipo de tu liga:**")
+    new_names = {}
+    for i in range(1, num_teams + 1):
+        curr_name = draft_mgr.team_names.get(i, f"Mi Equipo (Tú)" if i == my_team_index else f"Equipo {i}")
+        label = f"Turno {i} (Tú):" if i == my_team_index else f"Turno {i}:"
+        new_names[i] = st.text_input(label, value=curr_name, key=f"team_name_input_{i}")
+    
+    if st.button("💾 Guardar Nombres", use_container_width=True, type="primary"):
+        draft_mgr.set_all_team_names(new_names)
+        st.success("✅ Nombres guardados exitosamente!")
+        st.rerun()
+
 st.sidebar.divider()
 st.sidebar.subheader("🎯 Sistema de Puntos Fantasy (FPPG)")
 with st.sidebar.expander("Modificar valores de puntuación"):
@@ -66,7 +81,6 @@ with st.sidebar.expander("Modificar valores de puntuación"):
     tpm_val = st.number_input("Triples (3PM):", value=1.0, step=0.1)
     to_val = st.number_input("Pérdidas (TO):", value=-1.0, step=0.1)
     
-    # Actualizar reglas si cambian
     new_rules = {"PTS": pts_val, "REB": reb_val, "AST": ast_val, "STL": stl_val, "BLK": blk_val, "3PM": tpm_val, "TO": to_val}
     draft_mgr.points_engine.scoring_rules = new_rules
 
@@ -90,15 +104,18 @@ if st.sidebar.button("🗑️ Reiniciar Draft"):
 total_picks = len(draft_mgr.pick_history)
 current_overall_pick = total_picks + 1
 current_round = (total_picks // num_teams) + 1
-team_on_clock = draft_mgr.get_snake_team_on_clock(current_overall_pick)
-is_my_turn = (team_on_clock == my_team_index)
+team_on_clock_idx = draft_mgr.get_snake_team_on_clock(current_overall_pick)
+team_on_clock_name = draft_mgr.get_team_name(team_on_clock_idx)
+is_my_turn = (team_on_clock_idx == my_team_index)
 picks_until_my_turn, next_my_pick = draft_mgr.get_picks_until_my_turn()
 
-# Banner de Turno Snake
+my_team_name = draft_mgr.get_team_name(my_team_index)
+
+# Banner de Turno Snake con Nombres Reales
 if is_my_turn:
-    st.success(f"🚨 **¡ES TU TURNO DE ELEGIR!** — Pick global #{current_overall_pick} (Ronda {current_round})", icon="🔥")
+    st.success(f"🚨 **¡ES TU TURNO DE ELEGIR!** — **{my_team_name}** | Pick global #{current_overall_pick} (Ronda {current_round})", icon="🔥")
 else:
-    st.info(f"🐍 **Turno actual (Snake):** Eligiendo **Equipo {team_on_clock}** (Pick #{current_overall_pick} - Ronda {current_round}) | ⏳ Faltan **{picks_until_my_turn} picks** para tu próximo turno (Tu Pick #{next_my_pick}).", icon="ℹ️")
+    st.info(f"🐍 **Turno actual (Snake):** Eligiendo **{team_on_clock_name}** (Pick #{current_overall_pick} - Ronda {current_round}) | ⏳ Faltan **{picks_until_my_turn} picks** para tu turno (#{next_my_pick}).", icon="ℹ️")
 
 # Métricas Superiores
 col_m1, col_m2, col_m3, col_m4 = st.columns(4)
@@ -107,7 +124,7 @@ with col_m1:
 with col_m2:
     st.metric("Tus Picks Próximos (Snake)", ", ".join([f"#{p}" for p in draft_mgr.get_my_upcoming_picks()[:5]]))
 with col_m3:
-    st.metric("Tu Plantilla", f"{len(draft_mgr.my_roster)} / 13 Jugadores")
+    st.metric(f"Plantilla ({my_team_name})", f"{len(draft_mgr.my_roster)} / 13 Jugadores")
 with col_m4:
     coverage = draft_mgr.get_positional_coverage()
     coverage_str = " | ".join([f"{k}:{v}" for k, v in coverage.items()])
@@ -115,9 +132,9 @@ with col_m4:
 
 st.divider()
 
-# 2. Registro de Pick Rápido con Autoselección Snake
+# 2. Registro de Pick Rápido con Autoselección Snake y Nombres Reales
 st.subheader("⚡ Registrar Selección en el Draft")
-p_col1, p_col2, p_col3 = st.columns([3, 2, 2])
+p_col1, p_col2, p_col3 = st.columns([3, 2.5, 2])
 
 df_avail = draft_mgr.get_available_players()
 avail_list = df_avail["Player"].tolist()
@@ -126,11 +143,14 @@ with p_col1:
     selected_player = st.selectbox("Jugador Seleccionado:", options=[""] + avail_list, index=0)
 
 with p_col2:
-    # Automáticamente sugiere el equipo en turno según la regla Snake
-    teams_options = [f"Equipo {i} (Tú)" if i == my_team_index else f"Equipo {i} (Rival)" for i in range(1, num_teams + 1)]
-    default_team_idx = team_on_clock - 1
+    # Automáticamente sugiere el equipo en turno con su nombre personalizado
+    teams_options = [
+        f"{i}. {draft_mgr.get_team_name(i)} {'(Tú)' if i == my_team_index else '(Rival)'}"
+        for i in range(1, num_teams + 1)
+    ]
+    default_team_idx = team_on_clock_idx - 1
     selected_team_str = st.selectbox("Equipo que lo draftea:", options=teams_options, index=default_team_idx)
-    chosen_team_idx = int(selected_team_str.split()[1])
+    chosen_team_idx = int(selected_team_str.split(".")[0])
 
 with p_col3:
     st.write("")
@@ -138,13 +158,20 @@ with p_col3:
     if st.button("➕ Confirmar Pick", use_container_width=True, type="primary"):
         if selected_player:
             draft_mgr.make_pick(player_name=selected_player, team_index=chosen_team_idx)
-            st.success(f"✅ {selected_player} seleccionado por {selected_team_str}!")
+            chosen_name = draft_mgr.get_team_name(chosen_team_idx)
+            st.success(f"✅ ¡{selected_player} drafteado por {chosen_name}!")
             st.rerun()
         else:
             st.warning("Selecciona un jugador primero.")
 
 # 3. Tablero de Jugadores y Recomendaciones
-tab1, tab2, tab3 = st.tabs(["🔥 Top Recomendados para tu Turno", "📋 Jugadores Disponibles", "🛡️ Mi Plantilla & Proyecciones"])
+tab1, tab2, tab3, tab4, tab5 = st.tabs([
+    "🔥 Top Recomendados", 
+    "📋 Jugadores Disponibles", 
+    f"🛡️ Mi Plantilla ({my_team_name})",
+    "📊 Tablero General de la Liga",
+    "📜 Historial de Picks"
+])
 
 with tab1:
     st.markdown("**Mejores opciones disponibles según Puntos Fantasy por Partido (FPPG) y necesidades:**")
@@ -224,3 +251,39 @@ with tab3:
             st.metric("Puntos Proyectados por Semana (~3.3 pj)", f"{team_pts['Projected_Weekly_Points']} pts")
     else:
         st.info("Aún no has drafteado jugadores para tu equipo. ¡Comienza arriba!")
+
+with tab4:
+    st.subheader("📊 Tablero General del Draft (Todos los Equipos)")
+    st.markdown("Consulta qué jugadores ha seleccionado cada equipo de tu liga:")
+    
+    inspect_team_idx = st.selectbox(
+        "Selecciona un equipo:",
+        options=list(range(1, num_teams + 1)),
+        format_func=lambda idx: f"{idx}. {draft_mgr.get_team_name(idx)} {'(Tú)' if idx == my_team_index else ''}"
+    )
+    df_team_roster = draft_mgr.get_team_roster_df(inspect_team_idx)
+    t_name_inspect = draft_mgr.get_team_name(inspect_team_idx)
+    
+    if not df_team_roster.empty:
+        st.markdown(f"**Plantilla de {t_name_inspect} ({len(df_team_roster)} jugadores - FPPG Total: {df_team_roster['FPPG'].sum():.1f} pts):**")
+        disp_t_cols = ["Rank", "Player", "Team", "Positions", "FPPG", "PTS", "REB", "AST", "STL", "BLK", "3PM", "TO"]
+        st.dataframe(
+            df_team_roster[[c for c in disp_t_cols if c in df_team_roster.columns]],
+            column_config=col_cfg_all,
+            use_container_width=True,
+            hide_index=True
+        )
+    else:
+        st.info(f"{t_name_inspect} aún no ha drafteado ningún jugador.")
+
+with tab5:
+    st.subheader("📜 Historial Completo de Selecciones")
+    if draft_mgr.pick_history:
+        df_history = pd.DataFrame(draft_mgr.pick_history)
+        # Mostrar columnas amigables
+        df_disp_hist = df_history[["overall_pick", "round", "team_name", "player"]].copy()
+        df_disp_hist.columns = ["Pick #", "Ronda", "Equipo", "Jugador Seleccionado"]
+        df_disp_hist = df_disp_hist.sort_values(by="Pick #", ascending=False).reset_index(drop=True)
+        st.dataframe(df_disp_hist, use_container_width=True, hide_index=True)
+    else:
+        st.info("Aún no se ha realizado ninguna selección.")
