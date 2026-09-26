@@ -1,9 +1,40 @@
 {
-  "drafted_players": {},
-  "my_roster": [],
+  "drafted_players": {
+    "Tyrese Maxey": 1,
+    "Donovan Mitchell": 1,
+    "Nickeil Alexander-Walker": 1,
+    "Jalen Williams": 1,
+    "Domantas Sabonis": 1,
+    "Chet Holmgren": 1,
+    "Jaren Jackson Jr.": 1,
+    "Joel Embiid": 1,
+    "Ryan Rollins": 1,
+    "Nic Claxton": 1,
+    "Coby White": 1,
+    "Dylan Harper": 1,
+    "Isaiah Hartenstein": 1
+  },
+  "my_roster": [
+    "Tyrese Maxey",
+    "Donovan Mitchell",
+    "Nickeil Alexander-Walker",
+    "Jalen Williams",
+    "Domantas Sabonis",
+    "Chet Holmgren",
+    "Jaren Jackson Jr.",
+    "Joel Embiid",
+    "Ryan Rollins",
+    "Nic Claxton",
+    "Coby White",
+    "Dylan Harper",
+    "Isaiah Hartenstein"
+  ],
   "pick_history": [],
   "punted_categories": [],
-  "num_teams": 11,
+  "num_teams": 12,
   "my_team_index": 1,
-  "league_format": "points"
+  "league_format": "points",
+  "team_names": {
+    "1": "Mi Equipo (Dream Team)"
+  }
 }
