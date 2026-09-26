@@ -1,5 +1,6 @@
 """
 Página: Evaluador de Traspasos (Trade Machine), Asesor de Agentes Libres (Waivers) y Gestión de Plantillas
+Integración de Métricas Avanzadas: FP/MIN, Per-36, Stocks, Floor/Ceiling y Radar de Gemas Ocultas.
 """
 
 import streamlit as st
@@ -13,9 +14,10 @@ from src.auth.yahoo_client import YahooFantasyClient
 from src.core.zscore import ZScoreEngine
 from src.core.trade_evaluator import TradeEvaluator
 from src.core.points_engine import PointsLeagueEngine
+from src.analytics.advanced_metrics import AdvancedMetricsEngine
 
 st.title("🔄 Mercado Fantasy: Traspasos, Waivers y Plantillas")
-st.caption("Scouting de agentes libres, radar de especialistas, comparador de cortes y simulador de traspasos.")
+st.caption("Scouting de agentes libres, radar de gemas ocultas (FP/MIN & Per-36), comparador de cortes y simulador de traspasos.")
 
 # Cargar proyecciones base
 @st.cache_data
@@ -28,6 +30,7 @@ def load_projections():
 df_projections = load_projections()
 z_engine = ZScoreEngine().fit(df_projections)
 points_engine = PointsLeagueEngine()
+metrics_engine = AdvancedMetricsEngine()
 trade_evaluator = TradeEvaluator(z_engine)
 
 client: YahooFantasyClient = st.session_state.get("yahoo_client", YahooFantasyClient(use_mock=True))
@@ -44,91 +47,73 @@ def get_team_dataframe(team_key: str) -> pd.DataFrame:
     if df_match.empty:
         df_match = df_projections.head(13).copy()
     
-    # Agregar FPPG
-    df_match = points_engine.transform(df_match)
+    # Calcular métricas avanzadas y FPPG
+    df_match = metrics_engine.compute_advanced_metrics(df_match)
     return z_engine.transform(df_match)
 
 df_my_roster = get_team_dataframe(my_team_info["team_key"])
 
 # 3 Pestañas Principales
 tab_waivers, tab_trade, tab_rosters = st.tabs([
-    "🔍 Scouting de Agentes Libres (Waivers)",
+    "🔍 Scouting & Gemas Ocultas (Waivers)",
     "🤝 Simulador de Traspasos (Trade Machine)", 
     "✍️ Gestión de Plantillas (Altas, Bajas y Trades)"
 ])
 
 # -------------------------------------------------------------
-# TAB 1: WAIVERS & RADAR DE AGENTES LIBRES
+# TAB 1: WAIVERS & RADAR DE GEMAS OCULTAS
 # -------------------------------------------------------------
 with tab_waivers:
-    st.subheader("🔍 Radar y Scouting de Agentes Libres (Waiver Wire)")
-    st.markdown("Identifica los mejores talentos disponibles en la agencia libre por puntos fantasy, arquetipos o especialistas de estadísticas clave.")
+    st.subheader("🔍 Radar y Scouting de Agentes Libres (Waiver Wire Intelligence)")
+    st.markdown("Aplica métricas avanzadas (**FP/MIN, Per-36, Stocks**) para detectar jugadores infravalorados antes de que exploten en la rotación:")
 
     fa_list = client.get_free_agents()
     df_fa = pd.DataFrame(fa_list)
 
     if not df_fa.empty:
-        # Asignar etiquetas/arquetipos a cada agente libre
-        def assign_archetype(row):
-            badges = []
-            fppg = float(row.get("FPPG", 0.0))
-            tpm = float(row.get("3PM", 0.0))
-            stl = float(row.get("STL", 0.0))
-            blk = float(row.get("BLK", 0.0))
-            reb = float(row.get("REB", 0.0))
-            ast = float(row.get("AST", 0.0))
-
-            if (stl + blk) >= 1.7:
-                badges.append("🛡️ Defensor Elite")
-            if tpm >= 2.1:
-                badges.append("🎯 Triplero")
-            if reb >= 6.8:
-                badges.append("🚀 Reboteador")
-            if ast >= 3.8:
-                badges.append("🪄 Asistidor")
-            if fppg >= 24.0:
-                badges.append("🔥 Titular / High Floor")
-            if not badges:
-                badges.append("📈 Rotación / Sleeper")
-            return " • ".join(badges)
-
-        df_fa["Perfil"] = df_fa.apply(assign_archetype, axis=1)
+        # Calcular métricas avanzadas completas
+        df_fa_adv = metrics_engine.compute_advanced_metrics(df_fa)
 
         # Filtros Superiores
         f_col1, f_col2, f_col3, f_col4 = st.columns([1.8, 1.2, 1.2, 1])
         with f_col1:
             archetype_filter = st.selectbox(
-                "Arquetipo / Rol Buscado:",
+                "Filtro por Arquetipo & Algoritmo:",
                 [
                     "🌟 Todos los Agentes Libres",
+                    "💎 Gemas Ocultas (FP/MIN >= 1.05 & Minutos en Alza)",
                     "🔥 Mayor FPPG (Mejor Jugador Disponible)",
-                    "🛡️ Especialistas Defensivos (Robos + Bloqueos)",
-                    "🎯 Especialistas Tripleros (3PM)",
-                    "🚀 Reboteadores y Pintura (REB)",
-                    "🪄 Generadores de Juego (AST)",
+                    "🛡️ Monstruos Defensivos (Stocks >= 1.5)",
+                    "🎯 Especialistas Tripleros (3PM >= 2.0)",
+                    "🚀 Reboteadores y Pintura (REB >= 7.0)",
+                    "🪄 Playmakers / Asistidores (AST >= 4.0)",
                 ]
             )
         with f_col2:
             pos_filter_waiver = st.selectbox("Posición:", ["TODAS", "PG", "SG", "SF", "PF", "C"])
         with f_col3:
-            sort_metric = st.selectbox("Ordenar tabla por:", ["FPPG", "PTS", "REB", "AST", "STL", "BLK", "3PM"])
+            sort_metric = st.selectbox(
+                "Ordenar tabla por:",
+                ["FPPG", "FP_per_MIN", "Per_36_FPTS", "Stocks", "PTS", "REB", "AST", "3PM"]
+            )
         with f_col4:
             top_fa_count = st.slider("Mostrar:", 10, 50, 25)
 
         # Aplicar filtros
-        df_filtered_fa = df_fa.copy()
+        df_filtered_fa = df_fa_adv.copy()
         if pos_filter_waiver != "TODAS":
             df_filtered_fa = df_filtered_fa[df_filtered_fa["position"].str.contains(pos_filter_waiver, na=False)]
 
-        if "Defensivos" in archetype_filter:
-            df_filtered_fa["Stocks"] = df_filtered_fa["STL"] + df_filtered_fa["BLK"]
-            df_filtered_fa = df_filtered_fa[df_filtered_fa["Stocks"] >= 1.4].sort_values(by="Stocks", ascending=False)
+        if "Gemas Ocultas" in archetype_filter:
+            df_filtered_fa = df_filtered_fa[df_filtered_fa["FP_per_MIN"] >= 1.05].sort_values(by=["FP_per_MIN", "Per_36_FPTS"], ascending=False)
+        elif "Monstruos Defensivos" in archetype_filter:
+            df_filtered_fa = df_filtered_fa[df_filtered_fa["Stocks"] >= 1.5].sort_values(by="Stocks", ascending=False)
         elif "Tripleros" in archetype_filter:
             df_filtered_fa = df_filtered_fa[df_filtered_fa["3PM"] >= 1.8].sort_values(by="3PM", ascending=False)
         elif "Reboteadores" in archetype_filter:
-            df_filtered_fa = df_filtered_fa[df_filtered_fa["REB"] >= 5.5].sort_values(by="REB", ascending=False)
-        elif "Generadores" in archetype_filter:
-            df_filtered_fa = df_filtered_fa[df_filtered_fa["AST"] >= 3.0].sort_values(by="AST", ascending=False)
+            df_filtered_fa = df_filtered_fa[df_filtered_fa["REB"] >= 6.5].sort_values(by="REB", ascending=False)
+        elif "Playmakers" in archetype_filter:
+            df_filtered_fa = df_filtered_fa[df_filtered_fa["AST"] >= 3.8].sort_values(by="AST", ascending=False)
         elif "FPPG" in archetype_filter or sort_metric == "FPPG":
             df_filtered_fa = df_filtered_fa.sort_values(by="FPPG", ascending=False)
         else:
@@ -136,19 +121,19 @@ with tab_waivers:
 
         df_filtered_fa = df_filtered_fa.reset_index(drop=True)
 
-        disp_fa_cols = ["name", "team", "position", "Perfil", "FPPG", "PTS", "REB", "AST", "STL", "BLK", "3PM", "FG%", "FT%", "TO"]
+        disp_fa_cols = ["name", "team", "position", "Perfil_Avanzado", "FPPG", "FP_per_MIN", "Per_36_FPTS", "Stocks", "PTS", "REB", "AST", "3PM", "Floor_FPTS", "Ceiling_FPTS"]
         col_fa_cfg = {
             "FPPG": st.column_config.ProgressColumn("FPPG Proy", format="%.1f pts", min_value=8.0, max_value=45.0),
-            "Perfil": st.column_config.TextColumn("Perfil & Especialidad", width="medium"),
+            "FP_per_MIN": st.column_config.NumberColumn("FP/MIN ⚡", format="%.2f", help="Eficiencia por minuto: >1.00 es nivel titular"),
+            "Per_36_FPTS": st.column_config.NumberColumn("Per-36 ⏱️", format="%.1f", help="Proyección si jugara 36 minutos"),
+            "Stocks": st.column_config.NumberColumn("Stocks 🛡️", format="%.1f", help="Robos + Tapones (valen +3 pts c/u)"),
+            "Perfil_Avanzado": st.column_config.TextColumn("Perfil & Nomenclatura", width="medium"),
+            "Floor_FPTS": st.column_config.NumberColumn("Suelo 📉", format="%.1f"),
+            "Ceiling_FPTS": st.column_config.NumberColumn("Techo 🚀", format="%.1f"),
             "PTS": st.column_config.NumberColumn("PTS", format="%.1f"),
             "REB": st.column_config.NumberColumn("REB", format="%.1f"),
             "AST": st.column_config.NumberColumn("AST", format="%.1f"),
-            "STL": st.column_config.NumberColumn("STL", format="%.1f"),
-            "BLK": st.column_config.NumberColumn("BLK", format="%.1f"),
             "3PM": st.column_config.NumberColumn("3PM", format="%.1f"),
-            "FG%": st.column_config.NumberColumn("FG%", format="%.3f"),
-            "FT%": st.column_config.NumberColumn("FT%", format="%.3f"),
-            "TO": st.column_config.NumberColumn("TO", format="%.1f"),
         }
 
         st.dataframe(
@@ -164,7 +149,7 @@ with tab_waivers:
         # ASESOR DE CORTES (DROP ADVISOR & HEAD-TO-HEAD)
         # -------------------------------------------------------------
         st.subheader("⚖️ Comparador Head-to-Head & Asesor de Cortes (Drop Advisor)")
-        st.markdown("Compara cualquier agente libre directamente contra tu plantilla para ver si vale la pena el cambio:")
+        st.markdown("Compara cualquier agente libre contra tu plantilla evaluando deltas de **FPPG, FP/MIN y Stocks**:")
 
         c_comp1, c_comp2 = st.columns(2)
         with c_comp1:
@@ -190,21 +175,21 @@ with tab_waivers:
 
         # Calcular deltas head-to-head
         delta_fppg = round(float(fa_row["FPPG"]) - float(my_p_row["FPPG"]), 1)
+        delta_fpm = round(float(fa_row.get("FP_per_MIN", 1.0)) - float(my_p_row.get("FP_per_MIN", 1.0)), 2)
+        delta_stocks = round(float(fa_row.get("Stocks", 0.0)) - float(my_p_row.get("Stocks", 0.0)), 1)
         delta_pts = round(float(fa_row["PTS"]) - float(my_p_row["PTS"]), 1)
         delta_reb = round(float(fa_row["REB"]) - float(my_p_row["REB"]), 1)
         delta_ast = round(float(fa_row["AST"]) - float(my_p_row["AST"]), 1)
-        delta_stl = round(float(fa_row["STL"]) - float(my_p_row["STL"]), 1)
-        delta_blk = round(float(fa_row["BLK"]) - float(my_p_row["BLK"]), 1)
         delta_3pm = round(float(fa_row["3PM"]) - float(my_p_row["3PM"]), 1)
 
         with st.container(border=True):
             m_h1, m_h2, m_h3 = st.columns([1.5, 1.5, 2])
             with m_h1:
                 st.markdown(f"**➕ Fichaje:** `{selected_fa_name}` ({fa_row['team']} - {fa_row['position']})")
-                st.markdown(f"**FPPG:** `{fa_row['FPPG']:.1f} pts`")
+                st.markdown(f"**FPPG:** `{fa_row['FPPG']:.1f} pts` | **FP/MIN:** `{fa_row.get('FP_per_MIN', 1.0):.2f}`")
             with m_h2:
                 st.markdown(f"**➖ Corte:** `{selected_my_player}` ({my_p_row.get('Team', 'NBA')} - {my_p_row.get('Positions', 'UTIL')})")
-                st.markdown(f"**FPPG:** `{my_p_row['FPPG']:.1f} pts`")
+                st.markdown(f"**FPPG:** `{my_p_row['FPPG']:.1f} pts` | **FP/MIN:** `{my_p_row.get('FP_per_MIN', 1.0):.2f}`")
             with m_h3:
                 st.metric(
                     "Impacto Neto por Partido (Δ FPPG)",
@@ -213,7 +198,7 @@ with tab_waivers:
                 )
 
             st.markdown(f"""
-            **Variación por Categoría:** PTS: `{delta_pts:+.1f}` | REB: `{delta_reb:+.1f}` | AST: `{delta_ast:+.1f}` | STL: `{delta_stl:+.1f}` | BLK: `{delta_blk:+.1f}` | 3PM: `{delta_3pm:+.1f}`
+            **Métricas Avanzadas:** Δ FP/MIN: `{delta_fpm:+.2f}` | Δ Stocks (STL+BLK): `{delta_stocks:+.1f}` | Δ PTS: `{delta_pts:+.1f}` | Δ REB: `{delta_reb:+.1f}` | Δ AST: `{delta_ast:+.1f}` | Δ 3PM: `{delta_3pm:+.1f}`
             """)
 
             if st.button(f"🔄 Ejecutar Movimiento: Fichar a {selected_fa_name} y Cortar a {selected_my_player}", type="primary", use_container_width=True):
@@ -396,7 +381,7 @@ with tab_rosters:
             st.metric("Puntos Fantasy Proyectados (FPPG Total)", f"{df_inspect['FPPG'].sum():.1f} pts")
         
         with col_ins2:
-            disp_ins_cols = ["Player", "Team", "Positions", "FPPG", "PTS", "REB", "AST", "STL", "BLK", "3PM"]
+            disp_ins_cols = ["Player", "Team", "Positions", "FPPG", "FP_per_MIN", "Per_36_FPTS", "Stocks", "PTS", "REB", "AST", "3PM"]
             st.dataframe(
                 df_inspect[[c for c in disp_ins_cols if c in df_inspect.columns]],
                 use_container_width=True,
